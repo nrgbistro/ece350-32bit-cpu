@@ -1,6 +1,7 @@
-module full_adder(S, Cout, A, B, Cin);
-    input A, B, Cin;
-    output S, Cout;
+module full_adder(
+    output S, Cout, P, G
+    input A, B, Cin);
+
     wire w1, w2, w3;
 
     xor sumOut(S, A, B, Cin);
@@ -10,5 +11,7 @@ module full_adder(S, Cout, A, B, Cin);
 
     or CarryOut(Cout, w1, w2, w3);
 
+    and gen(G, A, B);
+    or prop(P, A, B);
 
 endmodule
