@@ -1,5 +1,5 @@
 module full_adder(
-    output S, Cout, P, G
+    output S, P, G
     input A, B, Cin);
 
     wire w1, w2, w3;
@@ -8,8 +8,6 @@ module full_adder(
     and AND1(w1, A, B);
     and AND2(w2, A, Cin);
     and AND3(w3, B, Cin);
-
-    or CarryOut(Cout, w1, w2, w3);
 
     and gen(G, A, B);
     or prop(P, A, B);
