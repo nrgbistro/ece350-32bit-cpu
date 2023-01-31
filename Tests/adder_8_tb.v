@@ -88,6 +88,10 @@ module adder_8_tb;
     always @(A, B, Sum) begin
         #1;
         $display("%d + %d = %d, overflow: %b", A, B, Sum, Cout);
+
+        if (Cout == 1) begin
+            $finish;
+        end
     end
 
     initial begin
