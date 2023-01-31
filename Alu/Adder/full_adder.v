@@ -1,5 +1,5 @@
 module full_adder(
-    output S, P, G
+    output S, P, G,
     input A, B, Cin);
 
     wire w1, w2, w3;
