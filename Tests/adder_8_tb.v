@@ -6,9 +6,9 @@ module adder_8_tb;
 
     reg Cin;
     wire [7:0] Sum;
-    wire Cout, PG, GG;
+    wire PG, GG;
 
-    adder_8 adder(Sum, Cout, PG, GG, A, B, Cin);
+    adder_8 adder(Sum, PG, GG, A, B, Cin);
 
     // Initialize Registers
     initial begin
@@ -87,9 +87,9 @@ module adder_8_tb;
     // Print out results
     always @(A, B, Sum) begin
         #1;
-        $display("%d + %d = %d, overflow: %b", A, B, Sum, Cout);
+        $display("%d + %d = %d", A, B, Sum);
 
-        if (Cout == 1) begin
+        if (A + B >= 256) begin
             $finish;
         end
     end
