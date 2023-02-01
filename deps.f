@@ -1,6 +1,8 @@
 .\Alu\alu.v 
 .\Alu\alu_op.v 
+.\Alu\Adder\adder_32.v 
 .\Alu\Adder\adder_8.v 
+.\Alu\Adder\cla_32.v 
 .\Alu\Adder\cla_8.v 
 .\Alu\Adder\full_adder.v 
 .\Alu\Comparators\less_than.v 
