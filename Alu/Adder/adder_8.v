@@ -1,11 +1,13 @@
 module adder_8(
     output [7:0] S,
-    output PG, GG,
+    output PG, GG, overflow,
     input [7:0] a, b,
     input Cin);
 
-    wire [6:0] carryWire;
+    wire [7:0] carryWire;
     wire [7:0] P, G;
+
+    xor carryOutXOR(overflow, carryWire[7], carryWire[6]);
 
     full_adder adder0(S[0], P[0], G[0], a[0], b[0], Cin);
 

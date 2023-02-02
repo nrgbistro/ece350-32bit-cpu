@@ -1,12 +1,13 @@
 module cla_8(
     output PG, GG,
-    output [6:0] Cout,
+    output [7:0] Cout,
     input [7:0] P, G,
     input Cin);
 
     wire w0_0, w1_0, w1_1, w2_0, w2_1, w2_2, w3_0, w3_1, w3_2, w3_3,
          w4_0, w4_1, w4_2, w4_3, w4_4, w5_0, w5_1, w5_2, w5_3, w5_4, w5_5,
-         w6_0, w6_1, w6_2, w6_3, w6_4, w6_5, w6_6, w7_0, g0, g1, g2, g3, g4, g5, g6;
+         w6_0, w6_1, w6_2, w6_3, w6_4, w6_5, w6_6, w7_0, g0, g1, g2, g3,
+         g4, g5, g6, wCout7;
 
     // Bit 0
     and andCOut0_0(w0_0, P[0], Cin);
@@ -56,6 +57,10 @@ module cla_8(
     and andCOut6_5(w6_5, G[0], P[1], P[2], P[3], P[4], P[5], P[6]);
     and andCOut6_6(w6_6, Cin, P[0], P[1], P[2], P[3], P[4], P[5], P[6]);
     or orCOut6(Cout[6], G[6], w6_0, w6_1, w6_2, w6_3, w6_4, w6_5, w6_6);
+
+    // Bit 7
+    and andCOut7_0(wCout7, Cin, PG);
+    or orCOut7(Cout[7], GG, wCout7);
 
     // PG
     and andPG(PG, P[7], P[6], P[5], P[4], P[3], P[2], P[1], P[0]);

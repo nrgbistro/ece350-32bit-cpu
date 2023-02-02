@@ -4,7 +4,7 @@ module cla_32(
 
     wire w0_0, w1_0, w1_1, w2_0, w2_1, w2_2;
 
-    assign carry[0] = 0;
+    assign carry[0] = 1'b0;
 
     assign carry[1] = GG[0];
 
@@ -20,6 +20,4 @@ module cla_32(
     and andCarry4_1(w2_1, GG[1], PG[2], PG[3]);
     and andCarry4_2(w2_2, GG[2], PG[3]);
     or orCarryOut(carry[4], GG[3], w2_0, w2_1, w2_2);
-
-
 endmodule
