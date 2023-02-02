@@ -1,4 +1,4 @@
-module not32(
+module not_32(
     output [31:0] result,
     input [31:0] in);
 

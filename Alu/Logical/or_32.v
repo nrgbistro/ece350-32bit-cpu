@@ -1,4 +1,4 @@
-module or32(
+module or_32(
     output [31:0] result,
     input [31:0] a, b);
 
