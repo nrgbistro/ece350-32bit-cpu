@@ -4,7 +4,9 @@ module comparator_32(
 
     wire LT3, EQ3, LT2, EQ2, LT1, EQ1, LT_in, EQ_in;
 
-    nor twosCompCheck(LT_in, a[31], b[31]);
+    not b32Inverse(b32Inverse, b[31]);
+
+    and twosCompCheck(LT_in, a[31], b32Inverse);
     assign EQ_in = 1;
 
     comparator_8 comp3(LT3, EQ3, LT_in, EQ_in, a[31:24], b[31:24]);
