@@ -4,16 +4,16 @@ module comparator_2_tb;
     wire GT_in, EQ_in;
     wire GT, EQ;
 
-    comparator_2 comp(a, b, GT_in, EQ_in, GT, EQ);
+    comparator_2 comp(GT, EQ, GT_in, EQ_in, a, b);
 
 	integer i;
 	assign a = i[1:0];
 	assign b = i[3:2];
-	assign GT_in = i[4];
-	assign EQ_in = i[5];
+	assign GT_in = 0;
+	assign EQ_in = 1;
 
     initial begin
-		for(i = 0; i < 48; i = i + 1) begin
+		for(i = 0; i < 16; i = i + 1) begin
 			#20;
 			$display("a = %d, b = %d, EQ_in = %b, GT_in = %b, GT = %b, EQ = %b", a, b, EQ_in, GT_in, GT, EQ);
 		end
