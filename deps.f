@@ -12,7 +12,7 @@
 .\Alu\Logical\and_32.v 
 .\Alu\Logical\not_32.v 
 .\Alu\Logical\or_32.v 
-.\Alu\Shifter\barrel_right.v 
+.\Alu\Shifter\barrel_left_1.v 
 .\Mux\mux_2.v 
 .\Mux\mux_32.v 
 .\Mux\mux_4.v 
