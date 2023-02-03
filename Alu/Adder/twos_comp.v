@@ -5,9 +5,8 @@ module twos_complement(
     wire [31:0] a_inverted;
 
     // Flip all bits
-    not_32 invertB(a_inverted, a);
+    not_32 invertA(a_inverted, a);
 
     // Add 1
-    adder_32 adder_32(out, overflow, a_inverted, 1);
-
+    adder_32 add1(out, overflow, a_inverted, 1);
 endmodule
