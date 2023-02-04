@@ -1,5 +1,6 @@
 module twos_complement(
     output [31:0] out,
+    output overflow,
     input [31:0] a);
 
     wire [31:0] a_inverted;
