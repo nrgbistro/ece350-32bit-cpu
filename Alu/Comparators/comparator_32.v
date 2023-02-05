@@ -17,6 +17,4 @@ module comparator_32(
 
     mux_2_1bit mux(LT, forceGTWire, LT_chain_output, 1'b0);
 
-
-
 endmodule
