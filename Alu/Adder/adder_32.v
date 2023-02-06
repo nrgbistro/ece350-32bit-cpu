@@ -1,13 +1,15 @@
 module adder_32(
     output [31:0] sum,
     output overflow,
-    input [31:0] A, B);
+    input [31:0] A, B,
+    input Cin);
 
-    wire [4:0] carry;
+    wire [3:0] carry;
     wire [3:0] PG, GG;
     wire [3:0] overflowBus;
 
     assign overflow = overflowBus[3];
+    assign carry[0] = Cin;
 
     adder_8 adder0(sum[7:0], PG[0], GG[0], overflowBus[0], A[7:0], B[7:0], carry[0]);
     adder_8 adder1(sum[15:8], PG[1], GG[1], overflowBus[1], A[15:8], B[15:8], carry[1]);

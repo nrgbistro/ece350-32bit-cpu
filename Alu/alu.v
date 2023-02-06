@@ -4,7 +4,7 @@ module alu(
     output [31:0] data_result,
     output isNotEqual, isLessThan, overflow);
 
-    wire [31:0] andWire, orWire, addWire, subWire, SLWire, SRWire, subB, adderArgB;
+    wire [31:0] andWire, orWire, addWire, subWire, SLWire, SRWire, b_inverted, adderArgB;
     wire eq, overflowAdder, overflowCompliment, notOverflowCompliment, overflowAndWire;
 
     and_32 and_32(andWire, data_operandA, data_operandB);
@@ -14,14 +14,9 @@ module alu(
 
     not NEQNot(isNotEqual, eq);
 
-    // Calculate overflow
-    not overflowNot(notOverflowCompliment, overflowCompliment);
-    and overflowAnd(overflowAndWire, overflowAdder, notOverflowCompliment);
-    mux_2_1bit selectOverflowSource(overflow, ctrl_ALUopcode[0], overflowAdder, overflowAndWire);
-
-    twos_complement twos_complement(subB, overflowCompliment, data_operandB);
-    mux_2 add_sub_selector(adderArgB, ctrl_ALUopcode[0], data_operandB, subB);
-    adder_32 adder_32(addWire, overflowAdder, data_operandA, adderArgB);
+    not_32 invertA(b_inverted, data_operandB);
+    mux_2 add_sub_selector(adderArgB, ctrl_ALUopcode[0], data_operandB, b_inverted);
+    adder_32 adder_32(addWire, overflow, data_operandA, adderArgB, ctrl_ALUopcode[0]);
 
     shift_left SLL(SLWire, ctrl_shiftamt, data_operandA);
     shift_right SRA(SRWire, ctrl_shiftamt, data_operandA);

@@ -5,7 +5,6 @@
 .\Alu\Adder\cla_32.v 
 .\Alu\Adder\cla_8.v 
 .\Alu\Adder\full_adder.v 
-.\Alu\Adder\twos_comp.v 
 .\Alu\Comparators\comparator_2.v 
 .\Alu\Comparators\comparator_32.v 
 .\Alu\Comparators\comparator_8.v 
