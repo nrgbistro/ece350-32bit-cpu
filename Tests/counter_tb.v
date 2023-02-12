@@ -1,6 +1,6 @@
 module counter_tb;
     reg clk, reset, start;
-    wire [2:0] out;
+    wire [4:0] out;
 
     counter c(out, clk, reset, start);
 
@@ -16,7 +16,7 @@ module counter_tb;
     always @(out) begin
         #5;
         $display("out = %d", out);
-        if (out == 7) begin
+        if (out == 31) begin
             $display("Test passed");
             $finish;
         end
