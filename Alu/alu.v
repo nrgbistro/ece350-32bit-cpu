@@ -11,11 +11,8 @@ module alu(
     or_32 or_32(orWire, data_operandA, data_operandB);
 
     comparator_32 comparator_32(isLessThan, eq, data_operandA, data_operandB);
-
     not NEQNot(isNotEqual, eq);
 
-    not_32 invertA(b_inverted, data_operandB);
-    mux_2 add_sub_selector(adderArgB, ctrl_ALUopcode[0], data_operandB, b_inverted);
     adder_32 adder_32(addWire, overflow, data_operandA, adderArgB, ctrl_ALUopcode[0]);
 
     shift_left SLL(SLWire, ctrl_shiftamt, data_operandA);

@@ -1,4 +1,4 @@
-    module register32(
+    module register_32(
         output [31:0] out,
         input [31:0] data,
         input clock, enable, reset);
