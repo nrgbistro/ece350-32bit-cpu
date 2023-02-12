@@ -23,6 +23,8 @@
 .\Alu\Shifter\barrel_right_8.v 
 .\Alu\Shifter\shift_left_32.v 
 .\Alu\Shifter\shift_right_32.v 
+.\Mult\counter.v 
+.\Mult\multdiv.v 
 .\Mux\decoder32.v 
 .\Mux\mux_2.v 
 .\Mux\mux_2_1bit.v 
@@ -33,3 +35,4 @@
 .\Register\regfile.v 
 .\Register\register32.v 
 .\Register\tri_state32.v 
+.\Register\t_flip_flop.v 

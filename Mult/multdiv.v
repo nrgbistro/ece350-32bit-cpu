@@ -14,6 +14,6 @@ module multdiv(
 
     // data exception
 
-    and andException1(exception0, ctrl_DIV, )
+    // and andException1(exception0, ctrl_DIV, )
 
 endmodule

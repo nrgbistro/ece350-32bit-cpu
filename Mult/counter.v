@@ -2,12 +2,8 @@ module counter(
     output [2:0] out,
     input clk, reset, start);
 
-    wire out0, out1, in2, out2;
-
-    assign in2 = out0 & out1;
-
-    dffe_reg c0(out0, start, clk, 1'b1, reset);
-    dffe_reg c1(out1, out0, clk, 1'b1, reset);
-    dffe_reg c2(out2, in2, clk, 1'b1, reset);
+    t_flip_flop c0(out[0], start, clk, reset);
+    t_flip_flop c1(out[1], out[0], clk, reset);
+    t_flip_flop c2(out[2], out[0] & out[1], clk, reset);
 
 endmodule
