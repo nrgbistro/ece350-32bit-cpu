@@ -1,4 +1,4 @@
-module mux_2_1bit(out, select, in0, in1);
+module mux_2_1(out, select, in0, in1);
     output out;
     input select;
     input in0, in1;
