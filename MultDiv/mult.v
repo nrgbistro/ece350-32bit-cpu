@@ -17,7 +17,7 @@ module mult(
     assign initialProduct[32:1] = multiplier;
     assign initialProduct[64:33] = 32'b0;
 
-    adder_32 adder(adderResult, adderOverflow, );
+    adder_32 adder(adderResult, adderOverflow, multiplicandShifterResult, multiplier, subCode);
 
     assign multOpCode[2:0] = product_out[2:0];
 
