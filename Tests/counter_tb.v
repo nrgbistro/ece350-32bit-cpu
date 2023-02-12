@@ -1,11 +1,10 @@
 module counter_tb;
-    reg clk, reset, start;
+    reg clk, reset;
     wire [4:0] out;
 
-    counter c(out, clk, reset, start);
+    counter c(out, clk, reset);
 
     initial begin
-        start = 1;
         reset = 0;
         clk = 0;
     end
