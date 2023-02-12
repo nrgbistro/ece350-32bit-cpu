@@ -16,6 +16,8 @@ module mult(
     assign initialProduct[33:2] = multiplier;
     assign initialProduct[65:34] = 32'b0;
 
+    assign multOpCode [2:0] = product_out [2:0];
+
     multControl controller(productInputSelectWire, subCode, multOpCode, count0bool, enable);
 
     mux4_1 regProductInputSelector(product_in, productInputSelectWire, product_out >>> 1, 0, initialProduct, initialProduct);
