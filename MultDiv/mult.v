@@ -23,8 +23,8 @@ module mult(
 
     multControl controller(productInputSelectWire, subCode, shiftMultiplicand, multOpCode, count0bool, enable);
 
+    // if (productInputSelectWire[1]) {product_in = initialProduct;}
     mux4_65 regProductInputSelector(product_in, productInputSelectWire, product_out >>> 2, adder_result >>> 2, initialProduct, initialProduct);
-
     mux2 regMultiplicandShiftSelector(multiplicandShifterResult, shiftMultiplicand, multiplicand, multiplicand <<< 1);
 
     register65 regProduct( .out(product_out), .data(product_in), .clock(clk), .enable(enable), .reset(rst) );
