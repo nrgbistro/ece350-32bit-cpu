@@ -4,7 +4,7 @@ module mult(
     input enable, clk, count0bool, rst);
 
     wire [64:0] product_out, product_in, initialProduct;
-    wire [31:0] adderResult, multiplicandShifterResult, regMultiplicandOut;
+    wire [31:0] adderResult, multiplicandShifterResult, regMultiplicandOut, productLeftSide, productRightSide;
     wire [2:0] multOpCode;
     wire [1:0] productInputSelectWire;
     wire subCode, adderOverflow, shiftMultiplicand;
@@ -13,9 +13,12 @@ module mult(
     assign opCode[1:0] = product_out[1:0];
     assign opCode[2] = product_out[2];
 
-    assign initialProduct[0] = 2'b0;
+    assign initialProduct[0] = 1'b0;
     assign initialProduct[32:1] = multiplier;
     assign initialProduct[64:33] = 32'b0;
+
+    assign productLeftSide[31:0] = product_out[64:33];
+    assign productRightSide[31:0] = product_out[32:1];
 
     adder_32 adder(adderResult, adderOverflow, multiplicandShifterResult, multiplier, subCode);
 
