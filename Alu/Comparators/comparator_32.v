@@ -15,6 +15,6 @@ module comparator_32(
     comparator_8 comp1(LT1, EQ1, LT2, EQ2, a[15:8], b[15:8]);
     comparator_8 comp0(LT_chain_output, EQ, LT1, EQ1, a[7:0], b[7:0]);
 
-    mux_2_1bit mux(LT, forceGTWire, LT_chain_output, 1'b0);
+    mux_2_1 mux(LT, forceGTWire, LT_chain_output, 1'b0);
 
 endmodule

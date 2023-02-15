@@ -4,8 +4,8 @@ module alu(
     output [31:0] data_result,
     output isNotEqual, isLessThan, overflow);
 
-    wire [31:0] andWire, orWire, addWire, subWire, SLWire, SRWire, b_inverted, adderArgB;
-    wire eq, overflowAdder, overflowCompliment, notOverflowCompliment, overflowAndWire;
+    wire [31:0] andWire, orWire, addWire, SLWire, SRWire;
+    wire eq;
 
     and_32 and_32(andWire, data_operandA, data_operandB);
     or_32 or_32(orWire, data_operandA, data_operandB);
@@ -13,7 +13,7 @@ module alu(
     comparator_32 comparator_32(isLessThan, eq, data_operandA, data_operandB);
     not NEQNot(isNotEqual, eq);
 
-    adder_32 adder_32(addWire, overflow, data_operandA, adderArgB, ctrl_ALUopcode[0]);
+    adder_32 adder_32(addWire, overflow, data_operandA, data_operandB, ctrl_ALUopcode[0]);
 
     shift_left SLL(SLWire, ctrl_shiftamt, data_operandA);
     shift_right SRA(SRWire, ctrl_shiftamt, data_operandA);

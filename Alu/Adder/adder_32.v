@@ -4,12 +4,13 @@ module adder_32(
     input [31:0] A, B,
     input sub);
 
+    wire [31:0] adderArgB, b_inverted;
     wire [3:0] carry;
     wire [3:0] PG, GG;
     wire [3:0] overflowBus;
 
     not_32 invertB(b_inverted, B);
-    mux_2 add_sub_selector(adderArgB, sub, data_operandB, b_inverted);
+    mux_2 add_sub_selector(adderArgB, sub, B, b_inverted);
 
     assign overflow = overflowBus[3];
     assign carry[0] = sub;
