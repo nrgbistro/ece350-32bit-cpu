@@ -26,6 +26,7 @@
 .\MultDiv\counter.v 
 .\MultDiv\multdiv.v 
 .\MultDiv\resetDetection.v 
+.\MultDiv\Mult\checkBits_32.v 
 .\MultDiv\Mult\mult.v 
 .\MultDiv\Mult\multControl.v 
 .\MultDiv\Mux\mux_2_65.v 

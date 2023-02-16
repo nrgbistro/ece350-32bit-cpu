@@ -15,7 +15,7 @@ module multdiv(
 
     wire [31:0] mult_result, div_result, latchA, latchB;
     wire [4:0] count;
-    wire reset, count0bool, b0bool, multOverflow;
+    wire reset, count0bool, b0bool, bMaxBool, multOverflow;
 
     // TEMP
     assign data_result = mult_result;
@@ -25,7 +25,7 @@ module multdiv(
     // 1 when count == 10010 (18 steps)
     assign data_resultRDY = count[4];
     // 1 when operandB == 0000...0000
-    assign b0bool = ~latchB[0] & ~latchB[1] & ~latchB[2] & ~latchB[3] & ~latchB[4] & ~latchB[5] & ~latchB[6] & ~latchB[7] & ~latchB[8] & ~latchB[9] & ~latchB[10] & ~latchB[11] & ~latchB[12] & ~latchB[13] & ~latchB[14] & ~latchB[15] & ~latchB[16] & ~latchB[17] & ~latchB[18] & ~latchB[19] & ~latchB[20] & ~latchB[21] & ~latchB[22] & ~latchB[23] & ~latchB[24] & ~latchB[25] & ~latchB[26] & ~latchB[27] & ~latchB[28] & ~latchB[29] & ~latchB[30] & ~latchB[31];
+    checkBits_32 checkB0(b0bool, bMaxBool, data_operandB);
 
     resetDetection rstDetector(reset, ctrl_DIV, ctrl_MULT, clock);
 
@@ -37,7 +37,7 @@ module multdiv(
         clock,
         reset);
 
-    // Latch inputs unless counter == 0000
+    // Store inputs unless counter == 0000
     register_32 registerA(
         latchA,
         data_operandA,
@@ -50,5 +50,7 @@ module multdiv(
         ~clock,
         count0bool,
         reset);
+
+
 
 endmodule
