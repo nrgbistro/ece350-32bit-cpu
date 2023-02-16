@@ -2,7 +2,7 @@ module mult(
     output [31:0] ans,
     output overflow,
     input [31:0] multiplicand, multiplier,
-    input clk, count0bool, rst);
+    input clk, count0bool, shiftOnly, rst);
 
     wire [64:0] product_out, product_in, initialProduct, adderResultWithMultiplier;
     wire [31:0] adderResult, multiplicandShifterResult, regMultiplicandOut, productRegLeft;
@@ -31,7 +31,7 @@ module mult(
 
     adder_32 adder(adderResult, adderOverflow, multiplicandShifterResult, productRegLeft, subCode);
 
-    multControl controller(productInputSelectWire, subCode, shiftMultiplicand, multOpCode, count0bool);
+    multControl controller(productInputSelectWire, subCode, shiftMultiplicand, multOpCode, count0bool, shiftOnly);
 
     // if (productInputSelectWire[1]) {product_in = initial product;}
     // if (productInputSelectWire[0]) {product_in = shifted product out;} else {product_in = adder result with multiplier;}
