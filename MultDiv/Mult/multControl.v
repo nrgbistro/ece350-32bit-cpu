@@ -10,7 +10,7 @@ module multControl(
     // Force initial input when count == 0000
     assign productInputCode[1] = count0bool;
 
-    assign shiftMultiplicand = (~opCode[0] & opCode[1] & opCode[2]) | (opCode[0] & ~opCode[1] & ~opCode[2]) ? 1'b1 : 1'b0;
-    assign sub = (opCode[0] & ~opCode[1]) | (opCode[0] & opCode[1] & opCode[2]) ? 1'b1 : 1'b0;
+    assign shiftMultiplicand = (~opCode[2] & opCode[1] & opCode[0]) | (opCode[2] & ~opCode[1] & ~opCode[0]) ? 1'b1 : 1'b0;
+    assign sub = opCode[2] ? 1'b1 : 1'b0;
     assign chooseAdd = (opCode[0] | opCode[1] | opCode[2]) & (~opCode[0] | ~opCode[1] | ~opCode[2]) ? 1'b1 : 1'b0;
 endmodule
