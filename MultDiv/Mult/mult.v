@@ -35,7 +35,7 @@ module mult(
 
     // if (productInputSelectWire[1]) {product_in = initial product;}
     // if (productInputSelectWire[0]) {product_in = shifted product out;} else {product_in = adder result with multiplier;}
-    mux_4_65 regProductInputSelector(product_in, productInputSelectWire, $signed(product_out) >>> 2, adderResultWithMultiplier >>> 2, initialProduct, initialProduct);
+    mux_4_65 regProductInputSelector(product_in, productInputSelectWire, $signed(product_out) >>> 2, $signed(adderResultWithMultiplier) >>> 2, initialProduct, initialProduct);
     mux_2 regMultiplicandShiftSelector(multiplicandShifterResult, shiftMultiplicand, multiplicand, multiplicand <<< 1);
 
 endmodule
