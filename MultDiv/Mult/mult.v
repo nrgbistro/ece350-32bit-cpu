@@ -12,7 +12,7 @@ module mult(
 
     register_65 regProduct( .out(product_out), .data(product_in), .clock(clk), .enable(1'b1), .reset(rst));
 
-    checkBits_32 checkResult(regLeftAllZero, regLeftAllOne, productRegLeft);
+    checkBits_32 checkResult(regLeftAllZero, regLeftAllOne, $signed(productRegLeft) >>> 1);
 
     assign overflow = (~regLeftAllZero & ~regLeftAllOne) | (ans[31] & regLeftAllZero) | (~ans[31] & regLeftAllOne);
 
