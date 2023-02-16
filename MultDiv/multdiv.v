@@ -21,7 +21,7 @@ module multdiv(
     assign data_result = mult_result;
 
     // Stop adding/subbing when shift == 17
-    assign shiftOnly = (count[4] & ~count[3] & ~count[2] & ~count[1] & count[0]) | (count[4] & ~count[3] & ~count[2] & count[1] & ~count[0]);
+    assign shiftOnly = (count[4] & ~count[3] & ~count[2] & count[1] & ~count[0]);
 
     // 1 when count == 00000
     assign count0bool = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4];
