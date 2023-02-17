@@ -8,14 +8,16 @@ module mult(
     wire [31:0] adderResult, multiplicandShifterResult, regMultiplicandOut, productRegLeft, adderInputB;
     wire [2:0] multOpCode;
     wire [1:0] productInputSelectWire;
-    wire subCode, adderOverflow, shiftMultiplicand, regLeftAllZero, regLeftAllOne;
+    wire subCode, adderOverflow, shiftMultiplicand, regLeftAllZero, regLeftAllOne, specialOverflowCase0, specialOverflowCase1;
 
     register_65 regProduct( .out(product_out), .data(product_in), .clock(clk), .enable(1'b1), .reset(rst));
 
-    checkBits_32 checkResult(regLeftAllZero, regLeftAllOne, finalShiftedProduct[64:33]);
+    checkBits_32 checkResult(regLeftAllZero, regLeftAllOne, productRegLeft);
 
-    assign overflow = (~regLeftAllZero & ~regLeftAllOne) || (ans[31] & regLeftAllZero) || (~ans[31] & regLeftAllOne);
+    specialCaseChecker specialCaseChecker0(specialOverflowCase0, multiplicand, multiplier);
+    specialCaseChecker specialCaseChecker1(specialOverflowCase1, multiplier, multiplicand);
 
+    assign overflow = specialOverflowCase0 | specialOverflowCase1 ? 1'b0 : (~regLeftAllZero & ~regLeftAllOne) || (ans[31] & regLeftAllZero) || (~ans[31] & regLeftAllOne);
 
     assign finalShiftedProduct = $signed(product_out) >>> 2;
     assign ans = finalShiftedProduct[32:1];

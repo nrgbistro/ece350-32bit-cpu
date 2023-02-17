@@ -29,6 +29,7 @@
 .\MultDiv\Mult\checkBits_32.v 
 .\MultDiv\Mult\mult.v 
 .\MultDiv\Mult\multControl.v 
+.\MultDiv\Mult\specialCaseCheck.v 
 .\MultDiv\Mux\mux_2_65.v 
 .\MultDiv\Mux\mux_4_65.v 
 .\Mux\decoder_32.v 
