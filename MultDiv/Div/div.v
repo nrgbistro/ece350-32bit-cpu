@@ -19,12 +19,12 @@ module div(
     // Fix answer for negative inputs
     xor checkNegativeInputsXOR(negateAns, A[31], B[31]);
     adder_32 adderAns(negativeAns, overflowAns, 32'b0, quotient_out[31:0] >>> 1, 1'b1);
-    assign ans = negateAns ? negativeAns : quotient_out[31:0] >>> 1;
+    assign ans = divisorAll0 ? 32'b0 : negateAns ? negativeAns : quotient_out[31:0] >>> 1;
 
     // 1 when count == 000000
     assign count0 = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4] & ~count[5];
     // 1 when count == 100000 (32 steps)
-    assign resultRDY = count[5] & count[0];
+    assign resultRDY = (count[5] & count[0]) | divisorAll0;
     assign error = divisorAll0;
 
     checkBits_32 checkDivisor0(divisorAll0, divisorAll1, divisor);
