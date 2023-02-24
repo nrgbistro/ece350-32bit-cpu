@@ -2,9 +2,9 @@ module counter_32(
     output [5:0] out,
     input clk, reset);
 
-    // Stop counting at 33
+    // Stop counting at 38
     wire Disable, rst;
-    assign Disable = out[5] & ~out[4] & ~out[3] & ~out[2] & ~out[1] & out[0];
+    assign Disable = out[5] & ~out[4] & ~out[3] & out[2] & out[1] & out[0];
     assign rst = Disable ? 1'b1 : reset;
 
     t_flip_flop c0(out[0], 1'b1, clk, rst);

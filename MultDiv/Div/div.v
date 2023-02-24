@@ -11,20 +11,20 @@ module div(
     wire count0, divisorAll0, divisorAll1, overflowA, overflowB, overflowAns, negateAns;
 
     // Ensure dividend and divisor are always >= 0
-    adder_32 adderA(negativeA, overflowA, ~A, 32'd1, 1'b0);
-    adder_32 adderB(negativeB, overflowB, ~B, 32'd1, 1'b0);
+    adder_32 adderA(negativeA, overflowA, 32'b0, A, 1'b1);
+    adder_32 adderB(negativeB, overflowB, 32'b0, B, 1'b1);
     assign dividend = A[31] ? negativeA : A;
     assign divisor = B[31] ? negativeB : B;
 
     // Fix answer for negative inputs
     xor checkNegativeInputsXOR(negateAns, A[31], B[31]);
-    adder_32 adderAns(negativeAns, overflowAns, ~quotient_out[31:0], 32'd1, 1'b0);
-    assign ans = negateAns ? negativeAns : quotient_out[31:0];
+    adder_32 adderAns(negativeAns, overflowAns, 32'b0, quotient_out[31:0] >>> 1, 1'b1);
+    assign ans = negateAns ? negativeAns : quotient_out[31:0] >>> 1;
 
     // 1 when count == 000000
     assign count0 = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4] & ~count[5];
     // 1 when count == 100000 (32 steps)
-    assign resultRDY = count[5];
+    assign resultRDY = count[5] & count[0];
     assign error = divisorAll0;
 
     checkBits_32 checkDivisor0(divisorAll0, divisorAll1, divisor);
@@ -44,7 +44,7 @@ module div(
     assign initialQuotient[63:32] = 32'b0;
 
     assign old_AQ = quotient_out[63:0];
-    assign quotient_in[63:0] = count0 ? initialQuotient << 1 : new_AQ << 1;
+    assign quotient_in[63:0] = count0 ? initialQuotient << 1 : new_AQ;
 
     divControl controller(new_AQ, old_AQ, divisor);
 
