@@ -2,6 +2,6 @@ module resetDetection(
     output rst,
     input div, mult, clock);
 
-    assign rst = div | mult;
+    assign rst = ~clock & (div | mult);
 
 endmodule

@@ -10,47 +10,45 @@ module multdiv(
     output [31:0] data_result;
     output data_exception, data_resultRDY;
 
-    // data exception
-    assign data_exception = (ctrl_DIV & b0bool) | multOverflow;
-
     wire [31:0] mult_result, div_result, latchA, latchB;
     wire [4:0] count;
-    wire reset, count0bool, b0bool, bMaxBool, multOverflow;
+    wire reset, multiCount0, multOverflow, divError, multReady, divReady, latchDiv, latchMult;
 
-    // TEMP
-    assign data_result = mult_result;
-
-    // 1 when count == 00000
-    assign count0bool = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4];
-    // 1 when count == 10010 (18 steps)
-    assign data_resultRDY = count[4];
-    // 1 when operandB == 0000...0000
-    checkBits_32 checkB0(b0bool, bMaxBool, data_operandB);
+    assign data_result = latchDiv ? div_result : mult_result;
+    assign data_resultRDY = latchDiv ? divReady : multReady;
+    assign data_exception = latchDiv ? divError : multOverflow;
 
     resetDetection rstDetector(reset, ctrl_DIV, ctrl_MULT, clock);
 
-    mult multiplier(mult_result, multOverflow, latchA, latchB, clock, count0bool, reset);
-
-    // Counts from 0 to 15
-    counter counter0(
-        count,
-        clock,
-        reset);
+    mult multiplier(mult_result, multOverflow, multReady, multiCount0, latchA, latchB, clock, reset);
+    div divider(div_result, divError, divReady, latchA, latchB, clock, reset);
 
     // Store inputs unless counter == 0000
     register_32 registerA(
         latchA,
         data_operandA,
         ~clock,
-        count0bool,
+        multiCount0,
         reset);
     register_32 registerB(
         latchB,
         data_operandB,
         ~clock,
-        count0bool,
+        multiCount0,
         reset);
 
+    dffe_ref registerDiv(
+        latchDiv,
+        ctrl_DIV,
+        ~clock,
+        ctrl_MULT | ctrl_DIV,
+        1'b0);
 
+    dffe_ref registerMult(
+        latchMult,
+        ctrl_MULT,
+        ~clock,
+        ctrl_MULT | ctrl_DIV,
+        1'b0);
 
 endmodule

@@ -1,4 +1,4 @@
-module counter(
+module counter_16(
     output [4:0] out,
     input clk, reset);
 

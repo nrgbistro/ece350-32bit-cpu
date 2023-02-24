@@ -23,10 +23,13 @@
 .\Alu\Shifter\barrel_right_8.v 
 .\Alu\Shifter\shift_left_32.v 
 .\Alu\Shifter\shift_right_32.v 
-.\MultDiv\counter.v 
+.\MultDiv\checkBits_32.v 
 .\MultDiv\multdiv.v 
 .\MultDiv\resetDetection.v 
-.\MultDiv\Mult\checkBits_32.v 
+.\MultDiv\Div\counter_32.v 
+.\MultDiv\Div\div.v 
+.\MultDiv\Div\divControl.v 
+.\MultDiv\Mult\counter_16.v 
 .\MultDiv\Mult\mult.v 
 .\MultDiv\Mult\multControl.v 
 .\MultDiv\Mult\specialCaseCheck.v 
