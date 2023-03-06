@@ -27,5 +27,11 @@
     - I also needed to make a 4 bit mux that takes in 65 bits of data. In order to create this module I also needed a 2 bit mux that takes in 65 bits of data.
     - I detect resets when mult or div is enabled. This works for the current checkpoint but may need to be modified to implement division
     - The special case checker module was also needed to ensure the overflow bit was correct when the operands were -32768 and 65536. This is the only case of incorrect overflow I could find.
+
+## Bypassing
+
+## Stalling
+
+## Optimizations
 ## Bugs
 - I had an issue with the overflow of the multiplier when the operands were -32768 and 65536. The overflow should have been 0 but 1 was outputted. I could not figure out why this was because result is correct but in order to fix this issue I have a special module that will detect when these inputs are passed to ensure that the overflow bit stays 0.
