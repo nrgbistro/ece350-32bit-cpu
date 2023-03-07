@@ -1,7 +1,8 @@
 module FetchDecode(
-    output [31:0] oldIR,
-    input [31:0] newIR,
+    output [31:0] oldIR, oldPC,
+    input [31:0] newIR, newPC,
     input clock, reset);
 
-    register_32 reg(oldIR, newIR, clock, 1, reset);
+    register_32 reg1(oldIR, newIR, clock, 1'b1, reset);
+    PC pogramCounter(oldPC, newPC, clock, 1'b1, reset);
 endmodule

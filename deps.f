@@ -41,6 +41,17 @@
 .\Mux\mux_32.v 
 .\Mux\mux_4.v 
 .\Mux\mux_8.v 
+.\Processor\control.v 
+.\Processor\processor.v 
+.\Processor\RAM.v 
+.\Processor\ROM.v 
+.\Processor\Wrapper.v 
+.\Processor\Latches\DX.v 
+.\Processor\Latches\FD.v 
+.\Processor\Latches\MW.v 
+.\Processor\Latches\PC.v 
+.\Processor\Latches\XM.v 
+.\Processor\Provided 
 .\Register\dffe_ref.v 
 .\Register\regfile.v 
 .\Register\register_32.v 

@@ -11,9 +11,9 @@
  * file, Wrapper.v, acts as a small wrapper around your processor for this purpose. Refer to Wrapper.v
  * for more details.
  *
- * As a result, this module will NOT contain the RegFile nor the memory modules. Study the inputs 
+ * As a result, this module will NOT contain the RegFile nor the memory modules. Study the inputs
  * very carefully - the RegFile-related I/Os are merely signals to be sent to the RegFile instantiated
- * in your Wrapper module. This is the same for your memory elements. 
+ * in your Wrapper module. This is the same for your memory elements.
  *
  *
  */
@@ -40,12 +40,12 @@ module processor(
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
     data_readRegB                   // I: Data from port B of RegFile
-	 
+
 	);
 
 	// Control signals
 	input clock, reset;
-	
+
 	// Imem
     output [31:0] address_imem;
 	input [31:0] q_imem;
@@ -62,7 +62,19 @@ module processor(
 	input [31:0] data_readRegA, data_readRegB;
 
 	/* YOUR CODE STARTS HERE */
-	
+
+    wire [31:0] PC, newPC, PCPlusOne, decodeIR, decodePC;
+    wire overflow1;
+
+    // PC
+    ProgramCounter pogramCounter(PC, newPC, ~clock, reset);
+    adder_32 adderPC_1(PCPlusOne, overflow1, PC, 32'd1, 1'b0);
+
+
+    // FD
+    FetchDecode fetchDecode(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
+
+
 	/* END CODE */
 
 endmodule
