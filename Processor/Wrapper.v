@@ -35,7 +35,7 @@ module Wrapper (clock, reset);
 
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "C:/Users/nolan/Duke/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic";
+	localparam INSTR_FILE = "C:/Users/nolan/Duke/ece350-32bit-cpu/Tests/CPU-Test-Files/Memory-Files/addi_basic.mem";
 
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset),
