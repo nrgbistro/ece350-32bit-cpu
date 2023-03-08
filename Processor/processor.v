@@ -67,7 +67,7 @@ module processor(
     wire overflow1;
 
     // Fetch
-    ProgramCounter programCounter(fetchPC, nextPC, clock, reset);
+    ProgramCounter programCounter(fetchPC, nextPC, ~clock, reset);
     adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
 
     assign address_imem = fetchPC;
@@ -90,7 +90,7 @@ module processor(
     assign ctrl_readRegB = rt;
 
     // Execute
-    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluSum;
+    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut;
     wire [4:0] aluOpCode, shiftAmt;
     wire [1:0] executeInsType;
     wire aluBSelector, aluOverflow, aluNEQ, aluLT;
@@ -100,11 +100,11 @@ module processor(
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
     assign aluBInput = aluBSelector ? executeImmediate : executeB;
 
-    alu mainALU(executeA, aluBInput, aluOpCode, shiftAmt, aluSum, aluNEQ, aluLT, aluOverflow);
+    alu mainALU(executeA, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
-    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, aluSum, executeB, ~clock, reset);
+    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, aluOut, executeB, ~clock, reset);
     // MemoryControl memoryController();
     assign address_dmem = memoryO;
     assign data = memoryB;

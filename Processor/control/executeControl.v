@@ -8,8 +8,8 @@ module ExecuteControl(
 
     TypeDetector typeDetector(insType, ins);
 
-    assign aluOpCode = 5'd0;
-    assign aluBSelector = 1'b1;
-    assign shiftAmt = 5'd0;
+    assign aluOpCode = ins[6:2];
+    assign aluBSelector = ~insType[0] & insType[1];
+    assign shiftAmt = ins[11:7];
 
 endmodule
