@@ -63,7 +63,7 @@ module processor(
 
 	/* YOUR CODE STARTS HERE */
 
-    wire [31:0] PC, newPC, PCPlusOne, decodeIR, decodePC;
+    wire [31:0] PC, newPC, PCPlusOne;
     wire overflow1;
 
     // PC
@@ -72,6 +72,7 @@ module processor(
 
 
     // FD
+    wire [31:0] decodeIR, decodePC;
     wire [4:0] rd, rs, rt;
     wire [1:0] fetchInsType;
 
@@ -86,7 +87,7 @@ module processor(
 
 
     // DX
-
+    DecodeExecute decodeExecute(decodeIR, decodePC, data_readRegA, data_readRegB, data_writeReg, ctrl_writeReg, ctrl_readRegB, ctrl_writeEnable, ~clock, reset);
 
 	/* END CODE */
 
