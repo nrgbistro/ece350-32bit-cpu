@@ -67,23 +67,28 @@ module processor(
     wire overflow1;
 
     // Fetch
-    ProgramCounter pogramCounter(fetchPC, nextPC, ~clock, reset);
+    ProgramCounter programCounter(fetchPC, nextPC, ~clock, reset);
     adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
+
+    assign address_imem = fetchPC;
+
+    // TEMP
+    assign nextPC = PCPlusOne;
 
 
     // Decode
     wire [31:0] decodeIR, decodePC;
-    wire [4:0] rd, rs, rt;
+    wire [4:0] rs, rt;
     wire [1:0] decodeInsType;
 
     FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
-    DecodeControl decodeController(decodeInsType, ctrl_writeEnable, decodeIR);
+    DecodeControl decodeController(decodeInsType, decodeIR);
 
-    mux_4 select_rd(rd, decodeInsType, decodeIR[26:22], decodeIR[26:22], 32'b0, decodeIR[26:22]);
-    mux_4 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 32'b0, 32'b0);
-    mux_4 select_rt(rt, decodeInsType, decodeIR[16:12], 32'b0, 32'b0, 32'b0);
+    mux_4_5 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, 5'b0);
+    mux_4_5 select_rt(rt, decodeInsType, decodeIR[16:12], 5'b0, 5'b0, 5'b0);
 
     assign ctrl_readRegA = rs;
+    assign ctrl_readRegB = rt;
 
     // Execute
     wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluSum;
@@ -101,7 +106,7 @@ module processor(
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
     ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, aluSum, executeB, ~clock, reset);
-
+    // MemoryControl memoryController();
     assign address_dmem = memoryO;
     assign data = memoryB;
 
@@ -109,6 +114,17 @@ module processor(
     assign wren = 1'b0;
 
     // Writeback
+    wire [31:0] writebackIR, writebackO, writebackD, writebackData;
+    wire [4:0] rd;
+    wire [1:0] writebackInsType;
+    wire writebackDataSelector;
+
+    MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, memoryIR, memoryO, q_dmem, ~clock, reset);
+    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
+
+    mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], 5'b0, writebackIR[26:22]);
+    assign data_writeReg = writebackDataSelector ? writebackO : writebackD;
+    assign ctrl_writeReg = rd;
 
 	/* END CODE */
 

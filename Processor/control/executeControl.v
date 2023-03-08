@@ -8,7 +8,6 @@ module ExecuteControl(
 
     TypeDetector typeDetector(insType, ins);
 
-    assign writeEnable = 1'b1;
     assign aluOpCode = 5'd0;
     assign aluBSelector = 1'b1;
     assign shiftAmt = 5'd0;
