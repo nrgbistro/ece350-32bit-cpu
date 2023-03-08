@@ -63,41 +63,52 @@ module processor(
 
 	/* YOUR CODE STARTS HERE */
 
-    wire [31:0] PC, newPC, PCPlusOne;
+    wire [31:0] fetchPC, nextPC, PCPlusOne;
     wire overflow1;
 
-    // PC
-    ProgramCounter pogramCounter(PC, newPC, ~clock, reset);
-    adder_32 adderPC_1(PCPlusOne, overflow1, PC, 32'd1, 1'b0);
+    // Fetch
+    ProgramCounter pogramCounter(fetchPC, nextPC, ~clock, reset);
+    adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
 
 
-    // FD
+    // Decode
     wire [31:0] decodeIR, decodePC;
     wire [4:0] rd, rs, rt;
-    wire [1:0] fetchInsType;
+    wire [1:0] decodeInsType;
 
-    FetchDecode fetchDecode(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
-    DecodeControl decodeController(fetchInsType, ctrl_writeEnable, decodeIR);
+    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
+    DecodeControl decodeController(decodeInsType, ctrl_writeEnable, decodeIR);
 
-    mux_4 select_rd(rd, fetchInsType, decodeIR[26:22], decodeIR[26:22], 32'b0, decodeIR[26:22]);
-    mux_4 select_rs(rs, fetchInsType, decodeIR[21:17], decodeIR[21:17], 32'b0, 32'b0);
-    mux_4 select_rt(rt, fetchInsType, decodeIR[16:12], 32'b0, 32'b0, 32'b0);
+    mux_4 select_rd(rd, decodeInsType, decodeIR[26:22], decodeIR[26:22], 32'b0, decodeIR[26:22]);
+    mux_4 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 32'b0, 32'b0);
+    mux_4 select_rt(rt, decodeInsType, decodeIR[16:12], 32'b0, 32'b0, 32'b0);
 
     assign ctrl_readRegA = rs;
 
-
-    // DX
-    wire [31:0] executeIR, executeA, executeB, executePC;
-    wire [1:0] decodeInsType;
-    wire selectInputB;
-    DecodeExecute decodeExecute(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, reset);
-    DecodeControl decodeController(executeIR);
-
     // Execute
-    wire [31:0] inputBSelector
+    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluSum;
+    wire [4:0] aluOpCode, shiftAmt;
+    wire [1:0] executeInsType;
+    wire aluBSelector, aluOverflow, aluNEQ, aluLT;
+    DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, reset);
+    ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, executeIR);
 
-    alu alu()
+    SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
+    assign aluBInput = aluBSelector ? executeImmediate : executeB;
 
+    alu mainALU(executeA, aluBInput, aluOpCode, shiftAmt, aluSum, aluNEQ, aluLT, aluOverflow);
+
+    // Memory
+    wire [31:0] memoryIR, memoryO, memoryB;
+    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, aluSum, executeB, ~clock, reset);
+
+    assign address_dmem = memoryO;
+    assign data = memoryB;
+
+    // TEMP
+    assign wren = 1'b0;
+
+    // Writeback
 
 	/* END CODE */
 

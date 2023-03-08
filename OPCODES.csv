@@ -1,2 +1,2 @@
-OPCODE,type,writeEnable
-00101,I (00),1
+OPCODE,type,writeEnable,adderBSelect
+00101,I (01),1,1
