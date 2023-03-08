@@ -72,7 +72,20 @@ module processor(
 
 
     // FD
+    wire [4:0] rd, rs, rt;
+    wire [1:0] fetchInsType;
+
     FetchDecode fetchDecode(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
+    FetchControl fetchController(fetchInsType, ctrl_writeEnable, decodeIR);
+
+    mux_4 select_rd(rd, fetchInsType, decodeIR[26:22], decodeIR[26:22], 32'b0, decodeIR[26:22]);
+    mux_4 select_rs(rs, fetchInsType, decodeIR[21:17], decodeIR[21:17], 32'b0, 32'b0);
+    mux_4 select_rt(rt, fetchInsType, decodeIR[16:12], 32'b0, 32'b0, 32'b0);
+
+    assign ctrl_readRegA = rs;
+
+
+    // DX
 
 
 	/* END CODE */
