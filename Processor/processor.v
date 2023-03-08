@@ -77,7 +77,7 @@ module processor(
     wire [1:0] fetchInsType;
 
     FetchDecode fetchDecode(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
-    FetchControl fetchController(fetchInsType, ctrl_writeEnable, decodeIR);
+    DecodeControl decodeController(fetchInsType, ctrl_writeEnable, decodeIR);
 
     mux_4 select_rd(rd, fetchInsType, decodeIR[26:22], decodeIR[26:22], 32'b0, decodeIR[26:22]);
     mux_4 select_rs(rs, fetchInsType, decodeIR[21:17], decodeIR[21:17], 32'b0, 32'b0);
@@ -87,7 +87,17 @@ module processor(
 
 
     // DX
-    DecodeExecute decodeExecute(decodeIR, decodePC, data_readRegA, data_readRegB, data_writeReg, ctrl_writeReg, ctrl_readRegB, ctrl_writeEnable, ~clock, reset);
+    wire [31:0] executeIR, executeA, executeB, executePC;
+    wire [1:0] decodeInsType;
+    wire selectInputB;
+    DecodeExecute decodeExecute(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, reset);
+    DecodeControl decodeController(executeIR);
+
+    // Execute
+    wire [31:0] inputBSelector
+
+    alu alu()
+
 
 	/* END CODE */
 
