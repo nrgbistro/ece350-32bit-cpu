@@ -67,14 +67,13 @@ module processor(
     wire overflow1;
 
     // Fetch
-    ProgramCounter programCounter(fetchPC, nextPC, ~clock, reset);
+    ProgramCounter programCounter(fetchPC, nextPC, clock, reset);
     adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
 
     assign address_imem = fetchPC;
 
     // TEMP
     assign nextPC = PCPlusOne;
-
 
     // Decode
     wire [31:0] decodeIR, decodePC;
@@ -123,7 +122,7 @@ module processor(
     WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
 
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], 5'b0, writebackIR[26:22]);
-    assign data_writeReg = writebackDataSelector ? writebackO : writebackD;
+    assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
     assign ctrl_writeReg = rd;
 
 	/* END CODE */

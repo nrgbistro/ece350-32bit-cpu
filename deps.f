@@ -67,3 +67,4 @@
 .\Register\register_65.v 
 .\Register\tri_state32.v 
 .\Register\t_flip_flop.v 
+.\Wrapper_tb.v 
