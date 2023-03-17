@@ -64,7 +64,7 @@ module processor(
 	/* YOUR CODE STARTS HERE */
 
     wire [31:0] fetchPC, nextPC, PCPlusOne;
-    wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW, interlockStall;
+    wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
@@ -75,7 +75,13 @@ module processor(
     assign stallMW = 1'b0;
 
     // Interlock
+    wire interlockStall;
     Interlock interlock(interlockStall, decodeIR, executeIR, memoryIR);
+
+    // Bypassing
+    wire [1:0] ALU_A_bypass, ALU_B_bypass;
+    wire dmem_bypass;
+    Bypass bypass(ALU_A_bypass, ALU_B_bypass, dmem_bypass, executeIR, memoryIR, writebackIR);
 
     // Fetch
     ProgramCounter programCounter(fetchPC, nextPC, ~clock, stallPC, reset);
@@ -111,9 +117,13 @@ module processor(
     ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
 
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
-    assign aluBInput = aluBSelector ? executeImmediate : executeB;
+    assign aluBInput = aluBSelector ? executeImmediate : aluB;
 
-    alu mainALU(executeA, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
+    wire [31:0] aluAInput, aluB;
+    assign aluAInput = ALU_A_bypass[1] ? executeA : ALU_A_bypass[0] ? data_writeReg : memoryO;
+    assign aluB = ALU_B_bypass[1] ? executeB : ALU_B_bypass[0] ? data_writeReg : memoryO;
+
+    alu mainALU(aluAInput, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
 
     wire [31:0] memoryIn, multDivResult;
     wire startMult, startDiv, multDivError, multDivDone;

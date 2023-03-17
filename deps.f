@@ -53,6 +53,7 @@
 .\Processor\Control\memoryControl.v 
 .\Processor\Control\multDivStall.v 
 .\Processor\Control\writebackControl.v 
+.\Processor\Hazard\bypass.v 
 .\Processor\Hazard\interlock.v 
 .\Processor\Instruction-converter\i_type.v 
 .\Processor\Instruction-converter\j1_type.v 
