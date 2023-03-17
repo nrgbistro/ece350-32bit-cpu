@@ -23,7 +23,7 @@ module div(
 
     // 1 when count == 000000
     assign count0 = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4] & ~count[5];
-    // 1 when count == 100000 (32 steps)
+    // 1 when count == 100010 (32 steps)
     assign resultRDY = (count[5] & count[0]) | divisorAll0 & ~count0;
     assign error = divisorAll0;
 

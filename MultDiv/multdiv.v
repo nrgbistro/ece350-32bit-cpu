@@ -23,7 +23,7 @@ module multdiv(
     resetDetection rstDetector(reset, pulseDivWire, pulseMultWire, clock);
 
     mult multiplier(mult_result, multOverflow, multReady, multiCount0, latchA, latchB, clock, reset);
-    div divider(div_result, divError, divReady, latchA, latchB, clock, reset);
+    div divider(div_result, divError, divReady, data_operandA, data_operandB, clock, reset);
 
     // Store inputs unless counter == 0000
     register_32 registerA(
