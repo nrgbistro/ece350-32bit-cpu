@@ -3,7 +3,7 @@ module Bypass(
     output dmem_bypass,
     input [31:0] executeIR, memoryIR, writebackIR);
 
-    wire [4:0] executeRS1, executeRS2, memoryRD, writebackRD, memoryRS, executeOpcode, memoryOpcode, writebackOpcode;
+    wire [4:0] executeRS1, executeRS2, memoryRD, writebackRD, executeOpcode, memoryOpcode, writebackOpcode;
 
     assign executeRS1 = executeIR[21:17];
     assign executeRS2 = executeIR[16:12];
@@ -29,6 +29,6 @@ module Bypass(
     // assign ALU_A_bypass = 2'b10;
 
     // Dmem
-    assign dmem_bypass = 1'b0;
+    assign dmem_bypass = memoryRD == writebackRD;
 
 endmodule
