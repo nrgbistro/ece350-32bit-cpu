@@ -127,7 +127,7 @@ module processor(
 
     wire [31:0] memoryIn, multDivResult;
     wire startMult, startDiv, multDivError, multDivDone;
-    multdiv mainMultDiv(executeA, executeB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
+    multdiv mainMultDiv(aluAInput, aluB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
 
     assign memoryIn = (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : aluOut;
 
