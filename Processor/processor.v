@@ -117,11 +117,11 @@ module processor(
     ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
 
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
-    assign aluBInput = aluBSelector ? executeImmediate : aluB;
 
     wire [31:0] aluAInput, aluB;
     assign aluAInput = ALU_A_bypass[1] ? executeA : ALU_A_bypass[0] ? data_writeReg : memoryO;
     assign aluB = ALU_B_bypass[1] ? executeB : ALU_B_bypass[0] ? data_writeReg : memoryO;
+    assign aluBInput = aluBSelector ? executeImmediate : aluB;
 
     alu mainALU(aluAInput, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
 
@@ -137,7 +137,7 @@ module processor(
     ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, memoryIn, executeB, ~clock, stallXM, reset);
     MemoryControl memoryController(memoryInsType, wren, memoryIR);
     assign address_dmem = memoryO;
-    assign data = memoryB;
+    assign data = dmem_bypass ? data_writeReg : memoryB;
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
