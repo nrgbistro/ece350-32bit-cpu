@@ -29,6 +29,9 @@ Cycle  38: Wrote 28 into register 28
 Cycle  39: Wrote 29 into register 29
 Cycle  40: Wrote 30 into register 30
 Cycle  41: Wrote 31 into register 31
+Cycle  42: Wrote 31 into register 31
+Cycle  43: Wrote 31 into register 31
+Cycle  44: Wrote 31 into register 31
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           1

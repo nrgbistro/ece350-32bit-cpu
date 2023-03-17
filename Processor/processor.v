@@ -64,15 +64,18 @@ module processor(
 	/* YOUR CODE STARTS HERE */
 
     wire [31:0] fetchPC, nextPC, PCPlusOne;
-    wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
+    wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW, interlockStall;
 
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
-    assign stallPC = multDivStall;
-    assign stallFD = multDivStall;
+    assign stallPC = multDivStall || interlockStall;
+    assign stallFD = multDivStall || interlockStall;
     assign stallDX = multDivStall;
     assign stallXM = multDivStall;
     assign stallMW = 1'b0;
+
+    // Interlock
+    Interlock interlock(interlockStall, decodeIR, executeIR, memoryIR);
 
     // Fetch
     ProgramCounter programCounter(fetchPC, nextPC, ~clock, stallPC, reset);
