@@ -50,6 +50,7 @@
 .\Processor\Wrapper.v 
 .\Processor\control\decodeControl.v 
 .\Processor\control\executeControl.v 
+.\Processor\control\memoryControl.v 
 .\Processor\control\multDivStall.v 
 .\Processor\control\writebackControl.v 
 .\Processor\instruction-converter\i_type.v 

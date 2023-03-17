@@ -92,7 +92,7 @@ module processor(
     DecodeControl decodeController(decodeInsType, decodeIR);
 
     mux_4_5 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, 5'b0);
-    mux_4_5 select_rt(rt, decodeInsType, decodeIR[16:12], 5'b0, 5'b0, 5'b0);
+    mux_4_5 select_rt(rt, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
 
     assign ctrl_readRegA = rs;
     assign ctrl_readRegB = rt;
@@ -118,13 +118,11 @@ module processor(
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
+    wire [1:0] memoryInsType;
     ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, memoryIn, executeB, ~clock, stallXM, reset);
-    // MemoryControl memoryController();
+    MemoryControl memoryController(memoryInsType, wren, memoryIR);
     assign address_dmem = memoryO;
     assign data = memoryB;
-
-    // TEMP
-    assign wren = 1'b0;
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
