@@ -44,11 +44,13 @@
 .\Mux\mux_4_5.v 
 .\Mux\mux_8.v 
 .\Processor\processor.v 
+.\Processor\pulse.v 
 .\Processor\RAM.v 
 .\Processor\ROM.v 
 .\Processor\Wrapper.v 
 .\Processor\control\decodeControl.v 
 .\Processor\control\executeControl.v 
+.\Processor\control\multDivStall.v 
 .\Processor\control\writebackControl.v 
 .\Processor\instruction-converter\i_type.v 
 .\Processor\instruction-converter\j1_type.v 

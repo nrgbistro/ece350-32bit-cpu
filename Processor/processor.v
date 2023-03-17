@@ -64,10 +64,18 @@ module processor(
 	/* YOUR CODE STARTS HERE */
 
     wire [31:0] fetchPC, nextPC, PCPlusOne;
-    wire overflow1;
+    wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
+
+    // Stall
+    MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
+    assign stallPC = multDivStall;
+    assign stallFD = multDivStall;
+    assign stallDX = multDivStall;
+    assign stallXM = multDivStall;
+    assign stallMW = 1'b0;
 
     // Fetch
-    ProgramCounter programCounter(fetchPC, nextPC, ~clock, reset);
+    ProgramCounter programCounter(fetchPC, nextPC, ~clock, stallPC, reset);
     adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
 
     assign address_imem = fetchPC;
@@ -80,7 +88,7 @@ module processor(
     wire [4:0] rs, rt;
     wire [1:0] decodeInsType;
 
-    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, reset);
+    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, stallFD, reset);
     DecodeControl decodeController(decodeInsType, decodeIR);
 
     mux_4_5 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, 5'b0);
@@ -94,17 +102,23 @@ module processor(
     wire [4:0] aluOpCode, shiftAmt;
     wire [1:0] executeInsType;
     wire aluBSelector, aluOverflow, aluNEQ, aluLT;
-    DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, reset);
-    ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, executeIR);
+    DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, stallDX, reset);
+    ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
 
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
     assign aluBInput = aluBSelector ? executeImmediate : executeB;
 
     alu mainALU(executeA, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
 
+    wire [31:0] memoryIn, multDivResult;
+    wire startMult, startDiv, multDivError, multDivDone;
+    multdiv mainMultDiv(executeA, executeB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
+
+    assign memoryIn = (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : aluOut;
+
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
-    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, aluOut, executeB, ~clock, reset);
+    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, memoryIn, executeB, ~clock, stallXM, reset);
     // MemoryControl memoryController();
     assign address_dmem = memoryO;
     assign data = memoryB;
@@ -118,7 +132,7 @@ module processor(
     wire [1:0] writebackInsType;
     wire writebackDataSelector;
 
-    MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, memoryIR, memoryO, q_dmem, ~clock, reset);
+    MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, memoryIR, memoryO, q_dmem, ~clock, stallMW, reset);
     WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
 
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], 5'b0, writebackIR[26:22]);

@@ -3,5 +3,5 @@ module alu_op(
     input [2:0] opcode,
     input [31:0] andData, orData, addData, subData, SLLData, SRAData);
 
-    mux_8 mux(out, opcode, addData, subData, andData, orData, SLLData, SRAData, 0, 0);
+    mux_8 mux(out, opcode, addData, subData, andData, orData, SLLData, SRAData, {32{1'bz}}, {32{1'bz}});
 endmodule

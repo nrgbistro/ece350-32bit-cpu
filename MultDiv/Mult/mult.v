@@ -14,8 +14,8 @@ module mult(
 
     // 1 when count == 00000
     assign count0 = ~count[0] & ~count[1] & ~count[2] & ~count[3] & ~count[4];
-    // 1 when count == 10000 (16 steps)
-    assign resultRDY = count[4];
+    // 1 when count == 10001 (16 steps)
+    assign resultRDY = count[4] & count[0];
 
     // Counts from 0 to 17
     counter_16 counter0(
@@ -48,7 +48,7 @@ module mult(
 
     adder_32 adder(adderResult, adderOverflow, productRegLeft, adderInputB, subCode);
 
-    multControl controller(productInputSelectWire, subCode, shiftMultiplicand, multOpCode, count0);
+    multControl controller(productInputSelectWire, subCode, shiftMultiplicand, count, multOpCode);
 
     // if (productInputSelectWire[1]) {product_in = initial product;}
     // if (productInputSelectWire[0]) {product_in = shifted product out;} else {product_in = adder result with multiplier;}

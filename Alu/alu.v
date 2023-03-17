@@ -4,8 +4,8 @@ module alu(
     output [31:0] data_result,
     output isNotEqual, isLessThan, overflow);
 
-    wire [31:0] andWire, orWire, addWire, SLWire, SRWire;
-    wire eq;
+    wire [31:0] andWire, orWire, addWire, SLWire, SRWire, multWire, divWire;
+    wire eq, multDone, divDone, startMult, startDiv;
 
     and_32 and_32(andWire, data_operandA, data_operandB);
     or_32 or_32(orWire, data_operandA, data_operandB);
