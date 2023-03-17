@@ -101,11 +101,13 @@ module processor(
     assign ctrl_readRegB = rt;
 
     // Execute
-    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut;
+    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn;
     wire [4:0] aluOpCode, shiftAmt;
     wire [1:0] executeInsType;
     wire aluBSelector, aluOverflow, aluNEQ, aluLT;
-    DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, decodeIR, data_readRegA, data_readRegB, decodePC, ~clock, stallDX, reset);
+
+    assign executeIRIn = interlockStall ? 32'b0 : decodeIR;
+    DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, executeIRIn, data_readRegA, data_readRegB, decodePC, ~clock, stallDX, reset);
     ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
 
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
