@@ -21,7 +21,7 @@ module Bypass(
 
     // ALU B
     assign ALU_B_bypass = (executeRS2 == memoryRD) ? 2'b00 :
-                          (executeRS2 == writebackRD) ? 2'b01 : 2'b10;;
+                          (executeRS2 == writebackRD) ? 2'b01 : 2'b10;
 
     // Dmem
     assign dmem_bypass = 1'b1;
