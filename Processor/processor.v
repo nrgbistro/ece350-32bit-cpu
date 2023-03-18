@@ -88,7 +88,7 @@ module processor(
 
 
     ProgramCounter programCounter(PC, nextPC, ~clock, stallPC, reset);
-    PCControl programCountController(nextPC, branch, PCPlusOne, executePC, executeT, executeA, executeImmediate, executeOpcode, aluNEQ, aluLT);
+    PCControl programCountController(nextPC, branch, PCPlusOne, executePC, executeT, aluAInput, executeImmediate, executeOpcode, aluNEQ, aluLT);
     adder_32 PCAdder(PCPlusOne, PCOverflow, PC, 32'd1, 1'b0);
 
     assign address_imem = PC;

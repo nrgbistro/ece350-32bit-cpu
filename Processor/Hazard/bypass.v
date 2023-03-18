@@ -8,7 +8,8 @@ module Bypass(
 
     // Change which registers are used for detection when the instruction is a branch
     assign altInstruction = executeOpcode == 5'b00010 ||
-                            executeOpcode == 5'b00110;
+                            executeOpcode == 5'b00110 ||
+                            executeOpcode == 5'b00100;
 
     assign executeRS1 = altInstruction ? executeIR[26:22] : executeIR[21:17];
     assign executeRS2 = altInstruction ? executeIR[21:17] : executeIR[16:12];
