@@ -63,7 +63,7 @@ module processor(
 
 	/* YOUR CODE STARTS HERE */
 
-    wire [31:0] fetchPC, nextPC, PCPlusOne;
+    wire [31:0] PC, nextPC, PCPlusOne;
     wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
     // Stall
@@ -84,20 +84,23 @@ module processor(
     Bypass bypass(ALU_A_bypass, ALU_B_bypass, dmem_bypass, executeIR, memoryIR, writebackIR);
 
     // Fetch
-    ProgramCounter programCounter(fetchPC, nextPC, ~clock, stallPC, reset);
-    adder_32 adderPC_1(PCPlusOne, overflow1, fetchPC, 32'd1, 1'b0);
+    wire [31:0] branchAddr;
+    wire branch;
 
-    assign address_imem = fetchPC;
+    assign branch = 1'b0;
+    assign branchAddr = {32{1'bz}};
 
-    // TEMP
-    assign nextPC = PCPlusOne;
+    ProgramCounter programCounter(PC, nextPC, ~clock, stallPC, reset);
+    PCControl programCountController(nextPC, PC, branchAddr, branch);
+
+    assign address_imem = PC;
 
     // Decode
     wire [31:0] decodeIR, decodePC;
     wire [4:0] rs, rt;
     wire [1:0] decodeInsType;
 
-    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, PCPlusOne, ~clock, stallFD, reset);
+    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, nextPC, ~clock, stallFD, reset);
     DecodeControl decodeController(decodeInsType, decodeIR);
 
     mux_4_5 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, 5'b0);
