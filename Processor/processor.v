@@ -134,7 +134,8 @@ module processor(
     wire startMult, startDiv, multDivError, multDivDone;
     multdiv mainMultDiv(aluAInput, aluB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
 
-    assign memoryIn = (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : aluOut;
+    // assign memoryIn = multdivResult, aluResult, or PC + 1 depending on instruction;
+    assign memoryIn = (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
@@ -146,14 +147,15 @@ module processor(
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
-    wire [4:0] rd;
+    wire [4:0] rd, j1WriteReg;
     wire [1:0] writebackInsType;
     wire writebackDataSelector;
 
     MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, memoryIR, memoryO, q_dmem, ~clock, stallMW, reset);
     WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
 
-    mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], 5'b0, writebackIR[26:22]);
+    assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
+    mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
     assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
     assign ctrl_writeReg = rd;
 
