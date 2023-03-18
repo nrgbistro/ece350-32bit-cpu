@@ -6,6 +6,7 @@ module Bypass(
     wire [4:0] executeRS1, executeRS2, memoryRD, writebackRD, executeOpcode, memoryOpcode, writebackOpcode;
     wire altInstruction;
 
+    // Change which registers are used for detection when the instruction is a branch
     assign altInstruction = executeOpcode == 5'b00010 ||
                             executeOpcode == 5'b00110;
 
