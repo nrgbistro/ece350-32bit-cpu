@@ -63,7 +63,6 @@ module processor(
 
 	/* YOUR CODE STARTS HERE */
 
-    wire [31:0] PC, nextPC, PCPlusOne;
     wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
     // Stall
@@ -84,38 +83,41 @@ module processor(
     Bypass bypass(ALU_A_bypass, ALU_B_bypass, dmem_bypass, executeIR, memoryIR, writebackIR);
 
     // Fetch
-    wire [31:0] branchAddr;
-    wire branch;
+    wire [31:0] PC, nextPC, PCPlusOne;
+    wire branch, PCOverflow;
 
-    assign branch = 1'b0;
-    assign branchAddr = {32{1'bz}};
 
     ProgramCounter programCounter(PC, nextPC, ~clock, stallPC, reset);
-    PCControl programCountController(nextPC, PC, branchAddr, branch);
+    PCControl programCountController(nextPC, branch, PCPlusOne, executePC, executeT, executeImmediate, executeOpcode, aluNEQ, aluLT);
+    adder_32 PCAdder(PCPlusOne, PCOverflow, PC, 32'd1, 1'b0);
 
     assign address_imem = PC;
 
     // Decode
-    wire [31:0] decodeIR, decodePC;
-    wire [4:0] rs, rt;
+    wire [31:0] decodeIR, decodePC, decodeIRIn;
+    wire [4:0] rs1, rs2;
     wire [1:0] decodeInsType;
 
-    FetchDecode fetchDecodeLatch(decodeIR, decodePC, q_imem, nextPC, ~clock, stallFD, reset);
+    assign decodeIRIn = branch ? 32'b0 : q_imem;
+    FetchDecode fetchDecodeLatch(decodeIR, decodePC, decodeIRIn, PCPlusOne, ~clock, stallFD, reset);
     DecodeControl decodeController(decodeInsType, decodeIR);
 
-    mux_4_5 select_rs(rs, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, 5'b0);
-    mux_4_5 select_rt(rt, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
+    mux_4_5 select_rs1(rs1, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, decodeIR[26:22]);
+    mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
 
-    assign ctrl_readRegA = rs;
-    assign ctrl_readRegB = rt;
+    assign ctrl_readRegA = rs1;
+    assign ctrl_readRegB = rs2;
 
     // Execute
-    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn;
-    wire [4:0] aluOpCode, shiftAmt;
+    wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn, executeT;
+    wire [4:0] aluOpCode, shiftAmt, executeOpcode;
     wire [1:0] executeInsType;
     wire aluBSelector, aluOverflow, aluNEQ, aluLT;
 
-    assign executeIRIn = interlockStall ? 32'b0 : decodeIR;
+    assign executeT[26:0] = executeIR[26:0];
+    assign executeT[31:27] = 5'b0;
+    assign executeOpcode = executeIR[31:27];
+    assign executeIRIn = interlockStall || branch ? 32'b0 : decodeIR;
     DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, executeIRIn, data_readRegA, data_readRegB, decodePC, ~clock, stallDX, reset);
     ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
 
