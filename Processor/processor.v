@@ -109,27 +109,27 @@ module processor(
     mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
 
     assign ctrl_readRegA = decodeIR[31:27] == 5'b10101 ? 5'b0 : decodeIR[31:27] == 5'b10110 ? 5'd30 : decodeIR[31:27] == 5'b00110 ? rs2 : rs1;
-    assign ctrl_readRegB = decodeIR[31:27] == 5'b10101 ? decodeT : decodeIR[31:27] == 5'b10110 ? 5'b0 : decodeIR[31:27] == 5'b00110 ? rs1 : rs2;
+    assign ctrl_readRegB = decodeIR[31:27] == 5'b10110 ? 5'b0 : decodeIR[31:27] == 5'b00110 ? rs1 : rs2;
 
     // Execute
     wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn, executeT;
     wire [4:0] aluOpCode, shiftAmt, executeOpcode;
     wire [1:0] executeInsType;
-    wire aluBSelector, aluOverflow, aluNEQ, aluLT;
+    wire aluBSelector0, aluBSelector1, aluOverflow, aluNEQ, aluLT;
 
     assign executeT[26:0] = executeIR[26:0];
     assign executeT[31:27] = 5'b0;
     assign executeOpcode = executeIR[31:27];
     assign executeIRIn = interlockStall || branch ? 32'b0 : decodeIR;
     DecodeExecute decodeExecuteLatch(executeIR, executeA, executeB, executePC, executeIRIn, data_readRegA, data_readRegB, decodePC, ~clock, stallDX, reset);
-    ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector, startMult, startDiv, executeIR, clock, multDivDone);
+    ExecuteControl executeController(executeInsType, aluOpCode, shiftAmt, aluBSelector0, aluBSelector1, startMult, startDiv, executeIR, clock, multDivDone);
 
     SignExtender_16 signExtenderExecuteImm(executeImmediate, executeIR[16:0]);
 
     wire [31:0] aluAInput, aluB;
     assign aluAInput = ALU_A_bypass[1] ? executeA : ALU_A_bypass[0] ? data_writeReg : memoryO;
     assign aluB = ALU_B_bypass[1] ? executeB : ALU_B_bypass[0] ? data_writeReg : memoryO;
-    assign aluBInput = aluBSelector ? executeImmediate : aluB;
+    assign aluBInput = aluBSelector1 ? executeT : aluBSelector0 ? executeImmediate : aluB;
 
     alu mainALU(aluAInput, aluBInput, aluOpCode, shiftAmt, aluOut, aluNEQ, aluLT, aluOverflow);
 
