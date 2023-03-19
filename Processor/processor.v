@@ -102,8 +102,8 @@ module processor(
     FetchDecode fetchDecodeLatch(decodeIR, decodePC, decodeIRIn, PCPlusOne, ~clock, stallFD, reset);
     DecodeControl decodeController(decodeInsType, decodeIR);
 
-    mux_4_5 select_rs1(rs1, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, decodeIR[26:22]);
-    mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
+    mux_4_5 select_rs1(rs1, decodeInsType, decodeIR[21:17], decodeIR[31:27] == 5'b00110 ? decodeIR[26:22] : decodeIR[21:17], 5'b0, decodeIR[26:22]);
+    mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[31:27] == 5'b00110 ? decodeIR[21:17] : decodeIR[26:22], 5'b0, 5'b0);
 
     assign ctrl_readRegA = rs1;
     assign ctrl_readRegB = rs2;
