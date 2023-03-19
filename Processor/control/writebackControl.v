@@ -11,6 +11,7 @@ module WritebackControl(
     assign op = ins[31:27];
     assign dataSelector = op == 5'b01000;
     assign writeEnable = op == 5'b00000 || op == 5'b00101 ||
-                         op == 5'b01000 || op == 5'b00011;
+                         op == 5'b01000 || op == 5'b00011 ||
+                         op == 5'b10101;
 
 endmodule
