@@ -25,12 +25,12 @@ module Bypass(
     // 2'b1x: No bypass
 
     // ALU A
-    assign ALU_A_bypass = (executeRS1 == memoryRD && executeOpcode != 5'b00111) ? 2'b00 :
-                          (executeRS1 == writebackRD && executeOpcode != 5'b00111) ? 2'b01 : 2'b10;
+    assign ALU_A_bypass = (memoryRD != 5'b0 && executeRS1 == memoryRD && executeOpcode != 5'b00111) ? 2'b00 :
+                          (writebackRD != 5'b0 && executeRS1 == writebackRD && executeOpcode != 5'b00111) ? 2'b01 : 2'b10;
 
     // ALU B
-    assign ALU_B_bypass = (executeRS2 == memoryRD) ? 2'b00 :
-                          (executeRS2 == writebackRD) ? 2'b01 : 2'b10;
+    assign ALU_B_bypass = (memoryRD != 5'b0 && executeRS2 == memoryRD) ? 2'b00 :
+                          (writebackRD != 5'b0 && executeRS2 == writebackRD) ? 2'b01 : 2'b10;
 
     // Dmem
     assign dmem_bypass = memoryRD == writebackRD;
