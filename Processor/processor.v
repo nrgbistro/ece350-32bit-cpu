@@ -71,7 +71,7 @@ module processor(
     assign stallFD = multDivStall || interlockStall;
     assign stallDX = multDivStall;
     assign stallXM = multDivStall;
-    assign stallMW = 1'b0;
+    assign stallMW = multDivStall;
 
     // Interlock
     wire interlockStall;
