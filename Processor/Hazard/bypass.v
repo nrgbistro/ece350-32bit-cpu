@@ -25,7 +25,7 @@ module Bypass(
     // 2'b1x: No bypass
 
     // ALU A
-    assign ALU_A_bypass = (executeRS1 != 5'b0 && ((executeRS1 == writebackRD && writebackOpcode != 5'b00111) || (executeOpcode == 5'b00111 && executeRD == writebackRD))) ? 2'b01 :
+    assign ALU_A_bypass = (executeRS1 != 5'b0 && ((executeRS1 == writebackRD && writebackOpcode != 5'b00111 && executeOpcode != writebackOpcode) || (executeOpcode == 5'b00111 && executeRD == writebackRD))) ? 2'b01 :
                           (executeRS1 != 5'b0 && ((executeRS1 == memoryRD) || (executeOpcode == 5'b00111 && executeRD == memoryRD))) ? 2'b00 : 2'b10;
 
     // ALU B
