@@ -15,7 +15,7 @@ module multdiv(
 
     assign data_result = latchDiv ? div_result : mult_result;
     assign data_resultRDY = latchDiv ? divReady : latchMult ? multReady : 1'b0;
-    assign data_exception = latchDiv ? divError : multOverflow;
+    assign data_exception = latchDiv && ctrl_DIV ? divError : multOverflow;
 
     Pulse pulseMult(pulseMultWire, clock, ctrl_MULT, data_resultRDY);
     Pulse pulseDiv(pulseDivWire, clock, ctrl_DIV, data_resultRDY);

@@ -137,11 +137,7 @@ module processor(
     wire startMult, startDiv, multDivError, multDivDone;
     multdiv mainMultDiv(aluAInput, aluB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
 
-    // assign memoryIn = multdivResult, aluResult, PC + 1, or error code depending on instruction;
-    assign memoryIn = memoryErrorIn ? exceptionData : (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
 
-    wire [31:0] exceptionData;
-    Exception exceptionLogic(exceptionData, executeIR, memoryErrorIn);
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
@@ -152,6 +148,12 @@ module processor(
     assign address_dmem = memoryO;
     assign data = dmem_bypass ? data_writeReg : memoryB;
     assign memoryErrorIn = (multDivError && multDivDone) | aluOverflow;
+
+    // assign memoryIn = multdivResult, aluResult, PC + 1, or error code depending on instruction;
+    assign memoryIn = memoryErrorIn ? exceptionData : (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
+
+    wire [31:0] exceptionData;
+    Exception exceptionLogic(exceptionData, executeIR, memoryErrorIn);
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
