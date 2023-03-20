@@ -151,7 +151,7 @@ module processor(
     MemoryControl memoryController(memoryInsType, wren, memoryIR);
     assign address_dmem = memoryO;
     assign data = dmem_bypass ? data_writeReg : memoryB;
-    assign memoryErrorIn = multDivError | aluOverflow;
+    assign memoryErrorIn = (multDivError && multDivDone) | aluOverflow;
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
