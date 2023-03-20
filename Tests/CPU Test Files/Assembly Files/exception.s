@@ -10,3 +10,4 @@ addi $r2, $r0, 2        # r2 = 2
 addi $r3, $r0, 1        # r3 = 1
 add $r5, $r1, $r3        # add ovfl --> rstatus = 1
 add $r4, $r2, $r30        # r4 = r2 + rstatus = 3    (X->D)
+add $r10, $r30, $r2

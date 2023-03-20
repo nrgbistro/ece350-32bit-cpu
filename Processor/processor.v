@@ -80,7 +80,7 @@ module processor(
     // Bypassing
     wire [1:0] ALU_A_bypass, ALU_B_bypass;
     wire dmem_bypass;
-    Bypass bypass(ALU_A_bypass, ALU_B_bypass, dmem_bypass, executeIR, memoryIR, writebackIR);
+    Bypass bypass(ALU_A_bypass, ALU_B_bypass, dmem_bypass, executeIR, memoryIR, writebackIR, memoryErrorOut, writebackErrorOut);
 
     // Fetch
     wire [31:0] PC, nextPC, PCPlusOne;
@@ -137,30 +137,37 @@ module processor(
     wire startMult, startDiv, multDivError, multDivDone;
     multdiv mainMultDiv(aluAInput, aluB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
 
-    // assign memoryIn = multdivResult, aluResult, or PC + 1 depending on instruction;
-    assign memoryIn = (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
+    // assign memoryIn = multdivResult, aluResult, PC + 1, or error code depending on instruction;
+    assign memoryIn = memoryErrorIn ? exceptionData : (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
+
+    wire [31:0] exceptionData;
+    Exception exceptionLogic(exceptionData, executeIR, memoryErrorIn);
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;
+    wire memoryErrorIn, memoryErrorOut;
     wire [1:0] memoryInsType;
-    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, executeIR, memoryIn, executeB, ~clock, stallXM, reset);
+    ExecuteMemory executeMemoryLatch(memoryIR, memoryO, memoryB, memoryErrorOut, executeIR, memoryIn, executeB, memoryErrorIn, ~clock, stallXM, reset);
     MemoryControl memoryController(memoryInsType, wren, memoryIR);
     assign address_dmem = memoryO;
     assign data = dmem_bypass ? data_writeReg : memoryB;
+    assign memoryErrorIn = multDivError | aluOverflow;
 
     // Writeback
     wire [31:0] writebackIR, writebackO, writebackD, writebackData;
     wire [4:0] rd, j1WriteReg;
     wire [1:0] writebackInsType;
-    wire writebackDataSelector;
+    wire writebackDataSelector, writebackErrorOut;
 
-    MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, memoryIR, memoryO, q_dmem, ~clock, stallMW, reset);
+    MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, writebackErrorOut, memoryIR, memoryO, q_dmem, memoryErrorOut, ~clock, stallMW, reset);
     WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
+
+
 
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
     assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = rd;
+    assign ctrl_writeReg = writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 

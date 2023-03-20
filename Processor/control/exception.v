@@ -1,5 +1,4 @@
 module Exception(
-    output exception,
     output [31:0] exceptionData,
     input [31:0] ins,
     input error);

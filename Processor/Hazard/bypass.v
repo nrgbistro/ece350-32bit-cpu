@@ -1,7 +1,8 @@
 module Bypass(
     output [1:0] ALU_A_bypass, ALU_B_bypass,
     output dmem_bypass,
-    input [31:0] executeIR, memoryIR, writebackIR);
+    input [31:0] executeIR, memoryIR, writebackIR,
+    input memoryException, writebackException);
 
     wire [4:0] executeRD, executeRS1, executeRS2, memoryRD, writebackRD, executeOpcode, memoryOpcode, writebackOpcode;
     wire altInstruction;
@@ -13,11 +14,11 @@ module Bypass(
     assign executeRD = executeIR[26:22];
     assign executeRS1 = altInstruction ? executeIR[26:22] : executeIR[21:17];
     assign executeRS2 = altInstruction ? executeIR[21:17] : executeIR[16:12];
-    assign memoryRD = memoryIR[26:22];
-    assign writebackRD = writebackIR[26:22];
+    assign memoryRD = memoryException ? 5'd30 : memoryIR[26:22];
+    assign writebackRD = writebackException ? 5'd30 : writebackIR[26:22];
     assign executeOpcode = executeIR[31:27];
     assign memoryOpcode = memoryIR[31:27];
-    assign writebackOpcode = writebackIR[31:27];
+    assign writebackOpcode = writebackException ? 5'b11111 : writebackIR[31:27];
 
     // ALU Codes:
     // 2'b00: Bypass from memory O
