@@ -164,8 +164,6 @@ module processor(
     MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, writebackErrorOut, memoryIR, memoryO, q_dmem, memoryErrorOut, ~clock, stallMW, reset);
     WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
 
-
-
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
     assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
