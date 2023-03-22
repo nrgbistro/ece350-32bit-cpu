@@ -3,111 +3,111 @@ nop             # Author: Jack Proudfoot
 nop
 nop
 init:
-addi $sp, $zero, 256        # $sp = 256
+addi $29, $zero, 256        # $29 = 256
 addi $27, $zero, 3840       # $27 = 3840 address for bottom of heap
-addi $t0, $zero, 50
-addi $t1, $zero, 3
-sw $t1, 0($t0)
-addi $t1, $zero, 1
-sw $t1, 1($t0)
-addi $t1, $zero, 4
-sw $t1, 2($t0)
-addi $t1, $zero, 2
-sw $t1, 3($t0)
-add $a0, $zero, $t0
+addi $8, $zero, 50
+addi $9, $zero, 3
+sw $9, 0($8)
+addi $9, $zero, 1
+sw $9, 1($8)
+addi $9, $zero, 4
+sw $9, 2($8)
+addi $9, $zero, 2
+sw $9, 3($8)
+add $4, $zero, $8
 j main
-malloc:                     # $a0 = number of words to allocate
-sub $27, $27, $a0           # allocate $a0 words of memory
-blt $sp, $27, mallocep      # check for heap overflow
+malloc:                     # $4 = number of words to allocate
+sub $27, $27, $4           # allocate $4 words of memory
+blt $29, $27, mallocep      # check for heap overflow
 mallocep:
-add $v0, $27, $zero
-jr $ra
-buildlist:                  # $a0 = memory address of input data
-sw $ra, 0($sp)
-addi $sp, $sp, 1
-add $t0, $a0, $zero         # index of input data
-add $t1, $zero, $zero       # current list pointer
-addi $a0, $zero, 0
+add $2, $27, $zero
+jr $31
+buildlist:                  # $4 = memory address of input data
+sw $31, 0($29)
+addi $29, $29, 1
+add $8, $4, $zero         # index of input data
+add $9, $zero, $zero       # current list pointer
+addi $4, $zero, 0
 jal malloc
-addi $t3, $v0, -3           # list head pointer
-lw $t2, 0($t0)              # load first data value
+addi $11, $2, -3           # list head pointer
+lw $10, 0($8)              # load first data value
 j blguard
 blstart:
-addi $a0, $zero, 3
+addi $4, $zero, 3
 jal malloc
-sw $t2, 0($v0)              # set new[0] = data
-sw $t1, 1($v0)              # set new[1] = prev
-sw $zero, 2($v0)            # set new[2] = next
-sw $v0, 2($t1)              # set curr.next = new
-addi $t0, $t0, 1            # increment input data index
-lw $t2, 0($t0)              # load next input data value
-add $t1, $zero, $v0         # set curr = new
+sw $10, 0($2)              # set new[0] = data
+sw $9, 1($2)              # set new[1] = prev
+sw $zero, 2($2)            # set new[2] = next
+sw $2, 2($9)              # set curr.next = new
+addi $8, $8, 1            # increment input data index
+lw $10, 0($8)              # load next input data value
+add $9, $zero, $2         # set curr = new
 blguard:
-bne $t2, $zero, blstart
-add $v0, $t3, $zero         # set $v0 = list head
-addi $sp, $sp, -1
-lw $ra, 0($sp)
-jr $ra
-sort:                       # $a0 = head of list
-sw $ra, 0($sp)
-addi $sp, $sp, 1
+bne $10, $zero, blstart
+add $2, $11, $zero         # set $2 = list head
+addi $29, $29, -1
+lw $31, 0($29)
+jr $31
+sort:                       # $4 = head of list
+sw $31, 0($29)
+addi $29, $29, 1
 sortrecur:
-addi $t7, $zero, 0          # $t7 = 0
-add $t0, $a0, $zero         # $t0 = head
-add $t1, $t0, $zero         # $t1 = current
+addi $15, $zero, 0          # $15 = 0
+add $8, $4, $zero         # $8 = head
+add $9, $8, $zero         # $9 = current
 j siguard
 sortiter:
-lw $t2, 0($t1)              # $t2 = current.data
-lw $t3, 0($t6)              # $t3 = current.next.data
-blt $t2, $t3, sinext
-addi $t7, $zero, 1          # $t7 = 1
-lw $t4, 1($t1)              # $t4 = current.prev
-bne $t4, $zero, supprev
+lw $10, 0($9)              # $10 = current.data
+lw $11, 0($14)              # $11 = current.next.data
+blt $10, $11, sinext
+addi $15, $zero, 1          # $15 = 1
+lw $12, 1($9)              # $12 = current.prev
+bne $12, $zero, supprev
 j supprevd
 supprev:
-sw $t6, 2($t4)              # current.prev.next = current.next
+sw $14, 2($12)              # current.prev.next = current.next
 supprevd:
-sw $t4, 1($t6)              # current.next.prev = current.prev
-lw $t5, 2($t6)              # $t5 = current.next.next
-bne $t5, $zero, supnnprev
+sw $12, 1($14)              # current.next.prev = current.prev
+lw $13, 2($14)              # $13 = current.next.next
+bne $13, $zero, supnnprev
 j supnnprevd
 supnnprev:
-sw $t1, 1($t5)              # current.next.next.prev = current
+sw $9, 1($13)              # current.next.next.prev = current
 supnnprevd:
-sw $t5, 2($t1)              # current.next = current.next.next
-sw $t1, 2($t6)              # current.next.next = current
-sw $t6, 1($t1)              # current.prev = current.next
-bne $t0, $t1, sinext
-add $t0, $t6, $zero         # head = current.next
+sw $13, 2($9)              # current.next = current.next.next
+sw $9, 2($14)              # current.next.next = current
+sw $14, 1($9)              # current.prev = current.next
+bne $8, $9, sinext
+add $8, $14, $zero         # head = current.next
 sinext:
-add $t1, $t6, $zero         # $t1 = current.next
+add $9, $14, $zero         # $9 = current.next
 siguard:
-lw $t6, 2($t1)              # $t6 = current.next
-bne $t6, $zero, sortiter
-add $a0, $t0, $zero
-bne $t7, $zero, sortrecur
-add $v0, $t0, $zero         # $v0 = head
-addi $sp, $sp, -1
-lw $ra, 0($sp)
-jr $ra
+lw $14, 2($9)              # $14 = current.next
+bne $14, $zero, sortiter
+add $4, $8, $zero
+bne $15, $zero, sortrecur
+add $2, $8, $zero         # $2 = head
+addi $29, $29, -1
+lw $31, 0($29)
+jr $31
 main:
 jal buildlist
-add $t0, $v0, $zero         # $t0 = head of list
-add $a0, $t0, $zero         # $a0 = head of list
+add $8, $2, $zero         # $8 = head of list
+add $4, $8, $zero         # $4 = head of list
 jal sort
-add $t0, $v0, $zero         # $t0 = head of sorted list
-add $t5, $zero, $zero
-add $t6, $zero, $zero
-add $t1, $t0, $zero
+add $8, $2, $zero         # $8 = head of sorted list
+add $13, $zero, $zero
+add $14, $zero, $zero
+add $9, $8, $zero
 j procguard
 proclist:
-lw $t2, 0($t1)
-add $t5, $t5, $t2
-sll $t6, $t6, 3
-add $t6, $t6, $t5
-lw $t1, 2($t1)
+lw $10, 0($9)
+add $13, $13, $10
+sll $14, $14, 3
+add $14, $14, $13
+lw $9, 2($9)
 procguard:
-bne $t1, $zero, proclist
+bne $9, $zero, proclist
 stop:
 nop
 nop
