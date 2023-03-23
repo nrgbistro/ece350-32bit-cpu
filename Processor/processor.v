@@ -86,7 +86,6 @@ module processor(
     wire [31:0] PC, nextPC, PCPlusOne;
     wire branch, PCOverflow;
 
-
     ProgramCounter programCounter(PC, nextPC, ~clock, stallPC, reset);
     PCControl programCountController(nextPC, branch, PCPlusOne, executePC, executeT, aluAInput, executeImmediate, executeOpcode, aluNEQ, aluLT);
     adder_32 PCAdder(PCPlusOne, PCOverflow, PC, 32'd1, 1'b0);
@@ -108,8 +107,8 @@ module processor(
     mux_4_5 select_rs1(rs1, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, decodeIR[26:22]);
     mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
 
-    assign ctrl_readRegA = decodeIR[31:27] == 5'b10101 ? 5'b0 : decodeIR[31:27] == 5'b10110 ? 5'd30 : decodeIR[31:27] == 5'b00110 ? rs2 : rs1;
-    assign ctrl_readRegB = decodeIR[31:27] == 5'b10110 ? 5'b0 : decodeIR[31:27] == 5'b00110 ? rs1 : rs2;
+    assign ctrl_readRegA = decodeIR[31:27] == 5'b10101 ? 5'b0 : decodeIR[31:27] == 5'b10110 ? 5'd30 : decodeIR[31:27] == 5'b00110 || decodeIR[31:27] == 5'b00010 ? rs2 : rs1;
+    assign ctrl_readRegB = decodeIR[31:27] == 5'b10110 ? 5'b0 : decodeIR[31:27] == 5'b00110 || decodeIR[31:27] == 5'b00010 ? rs1 : rs2;
 
     // Execute
     wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn, executeT;
