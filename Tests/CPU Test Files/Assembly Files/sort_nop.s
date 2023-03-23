@@ -39,12 +39,10 @@ addi $8, $8, 1            # increment input data index
 lw $10, 0($8)              # load next input data value
 add $9, $zero, $2         # set curr = new
 blguard:
-nop
 bne $10, $zero, blstart
 add $2, $11, $zero         # set $2 = list head
 addi $29, $29, -1
 lw $31, 0($29)
-nop
 jr $31
 sort:                       # $4 = head of list
 sw $31, 0($29)
@@ -84,15 +82,12 @@ sinext:
 add $9, $14, $zero         # $9 = current.next
 siguard:
 lw $14, 2($9)              # $14 = current.next
-nop
-nop
 bne $14, $zero, sortiter
 add $4, $8, $zero
 bne $15, $zero, sortrecur
 add $2, $8, $zero         # $2 = head
 addi $29, $29, -1
 lw $31, 0($29)
-nop
 jr $31
 main:
 jal buildlist
