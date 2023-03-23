@@ -5,16 +5,10 @@ addi $t0, $zero, 50
 addi $t1, $zero, 3
 sw $t1, 0($t0)
 addi $t1, $zero, 1
-nop
-nop
 sw $t1, 1($t0)
 addi $t1, $zero, 4
-nop
-nop
 sw $t1, 2($t0)
 addi $t1, $zero, 2
-nop
-nop
 sw $t1, 3($t0)
 add $a0, $zero, $t0
 j main
@@ -116,11 +110,15 @@ add $t5, $t5, $t2
 sll $t6, $t6, 3
 add $t6, $t6, $t5
 lw $t1, 2($t1)
-nop
-nop
+# nop
+# nop
 procguard:
 bne $t1, $zero, proclist
-stop:
+stop:  # The following nops are not required;
+       # they are there to make it easier to see the end of the program in GTKwave
+nop
+nop
+nop
 nop
 nop
 nop
