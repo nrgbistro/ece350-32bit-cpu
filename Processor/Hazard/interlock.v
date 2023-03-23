@@ -16,6 +16,7 @@ module Interlock(
     assign executeOpcode = executeIR[31:27];
 
     assign stall = ((executeOpcode == 5'b01000) && (decodeRS1 == executeRD || ((decodeRS2 == executeRD) && decodeOpcode != 5'b00111))) ||
-                    ((decodeOpcode == 5'b00100 && executeOpcode == 5'b01000) && (decodeRS1 == executeRD));
+                    ((decodeOpcode == 5'b00100 && executeOpcode == 5'b01000) && (decodeRS1 == executeRD)) ||
+                    ((decodeOpcode == 5'b00111 && executeOpcode == 5'b00111) && (decodeRS1 == executeRD));
 
 endmodule

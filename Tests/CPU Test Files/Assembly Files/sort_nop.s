@@ -63,7 +63,7 @@ j supprevd
 supprev:
 sw $14, 2($12)              # current.prev.next = current.next
 supprevd:
-nop
+# nop
 sw $12, 1($14)              # current.next.prev = current.prev
 lw $13, 2($14)              # $13 = current.next.next
 bne $13, $zero, supnnprev
@@ -71,10 +71,10 @@ j supnnprevd
 supnnprev:
 sw $9, 1($13)              # current.next.next.prev = current
 supnnprevd:
-nop
+# nop
 sw $13, 2($9)              # current.next = current.next.next
 sw $9, 2($14)              # current.next.next = current
-nop
+# nop
 sw $14, 1($9)              # current.prev = current.next
 bne $8, $9, sinext
 add $8, $14, $zero         # head = current.next
