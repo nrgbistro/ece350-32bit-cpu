@@ -75,7 +75,7 @@ module processor(
 
     // Interlock
     wire interlockStall;
-    Interlock interlock(interlockStall, decodeIR, executeIR, memoryIR);
+    Interlock interlock(interlockStall, decodeIR, executeIR);
 
     // Bypassing
     wire [1:0] ALU_A_bypass, ALU_B_bypass;
@@ -136,8 +136,6 @@ module processor(
     wire [31:0] memoryIn, multDivResult;
     wire startMult, startDiv, multDivError, multDivDone;
     multdiv mainMultDiv(aluAInput, aluB, startMult, startDiv, clock, multDivResult, multDivError, multDivDone);
-
-
 
     // Memory
     wire [31:0] memoryIR, memoryO, memoryB;

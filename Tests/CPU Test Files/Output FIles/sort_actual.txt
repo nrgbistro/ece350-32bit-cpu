@@ -28,14 +28,14 @@ Cycle  73: Wrote 32 into register 31
 Cycle  76: Wrote 3834 into register 27
 Cycle  80: Wrote 3834 into register 2
 Cycle  88: Wrote 52 into register 8
-Cycle  89: Wrote 0 into register 10
+Cycle  89: Wrote 4 into register 10
 Cycle  90: Wrote 3834 into register 9
 Cycle  94: Wrote 3 into register 4
 Cycle  95: Wrote 32 into register 31
 Cycle  98: Wrote 3831 into register 27
 Cycle 102: Wrote 3831 into register 2
 Cycle 110: Wrote 53 into register 8
-Cycle 111: Wrote 4 into register 10
+Cycle 111: Wrote 2 into register 10
 Cycle 112: Wrote 3831 into register 9
 Cycle 116: Wrote 3 into register 4
 Cycle 117: Wrote 32 into register 31
