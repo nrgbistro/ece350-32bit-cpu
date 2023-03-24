@@ -5,6 +5,7 @@ module Bypass(
     input memoryException, writebackException);
 
     wire [4:0] executeRD, executeRS1, executeRS2, memoryRD, writebackRD, executeOpcode, memoryOpcode, writebackOpcode;
+    wire [1:0] memoryInsType;
     wire altInstruction;
 
     // Change which registers are used for detection when the instruction is a branch
@@ -19,6 +20,7 @@ module Bypass(
     assign executeOpcode = executeIR[31:27];
     assign memoryOpcode = memoryIR[31:27];
     assign writebackOpcode = writebackIR[31:27];
+    TypeDetector typeDetector(memoryInsType, memoryIR);
 
     // ALU Codes:
     // 2'b00: Bypass from memory O
@@ -27,7 +29,7 @@ module Bypass(
 
     // ALU A
     assign ALU_A_bypass = (executeRS1 != 5'b0 && (executeRS1 == writebackRD && executeRS1 != memoryRD && writebackOpcode != 5'b00111)) || (executeRD != 5'b0 && (writebackOpcode != 5'b00111 && executeOpcode == 5'b00111 && executeRD == writebackRD)) ? 2'b01 :
-                          (executeRS1 != 5'b0 && (executeRS1 == memoryRD)) || (executeRD != 5'b0 && (writebackOpcode != 5'b00111 && executeOpcode == 5'b00111 && executeRD == memoryRD && memoryOpcode != 5'b01000)) ? 2'b00 : 2'b10;
+                          (executeRS1 != 5'b0 && (executeRS1 == memoryRD)) || (executeRD != 5'b0 && (writebackOpcode != 5'b00111 && executeOpcode == 5'b00111 && executeRD == memoryRD && memoryInsType != 2'b01)) ? 2'b00 : 2'b10;
 
     // ALU B
     assign ALU_B_bypass = (executeRS2 != 5'b0 && executeRS2 == writebackRD) ? 2'b01 :

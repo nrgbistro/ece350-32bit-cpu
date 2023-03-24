@@ -1,1 +1,0 @@
-Reg:  4 Expected:          12 Actual:           0
