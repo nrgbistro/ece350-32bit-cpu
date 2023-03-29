@@ -1,4 +1,4 @@
 *.out
 *.vcd
-**/deps.f
+deps.f
 vivado/vivado.cache/**/*
