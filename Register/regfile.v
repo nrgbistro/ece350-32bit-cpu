@@ -2,15 +2,16 @@ module regfile (
 	clock,
 	ctrl_writeEnable, ctrl_reset, ctrl_writeReg,
 	ctrl_readRegA, ctrl_readRegB, data_writeReg,
-	data_readRegA, data_readRegB);
+	data_readRegA, data_readRegB, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9);
 
 	input clock, ctrl_writeEnable, ctrl_reset;
 	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
 	input [31:0] data_writeReg;
 	output [31:0] data_readRegA, data_readRegB;
+    output [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
 
     // 32bit register selection bus for each 1bit register
-    wire [31:0][31:0] regOut;
+    wire [31:0] regOut[31:0];
     wire [31:0] triStateSelectA, triStateSelectB, selectWriteRegDecoded;
 
     decoder_32 decoderA(triStateSelectA, 1'b1, ctrl_readRegA);

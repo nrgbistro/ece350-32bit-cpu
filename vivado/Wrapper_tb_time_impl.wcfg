@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Wrapper_tb_time_impl.wdb" id="1">
+         <top_modules>
+            <top_module name="Wrapper_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="57501fs"></ZoomEndTime>
+      <Cursor1Time time="17200fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="36" />
+   <wvobject fp_name="/Wrapper_tb/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rwe" type="logic">
+      <obj_property name="ElementShortName">rwe</obj_property>
+      <obj_property name="ObjectShortName">rwe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/mwe" type="logic">
+      <obj_property name="ElementShortName">mwe</obj_property>
+      <obj_property name="ObjectShortName">mwe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rd" type="array">
+      <obj_property name="ElementShortName">rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rs1" type="array">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/instAddr" type="array">
+      <obj_property name="ElementShortName">instAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/instData" type="array">
+      <obj_property name="ElementShortName">instData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rData" type="array">
+      <obj_property name="ElementShortName">rData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/regA" type="array">
+      <obj_property name="ElementShortName">regA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/regB" type="array">
+      <obj_property name="ElementShortName">regB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/memAddr" type="array">
+      <obj_property name="ElementShortName">memAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/memDataIn" type="array">
+      <obj_property name="ElementShortName">memDataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memDataIn[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/memDataOut" type="array">
+      <obj_property name="ElementShortName">memDataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memDataOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rs1_test" type="array">
+      <obj_property name="ElementShortName">rs1_test[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1_test[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/rs1_in" type="array">
+      <obj_property name="ElementShortName">rs1_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/testMode" type="logic">
+      <obj_property name="ElementShortName">testMode</obj_property>
+      <obj_property name="ObjectShortName">testMode</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/num_cycles" type="array">
+      <obj_property name="ElementShortName">num_cycles[13:0]</obj_property>
+      <obj_property name="ObjectShortName">num_cycles[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/exp_text" type="array">
+      <obj_property name="ElementShortName">exp_text[120:0]</obj_property>
+      <obj_property name="ObjectShortName">exp_text[120:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/null" type="logic">
+      <obj_property name="ElementShortName">null</obj_property>
+      <obj_property name="ObjectShortName">null</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/exp_result" type="array">
+      <obj_property name="ElementShortName">exp_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exp_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/expFile" type="array">
+      <obj_property name="ElementShortName">expFile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">expFile[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/diffFile" type="array">
+      <obj_property name="ElementShortName">diffFile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">diffFile[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/actFile" type="array">
+      <obj_property name="ElementShortName">actFile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">actFile[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/expScan" type="array">
+      <obj_property name="ElementShortName">expScan[31:0]</obj_property>
+      <obj_property name="ObjectShortName">expScan[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/verify" type="logic">
+      <obj_property name="ElementShortName">verify</obj_property>
+      <obj_property name="ObjectShortName">verify</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/errors" type="array">
+      <obj_property name="ElementShortName">errors[31:0]</obj_property>
+      <obj_property name="ObjectShortName">errors[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/cycles" type="array">
+      <obj_property name="ElementShortName">cycles[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cycles[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/reg_to_test" type="array">
+      <obj_property name="ElementShortName">reg_to_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_to_test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/FILE" type="array">
+      <obj_property name="ElementShortName">FILE[79:0]</obj_property>
+      <obj_property name="ObjectShortName">FILE[79:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/DIR" type="array">
+      <obj_property name="ElementShortName">DIR[119:0]</obj_property>
+      <obj_property name="ObjectShortName">DIR[119:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/MEM_DIR" type="array">
+      <obj_property name="ElementShortName">MEM_DIR[103:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_DIR[103:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/OUT_DIR" type="array">
+      <obj_property name="ElementShortName">OUT_DIR[103:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_DIR[103:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/VERIF_DIR" type="array">
+      <obj_property name="ElementShortName">VERIF_DIR[151:0]</obj_property>
+      <obj_property name="ObjectShortName">VERIF_DIR[151:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Wrapper_tb/DEFAULT_CYCLES" type="array">
+      <obj_property name="ElementShortName">DEFAULT_CYCLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEFAULT_CYCLES[31:0]</obj_property>
+   </wvobject>
+</wave_config>

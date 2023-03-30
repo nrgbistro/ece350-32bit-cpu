@@ -24,14 +24,21 @@
  *
  **/
 
-module Wrapper (clock, reset);
-	input clock, reset;
+module Wrapper (
+    output [6:0] SEG,
+    output [7:0] AN,
+    input [3:0] switch,
+    input clock, reset);
 
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData,
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
+
+	assign AN = 8'b11111110;
+
+	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch));
 
 
 	// ADD YOUR MEMORY FILE HERE
@@ -59,11 +66,12 @@ module Wrapper (clock, reset);
 		.dataOut(instData));
 
 	// Register File
-	regfile_ref RegisterFile(.clock(clock),
+	wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
+	regfile RegisterFile(.clock(clock),
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset),
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2),
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB));
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9));
 
 	// Processor Memory (RAM)
 	RAM ProcMem(.clk(clock),
