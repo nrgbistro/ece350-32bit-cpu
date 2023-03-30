@@ -70,8 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 6
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -122,7 +121,6 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/decoder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v
@@ -148,7 +146,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile_ref.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v
@@ -156,7 +154,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v
 }
@@ -169,6 +167,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc
+set_property used_in_implementation false [get_files C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

@@ -4,7 +4,6 @@ module WritebackControl(
     input [31:0] ins);
 
     wire [4:0] op;
-    wire [1:0] insType;
 
     TypeDetector typeDetector(insType, ins);
 

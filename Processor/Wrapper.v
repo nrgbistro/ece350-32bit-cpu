@@ -35,7 +35,7 @@ module Wrapper (clock, reset);
 
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic.mem";
+	localparam INSTR_FILE = "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic";
 
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset),
@@ -59,7 +59,7 @@ module Wrapper (clock, reset);
 		.dataOut(instData));
 
 	// Register File
-	regfile RegisterFile(.clock(clock),
+	regfile_ref RegisterFile(.clock(clock),
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset),
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2),

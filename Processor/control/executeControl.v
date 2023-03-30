@@ -5,8 +5,6 @@ module ExecuteControl(
     input [31:0] ins,
     input clock, multDivDone);
 
-    wire [1:0] insType;
-
     TypeDetector typeDetector(insType, ins);
 
     assign aluOpCode = insType == 2'b00 ? ins[6:2] : 5'b0;
