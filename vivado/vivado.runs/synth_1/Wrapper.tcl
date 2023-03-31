@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -86,7 +88,10 @@ set_property ip_output_repo c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/v
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_mem {{C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic.mem}}
+read_mem {
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
+}
 read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v
@@ -129,6 +134,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/halfClock.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v

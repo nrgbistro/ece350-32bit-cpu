@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1680195904">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1680277960">
   <File Type="PA-TCL" Name="Wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="Wrapper.vds"/>
   <File Type="RDS-UTIL" Name="Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../Processor/Latches/DX.v">
@@ -295,6 +298,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../Processor/halfClock.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../Processor/Hazard/interlock.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -513,6 +523,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/addi_basic.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/loop.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

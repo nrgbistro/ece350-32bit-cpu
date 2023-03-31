@@ -1,16 +1,83 @@
 Vivado Simulator 2020.1
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 36a3f0aa19944c66b06327b57afad083 --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot Wrapper_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.Wrapper xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 36a3f0aa19944c66b06327b57afad083 --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot Wrapper_tb_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.Wrapper_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
-INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "Wrapper_time_impl.sdf", for root module "Wrapper".
-INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "Wrapper_time_impl.sdf", for root module "Wrapper".
 Time Resolution for simulation is 1ps
-Compiling module simprims_ver.OBUF
-Compiling module xil_defaultlib.Wrapper
+Compiling module xil_defaultlib.TypeDetector
+Compiling module xil_defaultlib.MultDivStall
+Compiling module xil_defaultlib.Interlock
+Compiling module xil_defaultlib.Bypass
+Compiling module xil_defaultlib.dffe_ref
+Compiling module xil_defaultlib.register_32_default
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.not_32
+Compiling module xil_defaultlib.mux_2
+Compiling module xil_defaultlib.full_adder
+Compiling module xil_defaultlib.cla_8
+Compiling module xil_defaultlib.adder_8_default
+Compiling module xil_defaultlib.cla_32
+Compiling module xil_defaultlib.adder_32
+Compiling module xil_defaultlib.PCControl
+Compiling module xil_defaultlib.FetchDecode
+Compiling module xil_defaultlib.DecodeControl
+Compiling module xil_defaultlib.mux_2_5
+Compiling module xil_defaultlib.mux_4_5
+Compiling module xil_defaultlib.DecodeExecute
+Compiling module xil_defaultlib.ExecuteControl
+Compiling module xil_defaultlib.SignExtender_16
+Compiling module xil_defaultlib.and_32
+Compiling module xil_defaultlib.or_32
+Compiling module xil_defaultlib.comparator_2
+Compiling module xil_defaultlib.comparator_8
+Compiling module xil_defaultlib.mux_2_1
+Compiling module xil_defaultlib.comparator_32
+Compiling module xil_defaultlib.shift_left_16
+Compiling module xil_defaultlib.shift_left_8
+Compiling module xil_defaultlib.shift_left_4
+Compiling module xil_defaultlib.shift_left_2
+Compiling module xil_defaultlib.shift_left_1
+Compiling module xil_defaultlib.shift_left
+Compiling module xil_defaultlib.shift_right_16
+Compiling module xil_defaultlib.shift_right_8
+Compiling module xil_defaultlib.shift_right_4
+Compiling module xil_defaultlib.shift_right_2
+Compiling module xil_defaultlib.shift_right_1
+Compiling module xil_defaultlib.shift_right
+Compiling module xil_defaultlib.mux_4
+Compiling module xil_defaultlib.mux_8
+Compiling module xil_defaultlib.alu_op
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Pulse
+Compiling module xil_defaultlib.resetDetection
+Compiling module xil_defaultlib.t_flip_flop
+Compiling module xil_defaultlib.counter_16
+Compiling module xil_defaultlib.register_65_default
+Compiling module xil_defaultlib.checkBits_32
+Compiling module xil_defaultlib.specialCaseChecker
+Compiling module xil_defaultlib.multControl
+Compiling module xil_defaultlib.mux_2_65
+Compiling module xil_defaultlib.mux_4_65
+Compiling module xil_defaultlib.mult
+Compiling module xil_defaultlib.counter_32
+Compiling module xil_defaultlib.divControl
+Compiling module xil_defaultlib.div
+Compiling module xil_defaultlib.multdiv
+Compiling module xil_defaultlib.ExecuteMemory
+Compiling module xil_defaultlib.MemoryControl
+Compiling module xil_defaultlib.Exception
+Compiling module xil_defaultlib.MemoryWriteback
+Compiling module xil_defaultlib.WritebackControl
+Compiling module xil_defaultlib.processor
+Compiling module xil_defaultlib.ROM(MEMFILE="loop.mem")
+Compiling module xil_defaultlib.decoder_32
+Compiling module xil_defaultlib.tri_state32
+Compiling module xil_defaultlib.regfile_default
+Compiling module xil_defaultlib.RAM
+Compiling module xil_defaultlib.Wrapper_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot Wrapper_time_impl
+Built simulation snapshot Wrapper_tb_time_impl

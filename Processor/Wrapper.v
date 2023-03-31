@@ -27,8 +27,12 @@
 module Wrapper (
     output [6:0] SEG,
     output [7:0] AN,
-    input [3:0] switch,
+	output reg LED,
+    input [3:0] SW,
     input clock, reset);
+
+	wire clk;
+	HalfClock clockDiv(clk, clock);
 
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
@@ -38,14 +42,32 @@ module Wrapper (
 
 	assign AN = 8'b11111110;
 
-	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch));
+	reg[1:0] count = 0;
+    reg clockReg = 0;
+    wire[31:0] countLim;
 
+    assign countLim = (100000000/500) >> 1;
+
+    always @(posedge clock) begin
+		if (reg2 == 2) begin
+			LED <= 1'b1;
+		end
+        if (count < countLim) begin
+            count <= count + 1;
+        end else begin
+            count <= 0;
+            clockReg <= ~clockReg;
+        end
+    end
+
+
+	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(clockReg));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic";
+	localparam INSTR_FILE = "addi_basic";
 
 	// Main Processing Unit
-	processor CPU(.clock(clock), .reset(reset),
+	processor CPU(.clock(clk), .reset(reset),
 
 		// ROM
 		.address_imem(instAddr), .q_imem(instData),
@@ -61,20 +83,20 @@ module Wrapper (
 
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
-	InstMem(.clk(clock),
+	InstMem(.clk(clk),
 		.addr(instAddr[11:0]),
 		.dataOut(instData));
 
 	// Register File
 	wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
-	regfile RegisterFile(.clock(clock),
+	regfile RegisterFile(.clock(clk),
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset),
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2),
 		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9));
 
 	// Processor Memory (RAM)
-	RAM ProcMem(.clk(clock),
+	RAM ProcMem(.clk(clk),
 		.wEn(mwe),
 		.addr(memAddr[11:0]),
 		.dataIn(memDataIn),

@@ -14,6 +14,16 @@ module regfile (
     wire [31:0] regOut[31:0];
     wire [31:0] triStateSelectA, triStateSelectB, selectWriteRegDecoded;
 
+    assign reg1 = regOut[1];
+    assign reg2 = regOut[2];
+    assign reg3 = regOut[3];
+    assign reg4 = regOut[4];
+    assign reg5 = regOut[5];
+    assign reg6 = regOut[6];
+    assign reg7 = regOut[7];
+    assign reg8 = regOut[8];
+    assign reg9 = regOut[9];
+
     decoder_32 decoderA(triStateSelectA, 1'b1, ctrl_readRegA);
     decoder_32 decoderB(triStateSelectB, 1'b1, ctrl_readRegB);
     decoder_32 selectWriteReg(selectWriteRegDecoded, ctrl_writeEnable, ctrl_writeReg);

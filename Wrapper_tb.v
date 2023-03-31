@@ -33,7 +33,7 @@
  *
  **/
 
-module Wrapper_tb #(parameter FILE = "addi_basic");
+module Wrapper_tb #(parameter FILE = "loop");
 
 	// FileData
 	localparam DIR = "CPU Test Files/";
@@ -95,7 +95,7 @@ module Wrapper_tb #(parameter FILE = "addi_basic");
 		.data(memDataIn), .q_dmem(memDataOut));
 
 	// Instruction Memory (ROM)
-	ROM #(.MEMFILE({DIR, MEM_DIR, FILE, ".mem"}))
+	ROM #(.MEMFILE({FILE, ".mem"}))
 	InstMem(.clk(clock),
 		.addr(instAddr[11:0]),
 		.dataOut(instData));
