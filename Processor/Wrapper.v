@@ -31,9 +31,12 @@ module Wrapper (
     input [3:0] SW,
     input clock, reset);
 
-	wire clk;
-	HalfClock clockDiv(clk, clock);
+	// Clocking
+	wire clk, segmentClock;
+	ClockDivider mainClockDiv(clk, clock, 1);
+	ClockDivider segmentClockDiv(segmentClock, clock, ((100000000/500) >> 1) - 1);
 
+    wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData,
@@ -41,27 +44,13 @@ module Wrapper (
 		memAddr, memDataIn, memDataOut;
 
 	assign AN = 8'b11111110;
-
-	reg[1:0] count = 0;
-    reg clockReg = 0;
-    wire[31:0] countLim;
-
-    assign countLim = (100000000/500) >> 1;
-
-    always @(posedge clock) begin
+	always begin
 		if (reg2 == 2) begin
-			LED <= 1'b1;
+			LED = 1'b1;
 		end
-        if (count < countLim) begin
-            count <= count + 1;
-        end else begin
-            count <= 0;
-            clockReg <= ~clockReg;
-        end
-    end
+	end
 
-
-	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(clockReg));
+	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "addi_basic";
@@ -88,7 +77,7 @@ module Wrapper (
 		.dataOut(instData));
 
 	// Register File
-	wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
+
 	regfile RegisterFile(.clock(clk),
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset),
 		.ctrl_writeReg(rd),

@@ -1,10 +1,7 @@
-module HalfClock (output halfClock, input clock);
+module ClockDivider (output clockOut, input clock, input[31:0] countLim);
 
-    reg[1:0] count = 0;
+    reg[32:0] count = 0;
     reg clockReg = 0;
-    wire[1:0] countLim;
-
-    assign countLim = 2'd1;
 
     always @(posedge clock) begin
         if (count < countLim) begin
@@ -15,6 +12,6 @@ module HalfClock (output halfClock, input clock);
         end
     end
 
-    assign halfClock = clockReg;
+    assign clockOut = clockReg;
 
 endmodule

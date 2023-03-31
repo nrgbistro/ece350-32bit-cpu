@@ -70,9 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
+set_param chipscope.maxJobs 6
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -120,6 +119,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_8.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/clockDivider.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_2.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v
@@ -134,7 +134,6 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/halfClock.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v
