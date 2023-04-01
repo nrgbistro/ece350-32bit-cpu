@@ -1506,6 +1506,9 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-3
 INFO: [VRFC 10-311] analyzing module cla_32
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_8.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cla_8
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/clockDivider.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ClockDivider
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'ClockDivider' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/clockDivider.v:1]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module comparator_2
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_32.v" into library xil_defaultlib
@@ -1636,7 +1639,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-3
 INFO: [VRFC 10-311] analyzing module TypeDetector
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/writebackControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WritebackControl
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb_vivado.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Wrapper_tb
-WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb.v:163]
-WARNING: [VRFC 10-3380] identifier 'reg_to_test' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb.v:63]
+WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb_vivado.v:166]
+WARNING: [VRFC 10-3380] identifier 'reg_to_test' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb_vivado.v:63]

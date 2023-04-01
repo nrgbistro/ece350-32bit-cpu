@@ -28,6 +28,7 @@ verilog xil_defaultlib  \
 "../../../../../../MultDiv/checkBits_32.v" \
 "../../../../../../Alu/Adder/cla_32.v" \
 "../../../../../../Alu/Adder/cla_8.v" \
+"../../../../../../Processor/clockDivider.v" \
 "../../../../../../Alu/Comparators/comparator_2.v" \
 "../../../../../../Alu/Comparators/comparator_32.v" \
 "../../../../../../Alu/Comparators/comparator_8.v" \
@@ -71,7 +72,7 @@ verilog xil_defaultlib  \
 "../../../../../../Register/tri_state32.v" \
 "../../../../../../Processor/type_detector.v" \
 "../../../../../../Processor/Control/writebackControl.v" \
-"../../../../../../Wrapper_tb.v" \
+"../../../../../../Wrapper_tb_vivado.v" \
 
 # Do not sort compile order
 nosort

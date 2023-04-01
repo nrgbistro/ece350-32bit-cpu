@@ -1,0 +1,10 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+ 7321026188548460883915829238350752934920280764313857290
+WARNING: file CPU Test Files/Verification Files/addi_basic_exp.txt could not be opened
+Couldn't read the expected file.
+Make sure there is a addi_basic_exp.txt file in the "CPU Test Files/Verification Files/" directory.
+Continuing for 255 cycles without checking for correctness,
+
+
+WARNING: file CPU Test Files/Output Files/addi_basic_actual.txt could not be opened

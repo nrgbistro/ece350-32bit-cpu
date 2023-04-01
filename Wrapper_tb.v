@@ -33,7 +33,7 @@
  *
  **/
 
-module Wrapper_tb #(parameter FILE = "loop");
+module Wrapper_tb #(parameter FILE = "sort");
 
 	// FileData
 	localparam DIR = "CPU Test Files/";
@@ -95,7 +95,7 @@ module Wrapper_tb #(parameter FILE = "loop");
 		.data(memDataIn), .q_dmem(memDataOut));
 
 	// Instruction Memory (ROM)
-	ROM #(.MEMFILE({FILE, ".mem"}))
+	ROM #(.MEMFILE({DIR, MEM_DIR, FILE, ".mem"}))
 	InstMem(.clk(clock),
 		.addr(instAddr[11:0]),
 		.dataOut(instData));

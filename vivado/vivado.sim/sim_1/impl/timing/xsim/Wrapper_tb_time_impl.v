@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Sat Apr  1 16:34:02 2023
+// Date        : Sat Apr  1 17:47:15 2023
 // Host        : nrg-desktop running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.sim/sim_1/impl/timing/xsim/Wrapper_tb_time_impl.v
