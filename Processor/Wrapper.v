@@ -27,7 +27,7 @@
 module Wrapper (
     output reg [6:0] SEG,
     output [7:0] AN,
-	output reg LED,
+	output reg [3:0] LED,
     input [3:0] SW,
     input clock, reset);
 
@@ -47,9 +47,15 @@ module Wrapper (
 		memAddr, memDataIn, memDataOut;
 
 	assign AN = 8'b11111110;
-	always @(posedge clk) begin
-		if (reg2 == 2) begin
-			LED = 1'b1;
+	always @(posedge segmentClock) begin
+		if (SW[0]) begin
+			LED[0] <= 1'b1;
+		end else if (SW[1]) begin
+			LED[1] <= 1'b1;
+		end else if (SW[2]) begin
+			LED[2] <= 1'b1;
+		end else if (SW[3]) begin
+			LED[3] <= 1'b1;
 		end
 		SEG <= segment;
 	end
@@ -57,7 +63,7 @@ module Wrapper (
 	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "addi_basic";
+	localparam INSTR_FILE = "delay";
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),
