@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Fri Mar 31 18:00:23 2023
+| Date             : Fri Mar 31 19:00:59 2023
 | Host             : nrg-desktop running 64-bit major release  (build 9200)
 | Command          : report_power -file Wrapper_power_routed.rpt -pb Wrapper_power_summary_routed.pb -rpx Wrapper_power_routed.rpx
 | Design           : Wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.135        |
+| Total On-Chip Power (W)  | 0.136        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.037        |
+| Dynamic (W)              | 0.039        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.4         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.017 |     4134 |       --- |             --- |
-|   LUT as Logic |     0.017 |     2254 |     63400 |            3.56 |
-|   Register     |    <0.001 |     1444 |    126800 |            1.14 |
-|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
+| Slice Logic    |     0.018 |     4183 |       --- |             --- |
+|   LUT as Logic |     0.017 |     2266 |     63400 |            3.57 |
+|   Register     |    <0.001 |     1483 |    126800 |            1.17 |
+|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
 |   CARRY4       |    <0.001 |       18 |     15850 |            0.11 |
-|   Others       |     0.000 |      151 |       --- |             --- |
-| Signals        |     0.018 |     3739 |       --- |             --- |
+|   Others       |     0.000 |      153 |       --- |             --- |
+| Signals        |     0.018 |     3784 |       --- |             --- |
 | Block RAM      |     0.001 |        1 |       135 |            0.74 |
-| I/O            |    <0.001 |       18 |       210 |            8.57 |
+| I/O            |     0.001 |       18 |       210 |            8.57 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.135 |          |           |                 |
+| Total          |     0.136 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.052 |       0.037 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.053 |       0.038 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,8 +142,8 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| Wrapper                  |     0.037 |
-|   CPU                    |     0.030 |
+| Wrapper                  |     0.039 |
+|   CPU                    |     0.031 |
 |     decodeExecuteLatch   |     0.006 |
 |       reg1               |     0.006 |
 |     fetchDecodeLatch     |     0.009 |

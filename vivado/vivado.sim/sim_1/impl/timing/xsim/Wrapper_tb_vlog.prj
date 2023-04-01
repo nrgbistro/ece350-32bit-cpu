@@ -5,7 +5,7 @@ verilog xil_defaultlib  \
 "../../../../../../Processor/Latches/FD.v" \
 "../../../../../../Processor/Latches/MW.v" \
 "../../../../../../Processor/Latches/PC.v" \
-"../../../../../../Processor/control/PCControl.v" \
+"../../../../../../Processor/Control/PCControl.v" \
 "../../../../../../Processor/RAM.v" \
 "../../../../../../Processor/ROM.v" \
 "../../../../../../Processor/Latches/XM.v" \
@@ -33,20 +33,20 @@ verilog xil_defaultlib  \
 "../../../../../../Alu/Comparators/comparator_8.v" \
 "../../../../../../MultDiv/Mult/counter_16.v" \
 "../../../../../../MultDiv/Div/counter_32.v" \
-"../../../../../../Processor/control/decodeControl.v" \
+"../../../../../../Processor/Control/decodeControl.v" \
 "../../../../../../Mux/decoder_32.v" \
 "../../../../../../Register/dffe_ref.v" \
 "../../../../../../MultDiv/Div/div.v" \
 "../../../../../../MultDiv/Div/divControl.v" \
-"../../../../../../Processor/control/exception.v" \
-"../../../../../../Processor/control/executeControl.v" \
-"../../../../../../Processor/sign-extention/extend_16.v" \
+"../../../../../../Processor/Control/exception.v" \
+"../../../../../../Processor/Control/executeControl.v" \
+"../../../../../../Processor/Sign-extention/extend_16.v" \
 "../../../../../../Alu/Adder/full_adder.v" \
 "../../../../../../Processor/Hazard/interlock.v" \
-"../../../../../../Processor/control/memoryControl.v" \
+"../../../../../../Processor/Control/memoryControl.v" \
 "../../../../../../MultDiv/Mult/mult.v" \
 "../../../../../../MultDiv/Mult/multControl.v" \
-"../../../../../../Processor/control/multDivStall.v" \
+"../../../../../../Processor/Control/multDivStall.v" \
 "../../../../../../MultDiv/multdiv.v" \
 "../../../../../../Mux/mux_2.v" \
 "../../../../../../Mux/mux_2_1.v" \
@@ -70,7 +70,7 @@ verilog xil_defaultlib  \
 "../../../../../../Register/t_flip_flop.v" \
 "../../../../../../Register/tri_state32.v" \
 "../../../../../../Processor/type_detector.v" \
-"../../../../../../Processor/control/writebackControl.v" \
+"../../../../../../Processor/Control/writebackControl.v" \
 "../../../../../../Wrapper_tb.v" \
 
 # Do not sort compile order

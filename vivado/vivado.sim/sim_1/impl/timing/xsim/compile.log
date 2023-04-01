@@ -1,18 +1,21 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.sim/sim_1/impl/timing/xsim/Wrapper_tb_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ClockDivider
+INFO: [VRFC 10-311] analyzing module ClockDivider_0
 INFO: [VRFC 10-311] analyzing module DecodeExecute
 INFO: [VRFC 10-311] analyzing module ExecuteMemory
 INFO: [VRFC 10-311] analyzing module FetchDecode
-INFO: [VRFC 10-311] analyzing module HalfClock
 INFO: [VRFC 10-311] analyzing module MemoryWriteback
 INFO: [VRFC 10-311] analyzing module ProgramCounter
 INFO: [VRFC 10-311] analyzing module Pulse
-INFO: [VRFC 10-311] analyzing module Pulse_1078
+INFO: [VRFC 10-311] analyzing module Pulse_1079
 INFO: [VRFC 10-311] analyzing module ROM
+INFO: [VRFC 10-311] analyzing module SwitchToSegment
 INFO: [VRFC 10-311] analyzing module Wrapper
 INFO: [VRFC 10-311] analyzing module counter_16
 INFO: [VRFC 10-311] analyzing module counter_32
 INFO: [VRFC 10-311] analyzing module decoder_32
-INFO: [VRFC 10-311] analyzing module decoder_32_30
+INFO: [VRFC 10-311] analyzing module decoder_32_1
+INFO: [VRFC 10-311] analyzing module decoder_32_32
 INFO: [VRFC 10-311] analyzing module dffe_ref
 INFO: [VRFC 10-311] analyzing module dffe_ref_100
 INFO: [VRFC 10-311] analyzing module dffe_ref_1000
@@ -39,8 +42,8 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1019
 INFO: [VRFC 10-311] analyzing module dffe_ref_102
 INFO: [VRFC 10-311] analyzing module dffe_ref_1020
 INFO: [VRFC 10-311] analyzing module dffe_ref_1021
+INFO: [VRFC 10-311] analyzing module dffe_ref_1022
 INFO: [VRFC 10-311] analyzing module dffe_ref_1023
-INFO: [VRFC 10-311] analyzing module dffe_ref_1024
 INFO: [VRFC 10-311] analyzing module dffe_ref_1025
 INFO: [VRFC 10-311] analyzing module dffe_ref_1026
 INFO: [VRFC 10-311] analyzing module dffe_ref_1027
@@ -53,8 +56,8 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1032
 INFO: [VRFC 10-311] analyzing module dffe_ref_1033
 INFO: [VRFC 10-311] analyzing module dffe_ref_1034
 INFO: [VRFC 10-311] analyzing module dffe_ref_1035
-INFO: [VRFC 10-311] analyzing module dffe_ref_1038
-INFO: [VRFC 10-311] analyzing module dffe_ref_1039
+INFO: [VRFC 10-311] analyzing module dffe_ref_1036
+INFO: [VRFC 10-311] analyzing module dffe_ref_1037
 INFO: [VRFC 10-311] analyzing module dffe_ref_104
 INFO: [VRFC 10-311] analyzing module dffe_ref_1040
 INFO: [VRFC 10-311] analyzing module dffe_ref_1041
@@ -96,9 +99,8 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1073
 INFO: [VRFC 10-311] analyzing module dffe_ref_1074
 INFO: [VRFC 10-311] analyzing module dffe_ref_1075
 INFO: [VRFC 10-311] analyzing module dffe_ref_1076
-INFO: [VRFC 10-311] analyzing module dffe_ref_1077
+INFO: [VRFC 10-311] analyzing module dffe_ref_1078
 INFO: [VRFC 10-311] analyzing module dffe_ref_108
-INFO: [VRFC 10-311] analyzing module dffe_ref_1081
 INFO: [VRFC 10-311] analyzing module dffe_ref_1082
 INFO: [VRFC 10-311] analyzing module dffe_ref_1083
 INFO: [VRFC 10-311] analyzing module dffe_ref_1084
@@ -242,13 +244,13 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1209
 INFO: [VRFC 10-311] analyzing module dffe_ref_121
 INFO: [VRFC 10-311] analyzing module dffe_ref_1210
 INFO: [VRFC 10-311] analyzing module dffe_ref_1211
-INFO: [VRFC 10-311] analyzing module dffe_ref_1216
+INFO: [VRFC 10-311] analyzing module dffe_ref_1212
 INFO: [VRFC 10-311] analyzing module dffe_ref_1217
 INFO: [VRFC 10-311] analyzing module dffe_ref_1218
 INFO: [VRFC 10-311] analyzing module dffe_ref_1219
 INFO: [VRFC 10-311] analyzing module dffe_ref_122
 INFO: [VRFC 10-311] analyzing module dffe_ref_1220
-INFO: [VRFC 10-311] analyzing module dffe_ref_1222
+INFO: [VRFC 10-311] analyzing module dffe_ref_1221
 INFO: [VRFC 10-311] analyzing module dffe_ref_1223
 INFO: [VRFC 10-311] analyzing module dffe_ref_1224
 INFO: [VRFC 10-311] analyzing module dffe_ref_1225
@@ -317,14 +319,14 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1281
 INFO: [VRFC 10-311] analyzing module dffe_ref_1282
 INFO: [VRFC 10-311] analyzing module dffe_ref_1283
 INFO: [VRFC 10-311] analyzing module dffe_ref_1284
+INFO: [VRFC 10-311] analyzing module dffe_ref_1285
 INFO: [VRFC 10-311] analyzing module dffe_ref_129
-INFO: [VRFC 10-311] analyzing module dffe_ref_1291
 INFO: [VRFC 10-311] analyzing module dffe_ref_1292
 INFO: [VRFC 10-311] analyzing module dffe_ref_1293
 INFO: [VRFC 10-311] analyzing module dffe_ref_1294
 INFO: [VRFC 10-311] analyzing module dffe_ref_1295
 INFO: [VRFC 10-311] analyzing module dffe_ref_1296
-INFO: [VRFC 10-311] analyzing module dffe_ref_1298
+INFO: [VRFC 10-311] analyzing module dffe_ref_1297
 INFO: [VRFC 10-311] analyzing module dffe_ref_1299
 INFO: [VRFC 10-311] analyzing module dffe_ref_130
 INFO: [VRFC 10-311] analyzing module dffe_ref_1300
@@ -336,8 +338,8 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1305
 INFO: [VRFC 10-311] analyzing module dffe_ref_1306
 INFO: [VRFC 10-311] analyzing module dffe_ref_1307
 INFO: [VRFC 10-311] analyzing module dffe_ref_1308
-INFO: [VRFC 10-311] analyzing module dffe_ref_1309
 INFO: [VRFC 10-311] analyzing module dffe_ref_131
+INFO: [VRFC 10-311] analyzing module dffe_ref_1311
 INFO: [VRFC 10-311] analyzing module dffe_ref_1312
 INFO: [VRFC 10-311] analyzing module dffe_ref_1313
 INFO: [VRFC 10-311] analyzing module dffe_ref_1314
@@ -377,11 +379,10 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1344
 INFO: [VRFC 10-311] analyzing module dffe_ref_1345
 INFO: [VRFC 10-311] analyzing module dffe_ref_1346
 INFO: [VRFC 10-311] analyzing module dffe_ref_1347
-INFO: [VRFC 10-311] analyzing module dffe_ref_1348
 INFO: [VRFC 10-311] analyzing module dffe_ref_1349
 INFO: [VRFC 10-311] analyzing module dffe_ref_135
-INFO: [VRFC 10-311] analyzing module dffe_ref_1350
-INFO: [VRFC 10-311] analyzing module dffe_ref_1351
+INFO: [VRFC 10-311] analyzing module dffe_ref_1353
+INFO: [VRFC 10-311] analyzing module dffe_ref_1354
 INFO: [VRFC 10-311] analyzing module dffe_ref_1355
 INFO: [VRFC 10-311] analyzing module dffe_ref_1356
 INFO: [VRFC 10-311] analyzing module dffe_ref_1357
@@ -460,10 +461,6 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_1422
 INFO: [VRFC 10-311] analyzing module dffe_ref_1423
 INFO: [VRFC 10-311] analyzing module dffe_ref_1424
 INFO: [VRFC 10-311] analyzing module dffe_ref_1425
-INFO: [VRFC 10-311] analyzing module dffe_ref_1426
-INFO: [VRFC 10-311] analyzing module dffe_ref_1427
-INFO: [VRFC 10-311] analyzing module dffe_ref_1428
-INFO: [VRFC 10-311] analyzing module dffe_ref_1429
 INFO: [VRFC 10-311] analyzing module dffe_ref_143
 INFO: [VRFC 10-311] analyzing module dffe_ref_144
 INFO: [VRFC 10-311] analyzing module dffe_ref_145
@@ -631,7 +628,6 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_306
 INFO: [VRFC 10-311] analyzing module dffe_ref_307
 INFO: [VRFC 10-311] analyzing module dffe_ref_308
 INFO: [VRFC 10-311] analyzing module dffe_ref_309
-INFO: [VRFC 10-311] analyzing module dffe_ref_31
 INFO: [VRFC 10-311] analyzing module dffe_ref_310
 INFO: [VRFC 10-311] analyzing module dffe_ref_311
 INFO: [VRFC 10-311] analyzing module dffe_ref_312
@@ -642,7 +638,6 @@ INFO: [VRFC 10-311] analyzing module dffe_ref_316
 INFO: [VRFC 10-311] analyzing module dffe_ref_317
 INFO: [VRFC 10-311] analyzing module dffe_ref_318
 INFO: [VRFC 10-311] analyzing module dffe_ref_319
-INFO: [VRFC 10-311] analyzing module dffe_ref_32
 INFO: [VRFC 10-311] analyzing module dffe_ref_320
 INFO: [VRFC 10-311] analyzing module dffe_ref_321
 INFO: [VRFC 10-311] analyzing module dffe_ref_322
@@ -1396,23 +1391,21 @@ INFO: [VRFC 10-311] analyzing module multdiv
 INFO: [VRFC 10-311] analyzing module processor
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-311] analyzing module register_32
-INFO: [VRFC 10-311] analyzing module register_32_0
-INFO: [VRFC 10-311] analyzing module register_32_1
 INFO: [VRFC 10-311] analyzing module register_32_10
-INFO: [VRFC 10-311] analyzing module register_32_1022
-INFO: [VRFC 10-311] analyzing module register_32_1036
-INFO: [VRFC 10-311] analyzing module register_32_1037
-INFO: [VRFC 10-311] analyzing module register_32_1079
+INFO: [VRFC 10-311] analyzing module register_32_1024
+INFO: [VRFC 10-311] analyzing module register_32_1038
+INFO: [VRFC 10-311] analyzing module register_32_1039
 INFO: [VRFC 10-311] analyzing module register_32_1080
+INFO: [VRFC 10-311] analyzing module register_32_1081
 INFO: [VRFC 10-311] analyzing module register_32_11
 INFO: [VRFC 10-311] analyzing module register_32_12
-INFO: [VRFC 10-311] analyzing module register_32_1297
+INFO: [VRFC 10-311] analyzing module register_32_1298
 INFO: [VRFC 10-311] analyzing module register_32_13
+INFO: [VRFC 10-311] analyzing module register_32_1309
 INFO: [VRFC 10-311] analyzing module register_32_1310
-INFO: [VRFC 10-311] analyzing module register_32_1311
+INFO: [VRFC 10-311] analyzing module register_32_1350
+INFO: [VRFC 10-311] analyzing module register_32_1351
 INFO: [VRFC 10-311] analyzing module register_32_1352
-INFO: [VRFC 10-311] analyzing module register_32_1353
-INFO: [VRFC 10-311] analyzing module register_32_1354
 INFO: [VRFC 10-311] analyzing module register_32_14
 INFO: [VRFC 10-311] analyzing module register_32_15
 INFO: [VRFC 10-311] analyzing module register_32_16
@@ -1431,6 +1424,8 @@ INFO: [VRFC 10-311] analyzing module register_32_27
 INFO: [VRFC 10-311] analyzing module register_32_28
 INFO: [VRFC 10-311] analyzing module register_32_29
 INFO: [VRFC 10-311] analyzing module register_32_3
+INFO: [VRFC 10-311] analyzing module register_32_30
+INFO: [VRFC 10-311] analyzing module register_32_31
 INFO: [VRFC 10-311] analyzing module register_32_4
 INFO: [VRFC 10-311] analyzing module register_32_5
 INFO: [VRFC 10-311] analyzing module register_32_6
@@ -1438,18 +1433,18 @@ INFO: [VRFC 10-311] analyzing module register_32_7
 INFO: [VRFC 10-311] analyzing module register_32_8
 INFO: [VRFC 10-311] analyzing module register_32_9
 INFO: [VRFC 10-311] analyzing module register_65
-INFO: [VRFC 10-311] analyzing module register_65_1221
+INFO: [VRFC 10-311] analyzing module register_65_1222
 INFO: [VRFC 10-311] analyzing module t_flip_flop
-INFO: [VRFC 10-311] analyzing module t_flip_flop_1212
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1213
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1214
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1215
-INFO: [VRFC 10-311] analyzing module t_flip_flop_1285
+INFO: [VRFC 10-311] analyzing module t_flip_flop_1216
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1286
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1287
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1288
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1289
 INFO: [VRFC 10-311] analyzing module t_flip_flop_1290
+INFO: [VRFC 10-311] analyzing module t_flip_flop_1291
 INFO: [VRFC 10-311] analyzing module glbl
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module DecodeExecute
@@ -1463,7 +1458,7 @@ WARNING: [VRFC 10-3609] overwriting previous definition of module 'MemoryWriteba
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ProgramCounter
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'ProgramCounter' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v:1]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/PCControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PCControl
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RAM
@@ -1523,7 +1518,7 @@ WARNING: [VRFC 10-3609] overwriting previous definition of module 'counter_16' [
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module counter_32
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'counter_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v:1]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/decodeControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module DecodeControl
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/decoder_32.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module decoder_32
@@ -1536,24 +1531,24 @@ INFO: [VRFC 10-311] analyzing module div
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'div' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v:1]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module divControl
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/exception.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/exception.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Exception
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/executeControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ExecuteControl
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Sign-extention/extend_16.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SignExtender_16
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module full_adder
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Interlock
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/memoryControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module MemoryControl
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mult
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'mult' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v:1]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/multControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module multControl
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/multDivStall.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/multDivStall.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module MultDivStall
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/multdiv.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module multdiv
@@ -1639,7 +1634,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-3
 INFO: [VRFC 10-311] analyzing module tri_state32
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module TypeDetector
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Control/writebackControl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WritebackControl
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Wrapper_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Wrapper_tb

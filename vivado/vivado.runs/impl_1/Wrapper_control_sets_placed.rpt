@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Fri Mar 31 17:59:55 2023
+| Date         : Fri Mar 31 19:00:32 2023
 | Host         : nrg-desktop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Wrapper_control_sets_placed.rpt
 | Design       : Wrapper
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    43 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    60 |
+| Unused register locations in slices containing registers |    53 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -40,14 +40,14 @@ Table of Contents
 |       Fanout       | Count |
 +--------------------+-------+
 | Total control sets |    43 |
-| >= 0 to < 4        |     5 |
+| >= 0 to < 4        |     3 |
 | >= 4 to < 6        |     1 |
-| >= 6 to < 8        |     1 |
+| >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    36 |
+| >= 16              |    37 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,64 +58,64 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            3 |
-| No           | No                    | Yes                    |             139 |           73 |
+| No           | No                    | No                     |              46 |           14 |
+| No           | No                    | Yes                    |             139 |           79 |
 | No           | Yes                   | No                     |              66 |           18 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |            1228 |          535 |
-| Yes          | Yes                   | No                     |               7 |            4 |
+| Yes          | Yes                   | No                     |               4 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
-|     Clock Signal     |                     Enable Signal                    |                  Set/Reset Signal                  | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
-|  segmentClockDiv/CLK | RegisterFile/registers[2].reg32/dffe_reg[17]/E[0]    | RegisterFile/registers[2].reg32/dffe_reg[17]/SR[0] |                1 |              1 |         1.00 |
-|  segmentClockDiv/CLK | RegisterFile/registers[2].reg32/dffe_reg[17]/E[2]    | RegisterFile/registers[2].reg32/dffe_reg[17]/SR[1] |                1 |              2 |         2.00 |
-|  clock_IBUF_BUFG     |                                                      |                                                    |                2 |              2 |         1.00 |
-| ~clk_BUFG            |                                                      |                                                    |                1 |              2 |         2.00 |
-| ~clk_BUFG            |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/multDivDone  |                1 |              2 |         2.00 |
-|  segmentClockDiv/CLK | RegisterFile/registers[2].reg32/dffe_reg[17]/E[1]    | RegisterFile/registers[2].reg32/dffe_reg[17]/SR[2] |                2 |              4 |         2.00 |
-|  clk_BUFG            |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/rst          |                2 |              6 |         3.00 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_12 | reset_IBUF                                         |               17 |             32 |         1.88 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_17                 | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_11                 | reset_IBUF                                         |               18 |             32 |         1.78 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_6                  | reset_IBUF                                         |               23 |             32 |         1.39 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_15                 | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_1                  | reset_IBUF                                         |               11 |             32 |         2.91 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_10                 | reset_IBUF                                         |                9 |             32 |         3.56 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_0                  | reset_IBUF                                         |                6 |             32 |         5.33 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg                    | reset_IBUF                                         |               20 |             32 |         1.60 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_13                 | reset_IBUF                                         |               11 |             32 |         2.91 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_8                  | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_19                 | reset_IBUF                                         |                9 |             32 |         3.56 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_16                 | reset_IBUF                                         |               20 |             32 |         1.60 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_3                  | reset_IBUF                                         |               14 |             32 |         2.29 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_4                  | reset_IBUF                                         |               13 |             32 |         2.46 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_5                  | reset_IBUF                                         |                6 |             32 |         5.33 |
-|  clk_BUFG            | RegisterFile/selectWriteReg/q_reg_9                  | reset_IBUF                                         |               12 |             32 |         2.67 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_10 | reset_IBUF                                         |                8 |             32 |         4.00 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_17 | reset_IBUF                                         |               28 |             32 |         1.14 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_1  | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_11 | reset_IBUF                                         |                8 |             32 |         4.00 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_21 | reset_IBUF                                         |               17 |             32 |         1.88 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_15 | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_16 | reset_IBUF                                         |               12 |             32 |         2.67 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_19 | reset_IBUF                                         |               18 |             32 |         1.78 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_20 | reset_IBUF                                         |               10 |             32 |         3.20 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_5  | reset_IBUF                                         |               28 |             32 |         1.14 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_6  | reset_IBUF                                         |                7 |             32 |         4.57 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_7  | reset_IBUF                                         |                5 |             32 |         6.40 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_14 | reset_IBUF                                         |               10 |             32 |         3.20 |
-|  clk_BUFG            | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_9  | reset_IBUF                                         |               15 |             32 |         2.13 |
-|  clock_IBUF_BUFG     |                                                      | mainClockDiv/clear                                 |                9 |             33 |         3.67 |
-|  clock_IBUF_BUFG     |                                                      | segmentClockDiv/count[0]_i_1_n_0                   |                9 |             33 |         3.67 |
-|  clk_BUFG            | CPU/mainMultDiv/multiplier/counter0/c0/d/q_reg_4     | CPU/mainMultDiv/divider/counter0/c1/d/q_reg_2      |               22 |             64 |         2.91 |
-|  clk_BUFG            |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/q_reg_2      |               70 |            131 |         1.87 |
-| ~clk_BUFG            | CPU/decodeExecuteLatch/reg1/dffe_reg[14]/q_reg_1     | reset_IBUF                                         |              123 |            172 |         1.40 |
-+----------------------+------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
++------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+|   Clock Signal   |                     Enable Signal                    |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+| ~clk_BUFG        |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/multDivDone |                1 |              2 |         2.00 |
+| ~clk_BUFG        |                                                      |                                                   |                1 |              2 |         2.00 |
+|  clock_IBUF_BUFG |                                                      |                                                   |                2 |              2 |         1.00 |
+|  clockReg_BUFG   | SwitchToSegment/SEG[5]_i_2_n_0                       | SwitchToSegment/SEG[5]_i_1_n_0                    |                1 |              4 |         4.00 |
+|  clk_BUFG        |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/rst         |                2 |              6 |         3.00 |
+|  clk_BUFG        |                                                      |                                                   |                3 |              7 |         2.33 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_15 | reset_IBUF                                        |               14 |             32 |         2.29 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_17 | reset_IBUF                                        |               29 |             32 |         1.10 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_20 | reset_IBUF                                        |               11 |             32 |         2.91 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_7  | reset_IBUF                                        |                5 |             32 |         6.40 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_10 | reset_IBUF                                        |                8 |             32 |         4.00 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_9  | reset_IBUF                                        |               18 |             32 |         1.78 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_14 | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_16 | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_5  | reset_IBUF                                        |               29 |             32 |         1.10 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_19 | reset_IBUF                                        |               13 |             32 |         2.46 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_21 | reset_IBUF                                        |               16 |             32 |         2.00 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_6  | reset_IBUF                                        |                9 |             32 |         3.56 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_11 | reset_IBUF                                        |                7 |             32 |         4.57 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_9                  | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_13                 | reset_IBUF                                        |               11 |             32 |         2.91 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_17                 | reset_IBUF                                        |                9 |             32 |         3.56 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_10                 | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_5                  | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_8                  | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_11                 | reset_IBUF                                        |               18 |             32 |         1.78 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_16                 | reset_IBUF                                        |               19 |             32 |         1.68 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_15                 | reset_IBUF                                        |                6 |             32 |         5.33 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_19                 | reset_IBUF                                        |               10 |             32 |         3.20 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_1                  | reset_IBUF                                        |                7 |             32 |         4.57 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_3                  | reset_IBUF                                        |                9 |             32 |         3.56 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_0                  | reset_IBUF                                        |                7 |             32 |         4.57 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg                    | reset_IBUF                                        |               20 |             32 |         1.60 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_4                  | reset_IBUF                                        |                8 |             32 |         4.00 |
+|  clk_BUFG        | RegisterFile/selectWriteReg/q_reg_6                  | reset_IBUF                                        |               24 |             32 |         1.33 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_1  | reset_IBUF                                        |                7 |             32 |         4.57 |
+|  clk_BUFG        | CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg_12 | reset_IBUF                                        |               16 |             32 |         2.00 |
+|  clock_IBUF_BUFG |                                                      | segmentClockDiv/count[0]_i_1_n_0                  |                9 |             33 |         3.67 |
+|  clock_IBUF_BUFG |                                                      | mainClockDiv/clear                                |                9 |             33 |         3.67 |
+|  clockReg_BUFG   |                                                      |                                                   |                8 |             35 |         4.38 |
+|  clk_BUFG        | CPU/mainMultDiv/multiplier/counter0/c0/d/q_reg_4     | CPU/mainMultDiv/divider/counter0/c1/d/q_reg_2     |               19 |             64 |         3.37 |
+|  clk_BUFG        |                                                      | CPU/mainMultDiv/divider/counter0/c1/d/q_reg_2     |               76 |            131 |         1.72 |
+| ~clk_BUFG        | CPU/decodeExecuteLatch/reg1/dffe_reg[14]/q_reg_1     | reset_IBUF                                        |              126 |            172 |         1.37 |
++------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
 
 

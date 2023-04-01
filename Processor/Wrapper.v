@@ -25,7 +25,7 @@
  **/
 
 module Wrapper (
-    output [6:0] SEG,
+    output reg [6:0] SEG,
     output [7:0] AN,
 	output reg LED,
     input [3:0] SW,
@@ -33,24 +33,28 @@ module Wrapper (
 
 	// Clocking
 	wire clk, segmentClock;
+	// 50 Mhz clock
 	ClockDivider mainClockDiv(clk, clock, 1);
-	ClockDivider segmentClockDiv(segmentClock, clock, ((100000000/500) >> 1) - 1);
+	// 200 Hz clock
+	ClockDivider segmentClockDiv(segmentClock, clock, 200000);
 
     wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
-	wire rwe, mwe;
+    wire [6:0] segment;
+    wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData,
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
 
 	assign AN = 8'b11111110;
-	always begin
+	always @(posedge clk) begin
 		if (reg2 == 2) begin
 			LED = 1'b1;
 		end
+		SEG <= segment;
 	end
 
-	SwitchToSegment SwitchToSegment(.SEG(SEG), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
+	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "addi_basic";

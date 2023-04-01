@@ -7,7 +7,7 @@ module SwitchToSegment(
     input clock;
 
     wire [6:0] SEGMENT[9:0];
-    wire [31:0] currentRegData;
+    reg [31:0] currentRegData;
 
     // assign currentRegData = SW == 4'b0001 ? reg1 :
     //                         SW == 4'b0010 ? reg2 :
@@ -19,8 +19,6 @@ module SwitchToSegment(
     //                         SW == 4'b1000 ? reg8 :
     //                         SW == 4'b1001 ? reg9 :
     //                         32'd0;
-
-    assign currentRegData = reg2;
 
     assign SEGMENT[0] = 7'b1000000;
     assign SEGMENT[1] = 7'b1111001;
@@ -34,6 +32,7 @@ module SwitchToSegment(
     assign SEGMENT[9] = 7'b0010000;
 
     always @(posedge clock) begin
+        currentRegData <= reg2;
         if(currentRegData == 32'd0) begin
             SEG <= SEGMENT[0];
         end else if(currentRegData == 32'd1) begin
