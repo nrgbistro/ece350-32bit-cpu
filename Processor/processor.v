@@ -94,21 +94,11 @@ module processor(
 
     // Decode
     wire [31:0] decodeIR, decodePC, decodeIRIn, decodeT;
-    wire [4:0] rs1, rs2;
     wire [1:0] decodeInsType;
 
     assign decodeIRIn = branch ? 32'b0 : q_imem;
     FetchDecode fetchDecodeLatch(decodeIR, decodePC, decodeIRIn, PCPlusOne, ~clock, stallFD, reset);
-    DecodeControl decodeController(decodeInsType, decodeIR);
-
-    assign decodeT[26:0] = decodeInsType == 2'b10 ? decodeIR[26:0] : {27{1'bz}};
-    assign decodeT[31:27] = 5'b0;
-
-    mux_4_5 select_rs1(rs1, decodeInsType, decodeIR[21:17], decodeIR[21:17], 5'b0, decodeIR[26:22]);
-    mux_4_5 select_rs2(rs2, decodeInsType, decodeIR[16:12], decodeIR[26:22], 5'b0, 5'b0);
-
-    assign ctrl_readRegA = decodeIR[31:27] == 5'b10101 ? 5'b0 : decodeIR[31:27] == 5'b10110 ? 5'd30 : decodeIR[31:27] == 5'b00110 || decodeIR[31:27] == 5'b00010 ? rs2 : rs1;
-    assign ctrl_readRegB = decodeIR[31:27] == 5'b10110 ? 5'b0 : decodeIR[31:27] == 5'b00110 || decodeIR[31:27] == 5'b00010 ? rs1 : rs2;
+    DecodeControl decodeController(decodeInsType, decodeT, ctrl_readRegA, ctrl_readRegB, decodeIR);
 
     // Execute
     wire [31:0] executeIR, executeA, executeB, executePC, aluBInput, executeImmediate, aluOut, executeIRIn, executeT;
@@ -146,7 +136,7 @@ module processor(
     assign data = dmem_bypass ? data_writeReg : memoryB;
     assign memoryErrorIn = (multDivError && multDivDone) | aluOverflow;
 
-    // assign memoryIn = multdivResult, aluResult, PC + 1, or error code depending on instruction;
+    // memoryIn = multdivResult, aluResult, PC + 1, or error code depending on instruction;
     assign memoryIn = memoryErrorIn ? exceptionData : (executeInsType == 2'b00 && aluOpCode[4:1] == 4'b0011) ? multDivResult : executeOpcode == 5'b00011 ? executePC : aluOut;
 
     wire [31:0] exceptionData;
