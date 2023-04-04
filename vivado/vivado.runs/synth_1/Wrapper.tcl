@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 6
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -127,7 +125,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/decoder_32.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v
@@ -141,14 +139,14 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/multControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/multDivStall.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/multdiv.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_2.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_2_1.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_2_5.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_1.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_5.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_2_65.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_4.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_4_5.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4_5.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_4_65.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Mux/mux_8.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_8.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/not_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v

@@ -48,16 +48,8 @@ module Wrapper (
 
 	assign AN = 8'b11111110;
 	always @(posedge segmentClock) begin
-		if (SW[0]) begin
-			LED[0] <= 1'b1;
-		end else if (SW[1]) begin
-			LED[1] <= 1'b1;
-		end else if (SW[2]) begin
-			LED[2] <= 1'b1;
-		end else if (SW[3]) begin
-			LED[3] <= 1'b1;
-		end
 		SEG <= segment;
+		LED <= SEG;
 	end
 
 	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
