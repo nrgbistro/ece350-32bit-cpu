@@ -1,17 +1,57 @@
-Cycle  19: Wrote 2 into register 2
-Cycle  44: Wrote 2 into register 2
-Cycle  69: Wrote 2 into register 2
-Cycle  94: Wrote 2 into register 2
-Cycle 119: Wrote 2 into register 2
-Cycle 144: Wrote 2 into register 2
-Cycle 169: Wrote 2 into register 2
-Cycle 194: Wrote 2 into register 2
-Cycle 219: Wrote 2 into register 2
-Cycle 244: Wrote 2 into register 2
+Cycle  13: Wrote 1 into register 2
+Cycle  23: Wrote 2 into register 2
+Cycle  33: Wrote 3 into register 2
+Cycle  43: Wrote 4 into register 2
+Cycle  53: Wrote 5 into register 2
+Cycle  63: Wrote 6 into register 2
+Cycle  73: Wrote 7 into register 2
+Cycle  83: Wrote 8 into register 2
+Cycle  93: Wrote 9 into register 2
+Cycle 103: Wrote 10 into register 2
+Cycle 113: Wrote 11 into register 2
+Cycle 123: Wrote 12 into register 2
+Cycle 133: Wrote 13 into register 2
+Cycle 143: Wrote 14 into register 2
+Cycle 153: Wrote 15 into register 2
+Cycle 163: Wrote 16 into register 2
+Cycle 173: Wrote 17 into register 2
+Cycle 183: Wrote 18 into register 2
+Cycle 193: Wrote 19 into register 2
+Cycle 203: Wrote 20 into register 2
+Cycle 213: Wrote 21 into register 2
+Cycle 223: Wrote 22 into register 2
+Cycle 233: Wrote 23 into register 2
+Cycle 243: Wrote 24 into register 2
+Cycle 253: Wrote 25 into register 2
+Cycle 263: Wrote 26 into register 2
+Cycle 273: Wrote 27 into register 2
+Cycle 283: Wrote 28 into register 2
+Cycle 293: Wrote 29 into register 2
+Cycle 303: Wrote 30 into register 2
+Cycle 313: Wrote 31 into register 2
+Cycle 323: Wrote 32 into register 2
+Cycle 333: Wrote 33 into register 2
+Cycle 343: Wrote 34 into register 2
+Cycle 353: Wrote 35 into register 2
+Cycle 363: Wrote 36 into register 2
+Cycle 373: Wrote 37 into register 2
+Cycle 383: Wrote 38 into register 2
+Cycle 393: Wrote 39 into register 2
+Cycle 403: Wrote 40 into register 2
+Cycle 413: Wrote 41 into register 2
+Cycle 423: Wrote 42 into register 2
+Cycle 433: Wrote 43 into register 2
+Cycle 443: Wrote 44 into register 2
+Cycle 453: Wrote 45 into register 2
+Cycle 463: Wrote 46 into register 2
+Cycle 473: Wrote 47 into register 2
+Cycle 483: Wrote 48 into register 2
+Cycle 493: Wrote 49 into register 2
+Cycle 503: Wrote 50 into register 2
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
-Reg  2:           2
+Reg  2:          50
 Reg  3:           0
 Reg  4:           0
 Reg  5:           0

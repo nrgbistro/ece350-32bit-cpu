@@ -8,22 +8,7 @@ loop:
 nop
 nop
 nop
-nop
-nop
-nop
-nop
-nop
-nop
-addi $r2, $r0, 2
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
+addi $r2, $r2, 1
 nop
 nop
 nop

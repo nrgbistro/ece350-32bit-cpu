@@ -1,7 +1,7 @@
 module SwitchToSegment(
     SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock);
 
-    output reg [6:0] SEG;
+    output [6:0] SEG;
     input [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
     input [3:0] SW;
     input clock;
@@ -20,41 +20,58 @@ module SwitchToSegment(
     //                         SW == 4'b1001 ? reg9 :
     //                         32'd0;
 
-    assign SEGMENT[0] = 7'b1000000;
-    assign SEGMENT[1] = 7'b1111001;
-    assign SEGMENT[2] = 7'b0100100;
-    assign SEGMENT[3] = 7'b0110000;
-    assign SEGMENT[4] = 7'b0011001;
-    assign SEGMENT[5] = 7'b0010010;
-    assign SEGMENT[6] = 7'b0000010;
-    assign SEGMENT[7] = 7'b1111000;
-    assign SEGMENT[8] = 7'b0000000;
-    assign SEGMENT[9] = 7'b0010000;
+    parameter SEGMENT0 = 7'b1000000;
+    parameter SEGMENT1 = 7'b1111001;
+    parameter SEGMENT2 = 7'b0100100;
+    parameter SEGMENT3 = 7'b0110000;
+    parameter SEGMENT4 = 7'b0011001;
+    parameter SEGMENT5 = 7'b0010010;
+    parameter SEGMENT6 = 7'b0000010;
+    parameter SEGMENT7 = 7'b1111000;
+    parameter SEGMENT8 = 7'b0000000;
+    parameter SEGMENT9 = 7'b0010000;
+    parameter SEGMENTBROKEN = 7'b1110111;
 
     always @(posedge clock) begin
-        currentRegData <= reg2;
-        if(currentRegData == 32'd0) begin
-            SEG <= SEGMENT[0];
-        end else if(currentRegData == 32'd1) begin
-            SEG <= SEGMENT[1];
-        end else if(currentRegData == 32'd2) begin
-            SEG <= SEGMENT[2];
-        end else if(currentRegData == 32'd3) begin
-            SEG <= SEGMENT[3];
-        end else if(currentRegData == 32'd4) begin
-            SEG <= SEGMENT[4];
-        end else if(currentRegData == 32'd5) begin
-            SEG <= SEGMENT[5];
-        end else if(currentRegData == 32'd6) begin
-            SEG <= SEGMENT[6];
-        end else if(currentRegData == 32'd7) begin
-            SEG <= SEGMENT[7];
-        end else if(currentRegData == 32'd8) begin
-            SEG <= SEGMENT[8];
-        end else if(currentRegData == 32'd9) begin
-            SEG <= SEGMENT[9];
-        end
+        case (SW)
+            4'd0: SEG = SEGMENT0;
+            4'd1: SEG = SEGMENT1;
+            4'd2: SEG = SEGMENT2;
+            4'd3: SEG = SEGMENT3;
+            4'd4: SEG = SEGMENT4;
+            4'd5: SEG = SEGMENT5;
+            4'd6: SEG = SEGMENT6;
+            4'd7: SEG = SEGMENT7;
+            4'd8: SEG = SEGMENT8;
+            4'd9: SEG = SEGMENT9;
+            default: SEG = SEGMENTBROKEN;
+        endcase
     end
+
+    // always @(posedge clock) begin
+    //     currentRegData <= reg2;
+    //     if(currentRegData == 32'd0) begin
+    //         SEG <= SEGMENT[0];
+    //     end else if(currentRegData == 32'd1) begin
+    //         SEG <= SEGMENT[1];
+    //     end else if(currentRegData == 32'd2) begin
+    //         SEG <= SEGMENT[2];
+    //     end else if(currentRegData == 32'd3) begin
+    //         SEG <= SEGMENT[3];
+    //     end else if(currentRegData == 32'd4) begin
+    //         SEG <= SEGMENT[4];
+    //     end else if(currentRegData == 32'd5) begin
+    //         SEG <= SEGMENT[5];
+    //     end else if(currentRegData == 32'd6) begin
+    //         SEG <= SEGMENT[6];
+    //     end else if(currentRegData == 32'd7) begin
+    //         SEG <= SEGMENT[7];
+    //     end else if(currentRegData == 32'd8) begin
+    //         SEG <= SEGMENT[8];
+    //     end else if(currentRegData == 32'd9) begin
+    //         SEG <= SEGMENT[9];
+    //     end
+    // end
 
     // assign SEG = currentRegData == 32'd0 ? SEGMENT[0] :
     //              currentRegData == 32'd1 ? SEGMENT[1] :

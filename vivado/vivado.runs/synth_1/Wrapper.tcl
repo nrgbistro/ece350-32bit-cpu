@@ -92,8 +92,8 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic.mem}
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/delay.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
 }
 read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v
@@ -170,7 +170,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v
 }
-read_ip -quiet c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0.xci
+read_ip -quiet C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0.xci
 set_property used_in_synthesis false [get_files -all c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
