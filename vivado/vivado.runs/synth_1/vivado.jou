@@ -9,3 +9,4 @@
 # Log file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/Wrapper.vds
 # Journal file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
+source Wrapper.tcl -notrace

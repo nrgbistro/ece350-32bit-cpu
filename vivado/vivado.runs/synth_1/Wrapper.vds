@@ -9,3 +9,51 @@
 # Log file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/Wrapper.vds
 # Journal file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
+source Wrapper.tcl -notrace
+Command: synth_design -top Wrapper -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11392
+WARNING: [Synth 8-992] decodeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:96]
+WARNING: [Synth 8-992] executeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:104]
+WARNING: [Synth 8-992] executePC is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:104]
+WARNING: [Synth 8-992] executeImmediate is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:104]
+WARNING: [Synth 8-992] executeT is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:104]
+WARNING: [Synth 8-992] executeOpcode is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:105]
+WARNING: [Synth 8-992] aluNEQ is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:107]
+WARNING: [Synth 8-992] aluLT is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:107]
+WARNING: [Synth 8-992] aluAInput is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:118]
+WARNING: [Synth 8-992] startMult is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
+WARNING: [Synth 8-992] startDiv is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
+WARNING: [Synth 8-992] multDivDone is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
+WARNING: [Synth 8-992] memoryIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:130]
+WARNING: [Synth 8-992] memoryErrorOut is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:131]
+WARNING: [Synth 8-992] writebackIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:146]
+WARNING: [Synth 8-992] writebackErrorOut is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:149]
+WARNING: [Synth 8-6901] identifier 'interlockStall' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:70]
+WARNING: [Synth 8-6901] identifier 'interlockStall' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:71]
+WARNING: [Synth 8-6901] identifier 'memoryO' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:119]
+WARNING: [Synth 8-6901] identifier 'memoryO' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:120]
+WARNING: [Synth 8-6901] identifier 'exceptionData' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:140]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:37]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:38]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:39]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:40]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:41]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:42]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:43]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:44]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:45]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:46]
+ERROR: [Synth 8-2576] procedural assignment to a non-register SEG is not permitted [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:47]
+INFO: [Synth 8-2350] module SwitchToSegment ignored due to previous errors [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v:1]
+Failed to read verilog 'C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v'
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 21 Warnings, 0 Critical Warnings and 12 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  5 17:43:44 2023...
