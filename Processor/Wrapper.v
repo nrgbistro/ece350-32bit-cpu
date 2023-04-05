@@ -27,14 +27,14 @@
 module Wrapper (
     output reg [6:0] SEG,
     output [7:0] AN,
-	output reg [3:0] LED,
+	output reg [6:0] LED,
     input [3:0] SW,
     input clock, reset);
 
 	// Clocking
 	wire clk, segmentClock;
 	// 50 Mhz clock
-	ClockDivider mainClockDiv(clk, clock, 1);
+	ClockDivider mainClockDiv(clk, clock, 5);
 	// 200 Hz clock
 	ClockDivider segmentClockDiv(segmentClock, clock, 200000);
 
@@ -49,13 +49,14 @@ module Wrapper (
 	assign AN = 8'b11111110;
 	always @(posedge segmentClock) begin
 		SEG <= segment;
-		LED <= SEG;
+		LED <= segment;
 	end
 
+	ila_0 debugger(clock, segment, reg2, SW, clk);
 	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "delay";
+	localparam INSTR_FILE = "addi_basic";
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),
