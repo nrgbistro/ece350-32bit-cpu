@@ -29,14 +29,16 @@ module Wrapper (
     output [7:0] AN,
 	output [6:0] LED,
     input [3:0] SW,
-    input clock, reset);
+    input clock, resetIn);
 
 	// Clocking
-	wire clk, segmentClock;
+	wire clk, segmentClock, reset;
 	// 50 Mhz clock
 	ClockDivider mainClockDiv(clk, clock, 5);
 	// 200 Hz clock
 	ClockDivider segmentClockDiv(segmentClock, clock, 200000);
+	
+	assign reset = ~resetIn;
 
     wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
     wire [6:0] segment;
@@ -55,7 +57,7 @@ module Wrapper (
 	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "loop";
+	localparam INSTR_FILE = "addi_basic";
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),
