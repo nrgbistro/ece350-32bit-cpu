@@ -28,7 +28,7 @@ module Wrapper (
     output [6:0] SEG,
     output [7:0] AN,
 	output [6:0] LED,
-    input [3:0] SW,
+    input [6:0] SW,
     input clock, resetIn);
 
 	// Clocking
@@ -51,13 +51,13 @@ module Wrapper (
 	assign AN = 8'b11111110;
 
 	assign SEG = segment;
-	assign LED = segment;
+	assign LED = SW;
 
-	ila_0 debugger(clock, segment, reg2, SW, clk);
-	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(segmentClock));
+	ila_0 debugger(clock, segment, reg2, SW, clk, segmentClock, reset);
+	SwitchToSegment SwitchToSegment(.SEG(segment), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(switch), .clock(clk));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "addi_basic";
+	localparam INSTR_FILE = "loop";
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),

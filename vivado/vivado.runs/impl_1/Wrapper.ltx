@@ -189,20 +189,20 @@
                                 "portIndex": 2,
                                 "nets": [
                                     {
-                                        "name": "SW_IBUF",
+                                        "name": "LED_OBUF",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "SW_IBUF[3]"
+                                                "name": "LED_OBUF[3]"
                                             },
                                             {
-                                                "name": "SW_IBUF[2]"
+                                                "name": "LED_OBUF[2]"
                                             },
                                             {
-                                                "name": "SW_IBUF[1]"
+                                                "name": "LED_OBUF[1]"
                                             },
                                             {
-                                                "name": "SW_IBUF[0]"
+                                                "name": "LED_OBUF[0]"
                                             }
                                         ]
                                     }
@@ -220,6 +220,38 @@
                                 "nets": [
                                     {
                                         "name": "clk",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe4",
+                                "id": 4,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 4,
+                                "nets": [
+                                    {
+                                        "name": "segmentClock",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe5",
+                                "id": 5,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 5,
+                                "nets": [
+                                    {
+                                        "name": "reset",
                                         "isBus": false
                                     }
                                 ]

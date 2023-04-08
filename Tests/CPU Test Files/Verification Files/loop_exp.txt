@@ -1,7 +1,7 @@
-num cycles:505
+num cycles:50
 r0=0
 r1=0
-r2=50
+r2=2
 r3=0
 r4=0
 r5=0

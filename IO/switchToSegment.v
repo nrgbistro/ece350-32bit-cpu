@@ -5,8 +5,6 @@ module SwitchToSegment(
     input [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
     input [3:0] SW;
     input clock;
-    
-    wire [31:0] currentRegData;
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;
@@ -20,18 +18,18 @@ module SwitchToSegment(
     parameter SEGMENT9 = 7'b0010000;
     parameter SEGMENTBROKEN = 7'b1110111;
 
-    always @(posedge clock) begin
-        case (SW)
-            4'd0: SEG = SEGMENT0;
-            4'd1: SEG = SEGMENT1;
-            4'd2: SEG = SEGMENT2;
-            4'd3: SEG = SEGMENT3;
-            4'd4: SEG = SEGMENT4;
-            4'd5: SEG = SEGMENT5;
-            4'd6: SEG = SEGMENT6;
-            4'd7: SEG = SEGMENT7;
-            4'd8: SEG = SEGMENT8;
-            4'd9: SEG = SEGMENT9;
+    always @(*) begin
+        case (reg2)
+            32'd0: SEG = SEGMENT0;
+            32'd1: SEG = SEGMENT1;
+            32'd2: SEG = SEGMENT2;
+            32'd3: SEG = SEGMENT3;
+            32'd4: SEG = SEGMENT4;
+            32'd5: SEG = SEGMENT5;
+            32'd6: SEG = SEGMENT6;
+            32'd7: SEG = SEGMENT7;
+            32'd8: SEG = SEGMENT8;
+            32'd9: SEG = SEGMENT9;
             default: SEG = SEGMENTBROKEN;
         endcase
     end
