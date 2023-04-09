@@ -1,10 +1,15 @@
 module SwitchToSegment(
-    SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock);
+    AN, SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock);
 
     output reg [6:0] SEG;
     input [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
     input [3:0] SW;
     input clock;
+
+    assign [7:4] AN = 4'b1111;
+    assign [3:0] AN = 4'b1110;
+
+    reg [31:0] currentData;
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;
@@ -19,7 +24,17 @@ module SwitchToSegment(
     parameter SEGMENTBROKEN = 7'b1110111;
 
     always @(*) begin
-        case (reg2)
+        currentData <= SW == 4'd1 ? reg1 :
+                        SW == 4'd2 ? reg2 :
+                        SW == 4'd3 ? reg3 :
+                        SW == 4'd4 ? reg4 :
+                        SW == 4'd5 ? reg5 :
+                        SW == 4'd6 ? reg6 :
+                        SW == 4'd7 ? reg7 :
+                        SW == 4'd8 ? reg8 :
+                        SW == 4'd9 ? reg9 :
+                        32'd0;
+        case (currentData)
             32'd0: SEG = SEGMENT0;
             32'd1: SEG = SEGMENT1;
             32'd2: SEG = SEGMENT2;

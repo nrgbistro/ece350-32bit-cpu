@@ -1,7 +1,4 @@
-Cycle  13: Wrote 2 into register 2
-Cycle  23: Wrote 2 into register 2
-Cycle  33: Wrote 2 into register 2
-Cycle  43: Wrote 2 into register 2
+Cycle  10: Wrote 2 into register 2
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0

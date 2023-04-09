@@ -24,7 +24,7 @@
     </Object>
   </ObjectList>
   <probeset name="hw project" active="false">
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq4&apos;hX"/>
@@ -42,6 +42,33 @@
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
+        <net name="LED_OBUF[3]"/>
+        <net name="LED_OBUF[2]"/>
+        <net name="LED_OBUF[1]"/>
+        <net name="LED_OBUF[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq7&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq7&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[6:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq7&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="LED_OBUF[6]"/>
+        <net name="LED_OBUF[5]"/>
+        <net name="LED_OBUF[4]"/>
         <net name="LED_OBUF[3]"/>
         <net name="LED_OBUF[2]"/>
         <net name="LED_OBUF[1]"/>
@@ -94,6 +121,58 @@
       </nets>
     </probe>
     <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe1[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="currentData[31]"/>
+        <net name="currentData[30]"/>
+        <net name="currentData[29]"/>
+        <net name="currentData[28]"/>
+        <net name="currentData[27]"/>
+        <net name="currentData[26]"/>
+        <net name="currentData[25]"/>
+        <net name="currentData[24]"/>
+        <net name="currentData[23]"/>
+        <net name="currentData[22]"/>
+        <net name="currentData[21]"/>
+        <net name="currentData[20]"/>
+        <net name="currentData[19]"/>
+        <net name="currentData[18]"/>
+        <net name="currentData[17]"/>
+        <net name="currentData[16]"/>
+        <net name="currentData[15]"/>
+        <net name="currentData[14]"/>
+        <net name="currentData[13]"/>
+        <net name="currentData[12]"/>
+        <net name="currentData[11]"/>
+        <net name="currentData[10]"/>
+        <net name="currentData[9]"/>
+        <net name="currentData[8]"/>
+        <net name="currentData[7]"/>
+        <net name="currentData[6]"/>
+        <net name="currentData[5]"/>
+        <net name="currentData[4]"/>
+        <net name="currentData[3]"/>
+        <net name="currentData[2]"/>
+        <net name="currentData[1]"/>
+        <net name="currentData[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>

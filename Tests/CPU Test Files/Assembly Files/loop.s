@@ -4,12 +4,4 @@ nop # Author: Oliver, Rodas
 nop
 nop
 nop
-loop:
-nop
-nop
-nop
 addi $r2, $r0, 2
-nop
-nop
-nop
-j loop
