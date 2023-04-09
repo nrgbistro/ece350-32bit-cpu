@@ -5,15 +5,15 @@ nop
 nop
 nop
 addi $r0, $r0, 0
-addi $r1, $r0, 1
-addi $r2, $r0, 2
-addi $r3, $r0, 3
-addi $r4, $r0, 4
-addi $r5, $r0, 5
-addi $r6, $r0, 6
-addi $r7, $r0, 7
-addi $r8, $r0, 8
-addi $r9, $r0, 9
+addi $r1, $r0, 10
+addi $r2, $r0, 20
+addi $r3, $r0, 30
+addi $r4, $r0, 40
+addi $r5, $r0, 50
+addi $r6, $r0, 60
+addi $r7, $r0, 777
+addi $r8, $r0, 80
+addi $r9, $r0, 90
 addi $r10, $r0, 10
 addi $r11, $r0, 11
 addi $r12, $r0, 12

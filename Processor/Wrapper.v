@@ -41,33 +41,17 @@ module Wrapper (
 	assign reset = ~resetIn;
 
     wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
-    wire [6:0] segment;
     wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData,
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
 
-	assign SEG = segment;
 	assign LED = SW;
 
-	reg [31:0] currentData;
 
-	always @(*) begin
-	   currentData <= SW == 4'd1 ? reg1 :
-					SW == 4'd2 ? reg2 :
-					SW == 4'd3 ? reg3 :
-					SW == 4'd4 ? reg4 :
-					SW == 4'd5 ? reg5 :
-					SW == 4'd6 ? reg6 :
-					SW == 4'd7 ? reg7 :
-					SW == 4'd8 ? reg8 :
-					SW == 4'd9 ? reg9 :
-					32'd0;
-	end
-
-	ila_0 debugger(clock, segment, currentData, SW, clk, segmentClock, reset);
-	SwitchToSegment SwitchToSegment(.SEG(segment), .AN(AN), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(SW[3:0]), .clock(segmentClock));
+	// ila_0 debugger(clock, currentData, d0, d1, d2, d3);
+	SwitchToSegment SwitchToSegment(.SEG(SEG), .AN(AN), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(SW[3:0]), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "addi";

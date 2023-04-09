@@ -8,7 +8,6 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.ClockDivider
 Compiling module xil_defaultlib.TypeDetector
 Compiling module xil_defaultlib.MultDivStall
 Compiling module xil_defaultlib.Interlock
@@ -25,9 +24,9 @@ Compiling module xil_defaultlib.cla_32
 Compiling module xil_defaultlib.adder_32
 Compiling module xil_defaultlib.PCControl
 Compiling module xil_defaultlib.FetchDecode
-Compiling module xil_defaultlib.DecodeControl
 Compiling module xil_defaultlib.mux_2_5
 Compiling module xil_defaultlib.mux_4_5
+Compiling module xil_defaultlib.DecodeControl
 Compiling module xil_defaultlib.DecodeExecute
 Compiling module xil_defaultlib.ExecuteControl
 Compiling module xil_defaultlib.SignExtender_16
@@ -74,11 +73,10 @@ Compiling module xil_defaultlib.Exception
 Compiling module xil_defaultlib.MemoryWriteback
 Compiling module xil_defaultlib.WritebackControl
 Compiling module xil_defaultlib.processor
-Compiling module xil_defaultlib.ROM(MEMFILE="addi_basic.mem")
+Compiling module xil_defaultlib.ROM(MEMFILE="addi.mem")
 Compiling module xil_defaultlib.decoder_32
 Compiling module xil_defaultlib.tri_state32
 Compiling module xil_defaultlib.regfile_default
 Compiling module xil_defaultlib.RAM
 Compiling module xil_defaultlib.Wrapper_tb
-Compiling module xil_defaultlib.glbl
 Built simulation snapshot Wrapper_tb_time_impl
