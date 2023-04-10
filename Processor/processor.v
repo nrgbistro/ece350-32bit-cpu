@@ -71,14 +71,10 @@ module processor(
 
     // IO
     wire [31:0] swCode;
-    reg swStall;
+    wire swStall;
     SwitchHandler swHandler(swCode, switches);
 
-    always @(clock) begin
-        if (swCode > 0) begin
-            swStall <= 1'b1;
-        end
-    end
+    assign swStall = swCode > 0;
 
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);

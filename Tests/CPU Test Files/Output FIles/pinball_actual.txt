@@ -1,10 +1,12 @@
+Cycle   4: Wrote 1 into register 4
+Cycle   5: Wrote 1 into register 5
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
 Reg  2:           0
 Reg  3:           0
-Reg  4:           0
-Reg  5:           0
+Reg  4:           1
+Reg  5:           1
 Reg  6:           0
 Reg  7:           0
 Reg  8:           0
