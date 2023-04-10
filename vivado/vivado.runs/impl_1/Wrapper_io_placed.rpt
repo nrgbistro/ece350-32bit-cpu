@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date                      : Sun Apr  9 16:58:52 2023
-| Host                      : nrg-desktop running 64-bit major release  (build 9200)
+| Date                      : Mon Apr 10 15:56:17 2023
+| Host                      : NRG-Laptop running 64-bit major release  (build 9200)
 | Command                   : report_io -file Wrapper_io_placed.rpt
 | Design                    : Wrapper
 | Device                    : xc7a100t
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            31 |
+|            35 |
 +---------------+
 
 
@@ -249,8 +249,8 @@ Table of Contents
 | M14        |             | High Range | IO_L2N_T0_D03_14             | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M15        |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | M16        |             | High Range | IO_L10P_T1_D14_14            | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| M17        |             | High Range | IO_L10N_T1_D15_14            | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| M18        |             | High Range | IO_L4N_T0_D05_14             | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| M17        | BTN[2]      | High Range | IO_L10N_T1_D15_14            | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| M18        | BTN[0]      | High Range | IO_L4N_T0_D05_14             | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | N1         |             | High Range | IO_L3N_T0_DQS_34             | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | N2         |             | High Range | IO_L3P_T0_DQS_34             | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | N3         |             | High Range | VCCO_34                      | VCCO        |             |      34 |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
@@ -285,8 +285,8 @@ Table of Contents
 | P14        | AN[4]       | High Range | IO_L8N_T1_D12_14             | OUTPUT      | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | P15        | SEG[4]      | High Range | IO_L13P_T2_MRCC_14           | OUTPUT      | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | P16        |             | High Range | VCCO_14                      | VCCO        |             |      14 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
-| P17        |             | High Range | IO_L12P_T1_MRCC_14           | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| P18        |             | High Range | IO_L9N_T1_DQS_D13_14         | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| P17        | BTN[1]      | High Range | IO_L12P_T1_MRCC_14           | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| P18        | BTN[3]      | High Range | IO_L9N_T1_DQS_D13_14         | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | R1         |             | High Range | IO_L17P_T2_34                | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R2         |             | High Range | IO_L15N_T2_DQS_34            | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R3         |             | High Range | IO_L11P_T1_SRCC_34           | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

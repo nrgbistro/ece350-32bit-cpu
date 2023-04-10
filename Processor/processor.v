@@ -39,7 +39,9 @@ module processor(
     ctrl_readRegB,                  // O: Register to read from port B of RegFile
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
-    data_readRegB                   // I: Data from port B of RegFile
+    data_readRegB,                   // I: Data from port B of RegFile
+
+    switches
 
 	);
 
@@ -61,17 +63,30 @@ module processor(
 	output [31:0] data_writeReg;
 	input [31:0] data_readRegA, data_readRegB;
 
+    input [3:0] switches;
+
 	/* YOUR CODE STARTS HERE */
 
     wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
+    // IO
+    wire [31:0] swCode;
+    reg swStall;
+    SwitchHandler swHandler(swCode, switches);
+
+    always @(clock) begin
+        if (swCode > 0) begin
+            swStall <= 1'b1;
+        end
+    end
+
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
-    assign stallPC = multDivStall || interlockStall;
-    assign stallFD = multDivStall || interlockStall;
-    assign stallDX = multDivStall;
-    assign stallXM = multDivStall;
-    assign stallMW = multDivStall;
+    assign stallPC = multDivStall || interlockStall || swStall;
+    assign stallFD = multDivStall || interlockStall || swStall;
+    assign stallDX = multDivStall || swStall;
+    assign stallXM = multDivStall || swStall;
+    assign stallMW = multDivStall || swStall;
 
     // Interlock
     wire interlockStall;
@@ -149,12 +164,12 @@ module processor(
     wire writebackDataSelector, writebackErrorOut;
 
     MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, writebackErrorOut, memoryIR, memoryO, q_dmem, memoryErrorOut, ~clock, stallMW, reset);
-    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
+    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR, swStall);
 
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
-    assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = writebackErrorOut ? 5'd30 : rd;
+    assign data_writeReg = swStall ? 5'd3 : writebackDataSelector ? writebackD : writebackO;
+    assign ctrl_writeReg = swStall ? swCode : writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 

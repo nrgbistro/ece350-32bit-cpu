@@ -70,12 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 6
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -94,9 +89,10 @@ OPTRACE "Adding files" START { }
 read_mem {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
 }
 read_verilog -library xil_defaultlib {
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/7 Segment/BCD.v}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v
@@ -130,7 +126,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/7 Segment/counter_4.v}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v
@@ -165,7 +161,8 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/7 Segment/switchToSegment.v}
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Switch/switchHandler.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegment.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v

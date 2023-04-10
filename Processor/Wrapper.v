@@ -29,6 +29,7 @@ module Wrapper (
     output [7:0] AN,
 	output [6:0] LED,
     input [6:0] SW,
+	input [3:0] BTN,
     input clock, resetIn);
 
 	// Clocking
@@ -54,7 +55,7 @@ module Wrapper (
 	SwitchToSegment SwitchToSegment(.SEG(SEG), .AN(AN), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(SW[3:0]), .clock(segmentClock));
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "addi";
+	localparam INSTR_FILE = "pinball";
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),
@@ -69,7 +70,9 @@ module Wrapper (
 
 		// RAM
 		.wren(mwe), .address_dmem(memAddr),
-		.data(memDataIn), .q_dmem(memDataOut));
+		.data(memDataIn), .q_dmem(memDataOut),
+
+		.switches(BTN));
 
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
