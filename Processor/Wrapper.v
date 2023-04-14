@@ -35,7 +35,7 @@ module Wrapper (
 	// Clocking
 	wire clk, segmentClock, reset;
 	// 50 Mhz clock
-	ClockDivider mainClockDiv(clk, clock, 5);
+	ClockDivider mainClockDiv(clk, clock, 1);
 	// 200 Hz clock
 	ClockDivider segmentClockDiv(segmentClock, clock, 20000);
 
@@ -72,7 +72,7 @@ module Wrapper (
 		.wren(mwe), .address_dmem(memAddr),
 		.data(memDataIn), .q_dmem(memDataOut),
 
-		.switches(BTN));
+		.buttons(BTN));
 
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))

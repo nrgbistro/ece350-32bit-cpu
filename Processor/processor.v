@@ -41,7 +41,7 @@ module processor(
     data_readRegA,                  // I: Data from port A of RegFile
     data_readRegB,                   // I: Data from port B of RegFile
 
-    switches
+    buttons
 
 	);
 
@@ -63,7 +63,7 @@ module processor(
 	output [31:0] data_writeReg;
 	input [31:0] data_readRegA, data_readRegB;
 
-    input [3:0] switches;
+    input [3:0] buttons;
 
 	/* YOUR CODE STARTS HERE */
 
@@ -72,9 +72,11 @@ module processor(
     // IO
     wire [31:0] swCode;
     wire swStall;
-    SwitchHandler swHandler(swCode, switches);
+    ButtonHandler btnHandler(swCode, buttons);
 
-    assign swStall = swCode > 0;
+    assign swStall = swCode != 32'd0;
+
+    ila_0 debugger(clock, swCode, buttons, swStall);
 
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
@@ -164,8 +166,8 @@ module processor(
 
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
-    assign data_writeReg = swStall ? 5'd3 : writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = swStall ? swCode : writebackErrorOut ? 5'd30 : rd;
+    assign data_writeReg = swStall ? swCode : writebackDataSelector ? writebackD : writebackO;
+    assign ctrl_writeReg = swStall ? 5'd3 : writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 

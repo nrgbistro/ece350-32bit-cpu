@@ -13,7 +13,7 @@ addi $r5, $r0, 1
 # Main loop
 main:
     # seg $0, $r2, 0
-    bne $r3, $r0, button_press
+    # bne $r3, $r0, button_press
 
     j main
 
