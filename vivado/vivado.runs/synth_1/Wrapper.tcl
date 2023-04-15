@@ -120,7 +120,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_2.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_4.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_8.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Switch/buttonHandler.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/bypass.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v
@@ -132,6 +132,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v}
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v

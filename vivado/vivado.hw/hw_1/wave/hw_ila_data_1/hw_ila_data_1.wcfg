@@ -9,37 +9,38 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="65536fs"></ZoomStartTime>
-      <ZoomEndTime time="133388fs"></ZoomEndTime>
-      <Cursor1Time time="1902fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2048fs"></ZoomEndTime>
+      <Cursor1Time time="652fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="242"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <NameColumnWidth column_width="221"></NameColumnWidth>
+      <ValueColumnWidth column_width="78"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="3" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="CPU/buttons" type="array">
+   <wvobject fp_name="reg24" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">CPU/buttons[3:0]</obj_property>
-      <obj_property name="ObjectShortName">buttons[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">reg24[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg24[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="CPU/swCode" type="array">
+   <wvobject fp_name="reg25" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">CPU/swCode[31:0]</obj_property>
-      <obj_property name="ObjectShortName">swCode[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">reg25[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg25[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="CPU/swStall" type="logic">
+   <wvobject fp_name="reg26" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">CPU/swStall</obj_property>
-      <obj_property name="ObjectShortName">swStall</obj_property>
+      <obj_property name="ElementShortName">reg26[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg26[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

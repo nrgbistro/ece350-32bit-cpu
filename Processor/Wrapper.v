@@ -37,11 +37,11 @@ module Wrapper (
 	// 50 Mhz clock
 	ClockDivider mainClockDiv(clk, clock, 1);
 	// 200 Hz clock
-	ClockDivider segmentClockDiv(segmentClock, clock, 20000);
+	ClockDivider segmentClockDiv(segmentClock, clock, 200000);
 
 	assign reset = ~resetIn;
 
-    wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
+    wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
     wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData,
@@ -50,14 +50,21 @@ module Wrapper (
 
 	assign LED = SW;
 
+	ila_0 debugger(clock, reg24, reg25, reg26);
 
-	// ila_0 debugger(clock, currentData, d0, d1, d2, d3);
-	SwitchToSegment SwitchToSegment(.SEG(SEG), .AN(AN), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(SW[3:0]), .clock(segmentClock));
+
+	SwitchToSegment SwitchToSegment(.SEG(SEG), .AN(AN), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .SW(SW), .clock(segmentClock), .reg10(reg10), .reg11(reg11), .reg12(reg12), .reg13(reg13), .reg14(reg14), .reg15(reg15), .reg16(reg16), .reg17(reg17), .reg18(reg18), .reg19(reg19), .reg20(reg20), .reg21(reg21), .reg22(reg22), .reg23(reg23), .reg24(reg24), .reg25(reg25), .reg26(reg26), .reg27(reg27), .reg28(reg28), .reg29(reg29), .reg30(reg30), .reg31(reg31));
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "pinball";
 
 	// Main Processing Unit
+	wire [3:0] debouncedBTN;
+	Debouncer Debounce0(.clk(clock), .pb_in(BTN[0]), .pb_out(debouncedBTN[0]));
+	Debouncer Debounce1(.clk(clock), .pb_in(BTN[1]), .pb_out(debouncedBTN[1]));
+	Debouncer Debounce2(.clk(clock), .pb_in(BTN[2]), .pb_out(debouncedBTN[2]));
+	Debouncer Debounce3(.clk(clock), .pb_in(BTN[3]), .pb_out(debouncedBTN[3]));
+
 	processor CPU(.clock(clk), .reset(reset),
 
 		// ROM
@@ -72,7 +79,7 @@ module Wrapper (
 		.wren(mwe), .address_dmem(memAddr),
 		.data(memDataIn), .q_dmem(memDataOut),
 
-		.buttons(BTN));
+		.buttons(debouncedBTN));
 
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
@@ -86,7 +93,7 @@ module Wrapper (
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset),
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2),
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9));
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .reg1(reg1), .reg2(reg2), .reg3(reg3), .reg4(reg4), .reg5(reg5), .reg6(reg6), .reg7(reg7), .reg8(reg8), .reg9(reg9), .reg10(reg10), .reg11(reg11), .reg12(reg12), .reg13(reg13), .reg14(reg14), .reg15(reg15), .reg16(reg16), .reg17(reg17), .reg18(reg18), .reg19(reg19), .reg20(reg20), .reg21(reg21), .reg22(reg22), .reg23(reg23), .reg24(reg24), .reg25(reg25), .reg26(reg26), .reg27(reg27), .reg28(reg28), .reg29(reg29), .reg30(reg30), .reg31(reg31));
 
 	// Processor Memory (RAM)
 	RAM ProcMem(.clk(clk),

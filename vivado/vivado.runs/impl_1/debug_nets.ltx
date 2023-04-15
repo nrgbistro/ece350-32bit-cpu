@@ -10,11 +10,12 @@
                     {
                         "type": "XSDB_V3",
                         "name": "dbg_hub",
-                        "spec": "labtools_xsdbm_v3"
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "100000000"
                     },
                     {
                         "type": "ILA_V3",
-                        "name": "CPU/debugger",
+                        "name": "debugger",
                         "spec": "labtools_ila_v6",
                         "ipName": "ila",
                         "core_location": {
@@ -22,7 +23,7 @@
                             "slave_index": 0,
                             "bscan_switch_index": 0
                         },
-                        "uuid": "41C4E82BAA2A5F87A56BE5BA02E1429A",
+                        "uuid": "BE58990ED9335A1BBE82DCB6093F493E",
                         "pins": [
                             {
                                 "name": "probe0",
@@ -35,104 +36,104 @@
                                 "portIndex": 0,
                                 "nets": [
                                     {
-                                        "name": "CPU/swCode",
+                                        "name": "reg24",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "CPU/swCode[31]"
+                                                "name": "reg24[31]"
                                             },
                                             {
-                                                "name": "CPU/swCode[30]"
+                                                "name": "reg24[30]"
                                             },
                                             {
-                                                "name": "CPU/swCode[29]"
+                                                "name": "reg24[29]"
                                             },
                                             {
-                                                "name": "CPU/swCode[28]"
+                                                "name": "reg24[28]"
                                             },
                                             {
-                                                "name": "CPU/swCode[27]"
+                                                "name": "reg24[27]"
                                             },
                                             {
-                                                "name": "CPU/swCode[26]"
+                                                "name": "reg24[26]"
                                             },
                                             {
-                                                "name": "CPU/swCode[25]"
+                                                "name": "reg24[25]"
                                             },
                                             {
-                                                "name": "CPU/swCode[24]"
+                                                "name": "reg24[24]"
                                             },
                                             {
-                                                "name": "CPU/swCode[23]"
+                                                "name": "reg24[23]"
                                             },
                                             {
-                                                "name": "CPU/swCode[22]"
+                                                "name": "reg24[22]"
                                             },
                                             {
-                                                "name": "CPU/swCode[21]"
+                                                "name": "reg24[21]"
                                             },
                                             {
-                                                "name": "CPU/swCode[20]"
+                                                "name": "reg24[20]"
                                             },
                                             {
-                                                "name": "CPU/swCode[19]"
+                                                "name": "reg24[19]"
                                             },
                                             {
-                                                "name": "CPU/swCode[18]"
+                                                "name": "reg24[18]"
                                             },
                                             {
-                                                "name": "CPU/swCode[17]"
+                                                "name": "reg24[17]"
                                             },
                                             {
-                                                "name": "CPU/swCode[16]"
+                                                "name": "reg24[16]"
                                             },
                                             {
-                                                "name": "CPU/swCode[15]"
+                                                "name": "reg24[15]"
                                             },
                                             {
-                                                "name": "CPU/swCode[14]"
+                                                "name": "reg24[14]"
                                             },
                                             {
-                                                "name": "CPU/swCode[13]"
+                                                "name": "reg24[13]"
                                             },
                                             {
-                                                "name": "CPU/swCode[12]"
+                                                "name": "reg24[12]"
                                             },
                                             {
-                                                "name": "CPU/swCode[11]"
+                                                "name": "reg24[11]"
                                             },
                                             {
-                                                "name": "CPU/swCode[10]"
+                                                "name": "reg24[10]"
                                             },
                                             {
-                                                "name": "CPU/swCode[9]"
+                                                "name": "reg24[9]"
                                             },
                                             {
-                                                "name": "CPU/swCode[8]"
+                                                "name": "reg24[8]"
                                             },
                                             {
-                                                "name": "CPU/swCode[7]"
+                                                "name": "reg24[7]"
                                             },
                                             {
-                                                "name": "CPU/swCode[6]"
+                                                "name": "reg24[6]"
                                             },
                                             {
-                                                "name": "CPU/swCode[5]"
+                                                "name": "reg24[5]"
                                             },
                                             {
-                                                "name": "CPU/swCode[4]"
+                                                "name": "reg24[4]"
                                             },
                                             {
-                                                "name": "CPU/swCode[3]"
+                                                "name": "reg24[3]"
                                             },
                                             {
-                                                "name": "CPU/swCode[2]"
+                                                "name": "reg24[2]"
                                             },
                                             {
-                                                "name": "CPU/swCode[1]"
+                                                "name": "reg24[1]"
                                             },
                                             {
-                                                "name": "CPU/swCode[0]"
+                                                "name": "reg24[0]"
                                             }
                                         ]
                                     }
@@ -145,24 +146,108 @@
                                 "direction": "IN",
                                 "isVector": true,
                                 "leftIndex": 0,
-                                "rightIndex": 3,
+                                "rightIndex": 31,
                                 "portIndex": 1,
                                 "nets": [
                                     {
-                                        "name": "CPU/buttons",
+                                        "name": "reg25",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "CPU/buttons[3]"
+                                                "name": "reg25[31]"
                                             },
                                             {
-                                                "name": "CPU/buttons[2]"
+                                                "name": "reg25[30]"
                                             },
                                             {
-                                                "name": "CPU/buttons[1]"
+                                                "name": "reg25[29]"
                                             },
                                             {
-                                                "name": "CPU/buttons[0]"
+                                                "name": "reg25[28]"
+                                            },
+                                            {
+                                                "name": "reg25[27]"
+                                            },
+                                            {
+                                                "name": "reg25[26]"
+                                            },
+                                            {
+                                                "name": "reg25[25]"
+                                            },
+                                            {
+                                                "name": "reg25[24]"
+                                            },
+                                            {
+                                                "name": "reg25[23]"
+                                            },
+                                            {
+                                                "name": "reg25[22]"
+                                            },
+                                            {
+                                                "name": "reg25[21]"
+                                            },
+                                            {
+                                                "name": "reg25[20]"
+                                            },
+                                            {
+                                                "name": "reg25[19]"
+                                            },
+                                            {
+                                                "name": "reg25[18]"
+                                            },
+                                            {
+                                                "name": "reg25[17]"
+                                            },
+                                            {
+                                                "name": "reg25[16]"
+                                            },
+                                            {
+                                                "name": "reg25[15]"
+                                            },
+                                            {
+                                                "name": "reg25[14]"
+                                            },
+                                            {
+                                                "name": "reg25[13]"
+                                            },
+                                            {
+                                                "name": "reg25[12]"
+                                            },
+                                            {
+                                                "name": "reg25[11]"
+                                            },
+                                            {
+                                                "name": "reg25[10]"
+                                            },
+                                            {
+                                                "name": "reg25[9]"
+                                            },
+                                            {
+                                                "name": "reg25[8]"
+                                            },
+                                            {
+                                                "name": "reg25[7]"
+                                            },
+                                            {
+                                                "name": "reg25[6]"
+                                            },
+                                            {
+                                                "name": "reg25[5]"
+                                            },
+                                            {
+                                                "name": "reg25[4]"
+                                            },
+                                            {
+                                                "name": "reg25[3]"
+                                            },
+                                            {
+                                                "name": "reg25[2]"
+                                            },
+                                            {
+                                                "name": "reg25[1]"
+                                            },
+                                            {
+                                                "name": "reg25[0]"
                                             }
                                         ]
                                     }
@@ -173,14 +258,112 @@
                                 "id": 2,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
-                                "isVector": false,
+                                "isVector": true,
                                 "leftIndex": 0,
-                                "rightIndex": 0,
+                                "rightIndex": 31,
                                 "portIndex": 2,
                                 "nets": [
                                     {
-                                        "name": "CPU/swStall",
-                                        "isBus": false
+                                        "name": "reg26",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "reg26[31]"
+                                            },
+                                            {
+                                                "name": "reg26[30]"
+                                            },
+                                            {
+                                                "name": "reg26[29]"
+                                            },
+                                            {
+                                                "name": "reg26[28]"
+                                            },
+                                            {
+                                                "name": "reg26[27]"
+                                            },
+                                            {
+                                                "name": "reg26[26]"
+                                            },
+                                            {
+                                                "name": "reg26[25]"
+                                            },
+                                            {
+                                                "name": "reg26[24]"
+                                            },
+                                            {
+                                                "name": "reg26[23]"
+                                            },
+                                            {
+                                                "name": "reg26[22]"
+                                            },
+                                            {
+                                                "name": "reg26[21]"
+                                            },
+                                            {
+                                                "name": "reg26[20]"
+                                            },
+                                            {
+                                                "name": "reg26[19]"
+                                            },
+                                            {
+                                                "name": "reg26[18]"
+                                            },
+                                            {
+                                                "name": "reg26[17]"
+                                            },
+                                            {
+                                                "name": "reg26[16]"
+                                            },
+                                            {
+                                                "name": "reg26[15]"
+                                            },
+                                            {
+                                                "name": "reg26[14]"
+                                            },
+                                            {
+                                                "name": "reg26[13]"
+                                            },
+                                            {
+                                                "name": "reg26[12]"
+                                            },
+                                            {
+                                                "name": "reg26[11]"
+                                            },
+                                            {
+                                                "name": "reg26[10]"
+                                            },
+                                            {
+                                                "name": "reg26[9]"
+                                            },
+                                            {
+                                                "name": "reg26[8]"
+                                            },
+                                            {
+                                                "name": "reg26[7]"
+                                            },
+                                            {
+                                                "name": "reg26[6]"
+                                            },
+                                            {
+                                                "name": "reg26[5]"
+                                            },
+                                            {
+                                                "name": "reg26[4]"
+                                            },
+                                            {
+                                                "name": "reg26[3]"
+                                            },
+                                            {
+                                                "name": "reg26[2]"
+                                            },
+                                            {
+                                                "name": "reg26[1]"
+                                            },
+                                            {
+                                                "name": "reg26[0]"
+                                            }
+                                        ]
                                     }
                                 ]
                             }

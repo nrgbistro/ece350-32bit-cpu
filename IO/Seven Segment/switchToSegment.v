@@ -1,10 +1,10 @@
 module SwitchToSegment(
-    AN, SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock);
+    AN, SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31);
 
     output reg [6:0] SEG;
     output reg [7:0] AN;
-    input [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9;
-    input [3:0] SW;
+    input [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
+    input [6:0] SW;
     input clock;
 
     reg [31:0] currentData;
@@ -37,15 +37,37 @@ module SwitchToSegment(
     assign d3 = BCDOut[15:12];
 
     always @(*) begin
-        currentData <= SW == 4'd1 ? reg1 :
-                        SW == 4'd2 ? reg2 :
-                        SW == 4'd3 ? reg3 :
-                        SW == 4'd4 ? reg4 :
-                        SW == 4'd5 ? reg5 :
-                        SW == 4'd6 ? reg6 :
-                        SW == 4'd7 ? reg7 :
-                        SW == 4'd8 ? reg8 :
-                        SW == 4'd9 ? reg9 :
+        currentData <= SW == 6'd1 ? reg1 :
+                        SW == 6'd2 ? reg2 :
+                        SW == 6'd3 ? reg3 :
+                        SW == 6'd4 ? reg4 :
+                        SW == 6'd5 ? reg5 :
+                        SW == 6'd6 ? reg6 :
+                        SW == 6'd7 ? reg7 :
+                        SW == 6'd8 ? reg8 :
+                        SW == 6'd9 ? reg9 :
+                        SW == 6'd10 ? reg10 :
+                        SW == 6'd11 ? reg11 :
+                        SW == 6'd12 ? reg12 :
+                        SW == 6'd13 ? reg13 :
+                        SW == 6'd14 ? reg14 :
+                        SW == 6'd15 ? reg15 :
+                        SW == 6'd16 ? reg16 :
+                        SW == 6'd17 ? reg17 :
+                        SW == 6'd18 ? reg18 :
+                        SW == 6'd19 ? reg19 :
+                        SW == 6'd20 ? reg20 :
+                        SW == 6'd21 ? reg21 :
+                        SW == 6'd22 ? reg22 :
+                        SW == 6'd23 ? reg23 :
+                        SW == 6'd24 ? reg24 :
+                        SW == 6'd25 ? reg25 :
+                        SW == 6'd26 ? reg26 :
+                        SW == 6'd27 ? reg27 :
+                        SW == 6'd28 ? reg28 :
+                        SW == 6'd29 ? reg29 :
+                        SW == 6'd30 ? reg30 :
+                        SW == 6'd31 ? reg31 :
                         32'd0;
         case (count)
             2'd0: begin

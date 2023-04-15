@@ -76,8 +76,6 @@ module processor(
 
     assign swStall = swCode != 32'd0;
 
-    ila_0 debugger(clock, swCode, buttons, swStall);
-
     // Stall
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
     assign stallPC = multDivStall || interlockStall || swStall;
@@ -167,7 +165,7 @@ module processor(
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
     assign data_writeReg = swStall ? swCode : writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = swStall ? 5'd3 : writebackErrorOut ? 5'd30 : rd;
+    assign ctrl_writeReg = swStall ? 5'd25 : writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 
