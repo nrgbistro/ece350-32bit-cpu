@@ -1,9 +1,9 @@
 # Created by Nolan Gelinas
 # 2023-09-04
 
-# $r24 is the game score
-# $r25 is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
-# $s0 is the score multiplier
+# $r24=$score is the game score
+# $r25=$btn is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
+# $s0=$mult is the score multiplier
 # $t0 is the score increment value
 # $t1 is the score increment value after multiplier
 
@@ -24,6 +24,8 @@ button_press:
     add $r24, $r24, $t1
     jal reset_button
     j main
+
+get_button_value:
 
 
 reset_button:
