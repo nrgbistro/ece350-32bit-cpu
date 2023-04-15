@@ -1,18 +1,18 @@
 # Created by Nolan Gelinas
 # 2023-09-04
 
-# $r2 is the game score
-# $r3 is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
-# $r4 is the score multiplier
-# $r5 is the score increment value
-# $r6 is the score increment value after multiplier
+# $r24 is the game score
+# $r25 is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
+# $s0 is the score multiplier
+# $t0 is the score increment value
+# $t1 is the score increment value after multiplier
 
-addi $r4, $r0, 1
-addi $r5, $r0, 1
+addi $s0, $r0, 1
+addi $t0, $r0, 1
 
 # Main loop
 main:
-    # seg $0, $r2, 0
+    # seg $0, $r24, 0
     # bne $r3, $r0, button_press
 
     j main
@@ -20,10 +20,12 @@ main:
 
 # Handles button press
 button_press:
-    # Apply score multiplier
-    mul $r6, $r4, $r5
-    # Add score increment to score
-    add $r2, $r2, $r6
-    # Reset button
-    addi $r3, $r0, 0
+    mul $t1, $s0, $t0
+    add $r24, $r24, $t1
+    jal reset_button
     j main
+
+
+reset_button:
+    addi $r3, $r0, 0
+    jr $ra
