@@ -24,10 +24,14 @@ module RegToSegment(
     parameter SEGMENT9 = 7'b0010000;
     parameter SEGMENTBROKEN = 7'b1110111;
 
+    wire [31:0] tempLatchedRegData, latchedRegData;
     wire [20:0] BCDOut;
     wire [3:0] d0, d1, d2, d3;
 
-    BCD BCD(latchedRegData, BCDOut);
+    register_32 regDataLatch0(tempLatchedRegData, regData, ~mainClock, enable, 1'b0);
+    register_32 regDataLatch1(latchedRegData, tempLatchedRegData, mainClock, enable, 1'b0);
+
+    BCD BCD(latchedRegData[15:0], BCDOut);
 
     assign d0 = BCDOut[3:0];
     assign d1 = BCDOut[7:4];
@@ -35,14 +39,6 @@ module RegToSegment(
     assign d3 = BCDOut[15:12];
 
     ila_0 debugger(mainClock, latchedRegData, d0, d1, d2, d3, enable);
-
-    reg [15:0] latchedRegData;
-
-    always @(*) begin
-        if (enable) begin
-            latchedRegData <= regData[15:0];
-        end
-    end
 
     always @(*) begin
         case (count)
