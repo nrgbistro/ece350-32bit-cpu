@@ -82,7 +82,7 @@ module processor(
     wire segmentClock;
     // 200 hz clock
 	ClockDivider mainClockDiv(segmentClock, clock, 50000);
-    RegToSegment RegisterToSegment(.SEG(segment), .AN(segmentMask), .clock(segmentClock), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001));
+    RegToSegment RegisterToSegment(.SEG(segment), .AN(segmentMask), .clock(segmentClock), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001), .reset(reset));
 
     // Stall
     wire interlockStall;

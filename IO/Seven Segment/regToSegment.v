@@ -1,5 +1,5 @@
 module RegToSegment(
-    AN, SEG, regData, clock, N, mainClock, enable);
+    AN, SEG, regData, clock, N, mainClock, enable, reset);
 
     output reg [6:0] SEG;
     output reg [7:0] AN;
@@ -28,8 +28,8 @@ module RegToSegment(
     wire [20:0] BCDOut;
     wire [3:0] d0, d1, d2, d3;
 
-    register_32 regDataLatch0(tempLatchedRegData, regData, ~mainClock, enable, 1'b0);
-    register_32 regDataLatch1(latchedRegData, tempLatchedRegData, mainClock, enable, 1'b0);
+    register_32 regDataLatch0(tempLatchedRegData, regData, ~mainClock, enable, reset);
+    register_32 regDataLatch1(latchedRegData, tempLatchedRegData, mainClock, enable, reset);
 
     BCD BCD(latchedRegData[15:0], BCDOut);
 
