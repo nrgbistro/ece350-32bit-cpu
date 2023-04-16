@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 3
+set_param chipscope.maxJobs 6
 set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
@@ -160,6 +160,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v
@@ -167,7 +168,6 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegment.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v

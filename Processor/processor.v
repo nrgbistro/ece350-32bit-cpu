@@ -41,9 +41,9 @@ module processor(
     data_readRegA,                  // I: Data from port A of RegFile
     data_readRegB,                   // I: Data from port B of RegFile
 
-    buttons
-
-	);
+    buttons,
+    segment,
+    segmentMask);
 
 	// Control signals
 	input clock, reset;
@@ -64,6 +64,8 @@ module processor(
 	input [31:0] data_readRegA, data_readRegB;
 
     input [3:0] buttons;
+    output [6:0] segment;
+    output [7:0] segmentMask;
 
 	/* YOUR CODE STARTS HERE */
 
@@ -76,7 +78,14 @@ module processor(
 
     assign swStall = swCode != 32'd0;
 
+    // Seven Segment
+    wire segmentClock;
+    // 200 hz clock
+	ClockDivider mainClockDiv(segmentClock, clock, 50000);
+    RegToSegment RegisterToSegment(.SEG(segment), .AN(segmentMask), .clock(segmentClock), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001));
+
     // Stall
+    wire interlockStall;
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
     assign stallPC = multDivStall || interlockStall || swStall;
     assign stallFD = multDivStall || interlockStall || swStall;
@@ -85,7 +94,6 @@ module processor(
     assign stallMW = multDivStall || swStall;
 
     // Interlock
-    wire interlockStall;
     Interlock interlock(interlockStall, decodeIR, executeIR);
 
     // Bypassing

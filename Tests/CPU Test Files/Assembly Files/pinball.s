@@ -9,7 +9,7 @@ addi $mult, $0, 2
 
 # Main loop
 main:
-    # seg $0, $score, 0
+    seg $0, $score, 0
     bne $btn, $0, handle_button_press
 
     j main
