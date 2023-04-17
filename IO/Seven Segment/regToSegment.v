@@ -4,13 +4,13 @@ module RegToSegment(
     output reg [6:0] SEG;
     output reg [7:0] AN;
     input [31:0] regData;
-    input clock, mainClock, N, enable;
+    input clock, mainClock, N, enable, reset;
 
     reg [3:0] currentFrame;
     reg [3:0] halfAN;
     wire [1:0] count;
 
-    counter_4 frameCounter(count, clock, 1'b0);
+    counter_4 frameCounter(count, clock, reset);
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;
@@ -24,12 +24,11 @@ module RegToSegment(
     parameter SEGMENT9 = 7'b0010000;
     parameter SEGMENTBROKEN = 7'b1110111;
 
-    wire [31:0] tempLatchedRegData, latchedRegData;
+    wire [31:0] latchedRegData;
     wire [20:0] BCDOut;
     wire [3:0] d0, d1, d2, d3;
 
-    register_32 regDataLatch0(tempLatchedRegData, regData, ~mainClock, enable, reset);
-    register_32 regDataLatch1(latchedRegData, tempLatchedRegData, mainClock, enable, reset);
+    register_32 regDataLatch0(latchedRegData, regData, ~mainClock, enable, reset);
 
     BCD BCD(latchedRegData[15:0], BCDOut);
 
@@ -38,7 +37,7 @@ module RegToSegment(
     assign d2 = BCDOut[11:8];
     assign d3 = BCDOut[15:12];
 
-    ila_0 debugger(mainClock, latchedRegData, d0, d1, d2, d3, enable);
+    ila_0 debugger(mainClock, tempLatchedRegData, latchedRegData, d0, d1, d2, d3, enable);
 
     always @(*) begin
         case (count)

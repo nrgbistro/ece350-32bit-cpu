@@ -5,7 +5,7 @@
 # $btn=$25 is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
 # $mult=$26 is the score multiplier
 
-addi $mult, $0, 2
+addi $mult, $0, 3
 
 # Main loop
 main:

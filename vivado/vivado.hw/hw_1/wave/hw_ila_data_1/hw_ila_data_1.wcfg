@@ -9,22 +9,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1783fs"></ZoomStartTime>
-      <ZoomEndTime time="1807fs"></ZoomEndTime>
-      <Cursor1Time time="1791fs"></Cursor1Time>
+      <ZoomStartTime time="1801fs"></ZoomStartTime>
+      <ZoomEndTime time="1829fs"></ZoomEndTime>
+      <Cursor1Time time="1816fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="401"></NameColumnWidth>
-      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+      <ValueColumnWidth column_width="123"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="38" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="CPU/RegisterToSegment/latchedRegData" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">CPU/RegisterToSegment/latchedRegData[15:0]</obj_property>
-      <obj_property name="ObjectShortName">latchedRegData[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/latchedRegData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">latchedRegData[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
@@ -64,6 +64,230 @@
       <obj_property name="ElementShortName">CPU/RegisterToSegment/d3[3:0]</obj_property>
       <obj_property name="ObjectShortName">d3[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_1" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_1</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_10" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_10</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_10</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_11" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_11</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_11</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_12" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_12</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_12</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_13" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_13</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_13</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_14" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_14</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_14</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_15" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_15</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_15</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_16" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_16</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_16</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_17" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_17</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_17</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_18" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_18</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_18</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_19" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_19</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_19</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_2" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_2</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_2</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_20" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_20</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_20</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_21" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_21</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_21</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_22" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_22</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_22</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_23" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_23</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_23</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_24" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_24</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_24</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_25" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_25</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_25</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_26" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_26</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_26</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_27" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_27</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_27</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_28" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_28</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_28</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_29" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_29</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_29</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_3" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_3</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_3</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_30" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_30</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_30</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_4" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_4</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_4</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_5" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_5</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_5</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_6" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_6</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_6</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_7" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_7</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_7</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_8" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_8</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_8</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/&lt;const0&gt;_9" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/&lt;const0&gt;_9</obj_property>
+      <obj_property name="ObjectShortName">&lt;const0&gt;_9</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/RegisterToSegment/tempLatchedRegData" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/RegisterToSegment/tempLatchedRegData</obj_property>
+      <obj_property name="ObjectShortName">tempLatchedRegData</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
