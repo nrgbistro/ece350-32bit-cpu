@@ -79,10 +79,7 @@ module processor(
     assign swStall = swCode != 32'd0;
 
     // Seven Segment
-    wire segmentClock;
-    // 200 hz clock
-	ClockDivider mainClockDiv(segmentClock, clock, 50000);
-    RegToSegment RegisterToSegment(.SEG(segment), .AN(segmentMask), .clock(segmentClock), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001), .reset(reset));
+    RegToSegment RegisterToSegment(.SEG(segment), .AN(segmentMask), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001), .reset(reset));
 
     // Stall
     wire interlockStall;

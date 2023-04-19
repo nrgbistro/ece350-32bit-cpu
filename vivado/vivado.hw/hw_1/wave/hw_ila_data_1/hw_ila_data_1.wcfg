@@ -9,17 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1801fs"></ZoomStartTime>
-      <ZoomEndTime time="1829fs"></ZoomEndTime>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="182fs"></ZoomEndTime>
       <Cursor1Time time="1816fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="401"></NameColumnWidth>
-      <ValueColumnWidth column_width="123"></ValueColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="38" />
-   <wave_markers>
-   </wave_markers>
    <wvobject fp_name="CPU/RegisterToSegment/latchedRegData" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">CPU/RegisterToSegment/latchedRegData[31:0]</obj_property>

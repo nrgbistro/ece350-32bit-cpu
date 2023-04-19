@@ -1,5 +1,5 @@
 module SwitchToSegment(
-    AN, SEG, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, SW, clock, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31);
+    AN, SEG, SW, clock, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31);
 
     output reg [6:0] SEG;
     output reg [7:0] AN;
@@ -7,12 +7,15 @@ module SwitchToSegment(
     input [6:0] SW;
     input clock;
 
+    wire segClock;
+
     reg [31:0] currentData;
     reg [3:0] currentFrame;
     reg [3:0] halfAN;
     wire [1:0] count;
 
-    counter_4 frameCounter(count, clock, 1'b0);
+    ClockDivider clockDivider(segClock, clock, 50000);
+    counter_4 frameCounter(count, segClock, 1'b0);
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;

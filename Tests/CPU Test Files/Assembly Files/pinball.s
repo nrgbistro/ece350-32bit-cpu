@@ -5,7 +5,7 @@
 # $btn=$25 is the button (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
 # $mult=$26 is the score multiplier
 
-addi $mult, $0, 3
+addi $mult, $0, 1
 
 # Main loop
 main:
@@ -17,13 +17,12 @@ main:
 
 # Handles button press
 handle_button_press:
-    add $a0, $btn, $0
+    addi $a0, $btn, 0
     jal get_button_value
 
     # Multiply score increment value from get_button_value by multiplier
     mul $t0, $mult, $v0
     add $score, $score, $t0
-    jal reset_button
     j main
 
 
@@ -36,42 +35,45 @@ handle_button_press:
 # b3: 25 points
 # b4: 50 points
 get_button_value:
-    # If $a0 == 1
-    addi $t0, $0, 2
-    blt $a0, $t0, b1_pressed
+    # $t0 stores the desired button id
+    # $t1 stores the actual button id
+    addi $t1, $a0, 0
 
-    # If $a0 == 2
-    addi $t0, $0, 3
-    blt $a0, $t0, b2_pressed
+    addi $t0, $0, 1
+    bne $t1, $t0, not_b1
 
-    # If $a0 == 3
-    addi $t0, $0, 4
-    blt $a0, $t0, b3_pressed
+    # $btn == 1:
+    addi $v0, $0, 5
+    j reset_button
 
-    # If $a0 == 4
-    addi $t0, $0, 5
-    blt $a0, $t0, b4_pressed
+    not_b1:
+        addi $t0 $0, 1
+        bne $t1, $t0, not_b2
 
-    # Default case
-    addi $v0, $0, 17
-    jr $ra
-
-    b1_pressed:
-        addi $v0, $0, 5
-        jr $ra
-
-    b2_pressed:
+        # $btn == 2:
         addi $v0, $0, 10
-        jr $ra
+        j reset_button
 
-    b3_pressed:
+    not_b2:
+        addi $t0 $0, 3
+        bne $t1, $t0, not_b3
+
+        # $btn == 3:
         addi $v0, $0, 25
-        jr $ra
+        j reset_button
 
-    b4_pressed:
-        addi $v0, $0, 50
-        jr $ra
+    not_b3:
+        addi $t0 $0, 4
+        bne $t1, $t0, not_b4
 
-reset_button:
-    addi $btn, $0, 0
-    jr $ra
+        # $btn == 4:
+        addi $v0, $0, 20
+        j reset_button
+
+    not_b4:
+        addi $v0, $0, 2
+        j reset_button
+
+    reset_button:
+        addi $btn, $0, 0
+        jr $ra

@@ -1,16 +1,19 @@
 module RegToSegment(
-    AN, SEG, regData, clock, N, mainClock, enable, reset);
+    AN, SEG, regData, N, mainClock, enable, reset);
 
     output reg [6:0] SEG;
     output reg [7:0] AN;
     input [31:0] regData;
-    input clock, mainClock, N, enable, reset;
+    input mainClock, N, enable, reset;
 
     reg [3:0] currentFrame;
     reg [3:0] halfAN;
     wire [1:0] count;
+    wire segmentClock;
 
-    counter_4 frameCounter(count, clock, reset);
+    // 200 hz clock
+	ClockDivider mainClockDiv(segmentClock, mainClock, 50000);
+    counter_4 frameCounter(count, segmentClock, reset);
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;
