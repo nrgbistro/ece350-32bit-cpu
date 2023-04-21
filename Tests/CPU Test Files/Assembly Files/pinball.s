@@ -10,6 +10,8 @@ addi $mult, $0, 1
 # Main loop
 main:
     seg $0, $score, 0
+    addi $t5 $0, 420
+    seg $0, $t5, 1
     bne $btn, $0, handle_button_press
 
     j main
@@ -39,15 +41,16 @@ get_button_value:
     # $t1 stores the actual button id
     addi $t1, $a0, 0
 
-    addi $t0, $0, 1
-    bne $t1, $t0, not_b1
+    get_button_value_begin:
+        addi $t0, $0, 1
+        bne $t1, $t0, not_b1
 
-    # $btn == 1:
-    addi $v0, $0, 5
-    j reset_button
+        # $btn == 1:
+        addi $v0, $0, 5
+        j reset_button
 
     not_b1:
-        addi $t0 $0, 1
+        addi $t0 $0, 2
         bne $t1, $t0, not_b2
 
         # $btn == 2:
@@ -67,11 +70,11 @@ get_button_value:
         bne $t1, $t0, not_b4
 
         # $btn == 4:
-        addi $v0, $0, 20
+        addi $v0, $0, 50
         j reset_button
 
     not_b4:
-        addi $v0, $0, 2
+        addi $v0, $0, 0
         j reset_button
 
     reset_button:

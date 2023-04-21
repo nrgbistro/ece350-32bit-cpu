@@ -70,11 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_param chipscope.maxJobs 6
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -167,6 +163,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v

@@ -1,4 +1,18 @@
 Cycle   4: Wrote 1 into register 26
+Cycle   6: Wrote 420 into register 13
+Cycle  13: Wrote 420 into register 13
+Cycle  20: Wrote 420 into register 13
+Cycle  27: Wrote 420 into register 13
+Cycle  34: Wrote 420 into register 13
+Cycle  41: Wrote 420 into register 13
+Cycle  48: Wrote 420 into register 13
+Cycle  55: Wrote 420 into register 13
+Cycle  62: Wrote 420 into register 13
+Cycle  69: Wrote 420 into register 13
+Cycle  76: Wrote 420 into register 13
+Cycle  83: Wrote 420 into register 13
+Cycle  90: Wrote 420 into register 13
+Cycle  97: Wrote 420 into register 13
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
@@ -13,7 +27,7 @@ Reg  9:           0
 Reg 10:           0
 Reg 11:           0
 Reg 12:           0
-Reg 13:           0
+Reg 13:         420
 Reg 14:           0
 Reg 15:           0
 Reg 16:           0

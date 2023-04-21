@@ -1,19 +1,14 @@
-module RegToSegment(
-    AN, SEG, regData, N, mainClock, enable, reset);
+module RegToSegment
+    (AN, SEG, regData, mainClock, enable, reset, count);
 
     output reg [6:0] SEG;
-    output reg [7:0] AN;
+    output reg [3:0] AN;
     input [31:0] regData;
-    input mainClock, N, enable, reset;
+    input [1:0] count;
+    input mainClock, enable, reset;
 
     reg [3:0] currentFrame;
     reg [3:0] halfAN;
-    wire [1:0] count;
-    wire segmentClock;
-
-    // 200 hz clock
-	ClockDivider mainClockDiv(segmentClock, mainClock, 50000);
-    counter_4 frameCounter(count, segmentClock, reset);
 
     parameter SEGMENT0 = 7'b1000000;
     parameter SEGMENT1 = 7'b1111001;
@@ -27,11 +22,11 @@ module RegToSegment(
     parameter SEGMENT9 = 7'b0010000;
     parameter SEGMENTBROKEN = 7'b1110111;
 
-    wire [31:0] latchedRegData;
+
     wire [20:0] BCDOut;
     wire [3:0] d0, d1, d2, d3;
-
-    register_32 regDataLatch0(latchedRegData, regData, ~mainClock, enable, reset);
+    wire [31:0] latchedRegData;
+    register_32 regDataLatch(latchedRegData, regData, ~mainClock, enable, reset);
 
     BCD BCD(latchedRegData[15:0], BCDOut);
 
@@ -40,34 +35,31 @@ module RegToSegment(
     assign d2 = BCDOut[11:8];
     assign d3 = BCDOut[15:12];
 
-    ila_0 debugger(mainClock, tempLatchedRegData, latchedRegData, d0, d1, d2, d3, enable);
-
     always @(*) begin
         case (count)
             2'd0: begin
                     currentFrame = d0;
-                    halfAN = 4'b1110;
+                    halfAN = 4'b0111;
                   end
             2'd1: begin
                       currentFrame = d1;
-                      halfAN = 4'b1101;
+                      halfAN = 4'b1011;
                   end
             2'd2: begin
                     currentFrame = d2;
-                    halfAN = 4'b1011;
+                    halfAN = 4'b1101;
                   end
             2'd3: begin
                     currentFrame = d3;
-                    halfAN = 4'b0111;
+                    halfAN = 4'b1110;
                   end
             default: begin
-                        currentFrame = 4'd0;
+                        currentFrame = 4'd15;
                         halfAN = 4'b1111;
                      end
         endcase
 
-        AN[7:4] = 4'b1111;
-        AN[3:0] = halfAN;
+        AN = halfAN;
 
         case (currentFrame)
             4'd0: SEG = SEGMENT0;
