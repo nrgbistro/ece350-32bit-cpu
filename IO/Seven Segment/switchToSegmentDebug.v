@@ -14,19 +14,21 @@ module SwitchToSegment(
     reg [3:0] halfAN;
     wire [1:0] count;
 
+    ila_0 debug(clock, reg24, reg25, reg26, reg4);
+
     ClockDivider clockDivider(segClock, clock, 50000);
     counter_4 frameCounter(count, segClock, 1'b0);
 
     parameter SEGMENT0 = 7'b1000000;
-    parameter SEGMENT1 = 7'b1111001;
+    parameter SEGMENT1 = 7'b1001111;
     parameter SEGMENT2 = 7'b0100100;
-    parameter SEGMENT3 = 7'b0110000;
-    parameter SEGMENT4 = 7'b0011001;
+    parameter SEGMENT3 = 7'b0000110;
+    parameter SEGMENT4 = 7'b0001011;
     parameter SEGMENT5 = 7'b0010010;
-    parameter SEGMENT6 = 7'b0000010;
-    parameter SEGMENT7 = 7'b1111000;
+    parameter SEGMENT6 = 7'b0010000;
+    parameter SEGMENT7 = 7'b1000111;
     parameter SEGMENT8 = 7'b0000000;
-    parameter SEGMENT9 = 7'b0010000;
+    parameter SEGMENT9 = 7'b0000010;
     parameter SEGMENTBROKEN = 7'b1110111;
 
     wire [15:0] BCDOut;
@@ -75,19 +77,19 @@ module SwitchToSegment(
         case (count)
             2'd0: begin
                     currentFrame = d0;
-                    halfAN = 4'b1110;
+                    halfAN = 4'b0111;
                   end
             2'd1: begin
                       currentFrame = d1;
-                      halfAN = 4'b1101;
+                      halfAN = 4'b1011;
                   end
             2'd2: begin
                     currentFrame = d2;
-                    halfAN = 4'b1011;
+                    halfAN = 4'b1101;
                   end
             2'd3: begin
                     currentFrame = d3;
-                    halfAN = 4'b0111;
+                    halfAN = 4'b1110;
                   end
             default: begin
                         currentFrame = 4'd0;

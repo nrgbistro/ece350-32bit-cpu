@@ -11,7 +11,7 @@ addi $mult, $0, 1
 main:
     seg $0, $score, 1
     seg $0, $mult, 0
-    # bne $btn, $0, handle_button_press
+    bne $btn, $0, handle_button_press
 
     j main
 

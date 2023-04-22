@@ -4,8 +4,6 @@ module SegmentWrapper(
     input [31:0] regData,
     input clock, reset, enable, N);
 
-    ila_0 debugger(clock, SEG, AN, N, enable, segmentClock, regData);
-
     assign AN = ~segmentClock ? {4'b1111, ANRight} : {ANLeft, 4'b1111};
     assign SEG = ~segmentClock ? segmentRight : segmentLeft;
 
