@@ -9,3 +9,8 @@
 # Log file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/impl_1/Wrapper.vdi
 # Journal file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
+source Wrapper.tcl -notrace
+Command: link_design -top Wrapper -part xc7a100tcsg324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
