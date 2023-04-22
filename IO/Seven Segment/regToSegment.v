@@ -14,7 +14,7 @@ module RegToSegment
     parameter SEGMENT1 = 7'b1001111;
     parameter SEGMENT2 = 7'b0100100;
     parameter SEGMENT3 = 7'b0000110;
-    parameter SEGMENT4 = 7'b0101001;
+    parameter SEGMENT4 = 7'b0001011;
     parameter SEGMENT5 = 7'b0010010;
     parameter SEGMENT6 = 7'b0010000;
     parameter SEGMENT7 = 7'b1000111;
