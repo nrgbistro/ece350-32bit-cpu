@@ -79,3 +79,15 @@ get_button_value:
     reset_button:
         addi $btn, $0, 0
         jr $ra
+
+
+timer:
+    # $t0 stores the number of cycles to wait
+    # $t1 stores 1 to decrement $t0
+    addi $t0, $a0, 1
+    addi $t1, $0, 1
+
+    timer_loop:
+
+    sub $t0, $t0, $t1
+    bne $t0, $0, timer_loop
