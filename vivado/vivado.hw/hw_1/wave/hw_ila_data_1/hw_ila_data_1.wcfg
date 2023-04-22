@@ -9,15 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3269fs"></ZoomStartTime>
-      <ZoomEndTime time="3294fs"></ZoomEndTime>
-      <Cursor1Time time="3288fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="58801fs"></ZoomEndTime>
+      <Cursor1Time time="10000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="401"></NameColumnWidth>
-      <ValueColumnWidth column_width="93"></ValueColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="6" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="CPU/segmentWrapper/AN" type="array">
@@ -54,6 +54,14 @@
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">CPU/segmentWrapper/segmentClock</obj_property>
       <obj_property name="ObjectShortName">segmentClock</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="CPU/segmentWrapper/regData" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">CPU/segmentWrapper/regData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regData[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

@@ -1662,6 +1662,58 @@
         <net name="CPU/segmentWrapper/enable"/>
       </nets>
     </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="CPU/segmentWrapper/regData[31]"/>
+        <net name="CPU/segmentWrapper/regData[30]"/>
+        <net name="CPU/segmentWrapper/regData[29]"/>
+        <net name="CPU/segmentWrapper/regData[28]"/>
+        <net name="CPU/segmentWrapper/regData[27]"/>
+        <net name="CPU/segmentWrapper/regData[26]"/>
+        <net name="CPU/segmentWrapper/regData[25]"/>
+        <net name="CPU/segmentWrapper/regData[24]"/>
+        <net name="CPU/segmentWrapper/regData[23]"/>
+        <net name="CPU/segmentWrapper/regData[22]"/>
+        <net name="CPU/segmentWrapper/regData[21]"/>
+        <net name="CPU/segmentWrapper/regData[20]"/>
+        <net name="CPU/segmentWrapper/regData[19]"/>
+        <net name="CPU/segmentWrapper/regData[18]"/>
+        <net name="CPU/segmentWrapper/regData[17]"/>
+        <net name="CPU/segmentWrapper/regData[16]"/>
+        <net name="CPU/segmentWrapper/regData[15]"/>
+        <net name="CPU/segmentWrapper/regData[14]"/>
+        <net name="CPU/segmentWrapper/regData[13]"/>
+        <net name="CPU/segmentWrapper/regData[12]"/>
+        <net name="CPU/segmentWrapper/regData[11]"/>
+        <net name="CPU/segmentWrapper/regData[10]"/>
+        <net name="CPU/segmentWrapper/regData[9]"/>
+        <net name="CPU/segmentWrapper/regData[8]"/>
+        <net name="CPU/segmentWrapper/regData[7]"/>
+        <net name="CPU/segmentWrapper/regData[6]"/>
+        <net name="CPU/segmentWrapper/regData[5]"/>
+        <net name="CPU/segmentWrapper/regData[4]"/>
+        <net name="CPU/segmentWrapper/regData[3]"/>
+        <net name="CPU/segmentWrapper/regData[2]"/>
+        <net name="CPU/segmentWrapper/regData[1]"/>
+        <net name="CPU/segmentWrapper/regData[0]"/>
+      </nets>
+    </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>

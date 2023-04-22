@@ -9,10 +9,11 @@ addi $mult, $0, 1
 
 # Main loop
 main:
-    seg $0, $score, 0
-    addi $t5 $0, 420
-    seg $0, $t5, 1
-    bne $btn, $0, handle_button_press
+    addi $t4 $0, 9999
+    seg $0, $t4, 1
+    addi $t5 $0, 1234
+    seg $0, $t5, 0
+    # bne $btn, $0, handle_button_press
 
     j main
 
@@ -46,7 +47,7 @@ get_button_value:
         bne $t1, $t0, not_b1
 
         # $btn == 1:
-        addi $v0, $0, 5
+        addi $v0, $0, 1
         j reset_button
 
     not_b1:

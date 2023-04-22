@@ -4,16 +4,15 @@ module SegmentWrapper(
     input [31:0] regData,
     input clock, reset, enable, N);
 
-
-    ila_0 debugger(clock, SEG, AN, N, enable, segmentClock);
+    ila_0 debugger(clock, SEG, AN, N, enable, segmentClock, regData);
 
     assign AN = ~segmentClock ? {4'b1111, ANRight} : {ANLeft, 4'b1111};
     assign SEG = ~segmentClock ? segmentRight : segmentLeft;
 
     wire segmentClock;
 
-    // 2000 hz clock
-	ClockDivider mainClockDiv(segmentClock, mainClock, 5000);
+    // 200 hz clock
+	ClockDivider mainClockDiv(segmentClock, clock, 50000);
 
     counter_4 frameCounterR(countRight, segmentClock, reset);
     counter_4 frameCounterL(countLeft, ~segmentClock, reset);
