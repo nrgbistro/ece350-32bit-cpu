@@ -9,10 +9,8 @@ addi $mult, $0, 1
 
 # Main loop
 main:
-    addi $t4 $0, 9999
-    seg $0, $t4, 1
-    addi $t5 $0, 1234
-    seg $0, $t5, 0
+    seg $0, $score, 1
+    seg $0, $mult, 0
     # bne $btn, $0, handle_button_press
 
     j main

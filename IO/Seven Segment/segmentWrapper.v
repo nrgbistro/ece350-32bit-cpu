@@ -12,7 +12,7 @@ module SegmentWrapper(
     wire segmentClock;
 
     // 200 hz clock
-	ClockDivider mainClockDiv(segmentClock, clock, 50000);
+	ClockDivider mainClockDiv(segmentClock, clock, 25000);
 
     counter_4 frameCounterR(countRight, segmentClock, reset);
     counter_4 frameCounterL(countLeft, ~segmentClock, reset);
