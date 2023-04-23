@@ -1,4 +1,6 @@
 Cycle   4: Wrote 1 into register 26
+Cycle   5: Wrote 4294967295 into register 29
+Cycle   6: Wrote 0 into register 30
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
@@ -29,6 +31,6 @@ Reg 25:           0
 Reg 26:           1
 Reg 27:           0
 Reg 28:           0
-Reg 29:           0
+Reg 29:  4294967295
 Reg 30:           0
 Reg 31:           0

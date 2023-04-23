@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 3
+set_param chipscope.maxJobs 6
 set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
@@ -104,6 +104,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/XM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_8.v

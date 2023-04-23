@@ -71,6 +71,11 @@ module processor(
 
     wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
+    // Timer
+    wire [31:0] timer;
+    wire timeWriteEnable;
+    Timer timerModule(timer, timeWriteEnable, clock, reset);
+
     // IO
     wire [31:0] swCode;
     wire swStall;
@@ -85,11 +90,11 @@ module processor(
     // Stall
     wire interlockStall;
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
-    assign stallPC = multDivStall || interlockStall || swStall;
-    assign stallFD = multDivStall || interlockStall || swStall;
-    assign stallDX = multDivStall || swStall;
-    assign stallXM = multDivStall || swStall;
-    assign stallMW = multDivStall || swStall;
+    assign stallPC = multDivStall || interlockStall || swStall || timeWriteEnable;
+    assign stallFD = multDivStall || interlockStall || swStall || timeWriteEnable;
+    assign stallDX = multDivStall || swStall || timeWriteEnable;
+    assign stallXM = multDivStall || swStall || timeWriteEnable;
+    assign stallMW = multDivStall || swStall || timeWriteEnable;
 
     // Interlock
     Interlock interlock(interlockStall, decodeIR, executeIR);
@@ -166,12 +171,12 @@ module processor(
     wire writebackDataSelector, writebackErrorOut;
 
     MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, writebackErrorOut, memoryIR, memoryO, q_dmem, memoryErrorOut, ~clock, stallMW, reset);
-    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR, swStall);
+    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR, swStall, timeWriteEnable);
 
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
-    assign data_writeReg = swStall ? swCode : writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = swStall ? 5'd25 : writebackErrorOut ? 5'd30 : rd;
+    assign data_writeReg = swStall ? swCode : timeWriteEnable ? timer : writebackDataSelector ? writebackD : writebackO;
+    assign ctrl_writeReg = swStall ? 5'd25 : timeWriteEnable ? 5'd28 : writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 
