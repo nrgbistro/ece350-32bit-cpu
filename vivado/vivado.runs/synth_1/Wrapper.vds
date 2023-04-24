@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Apr 24 17:16:16 2023
-# Process ID: 12712
+# Start of session at: Mon Apr 24 19:52:15 2023
+# Process ID: 8456
 # Current directory: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1
 # Command line: vivado.exe -log Wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Wrapper.tcl
 # Log file: C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/Wrapper.vds
@@ -17,7 +17,7 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 35048
+INFO: [Synth 8-7075] Helper process launched with PID 23496
 WARNING: [Synth 8-992] decodeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:118]
 WARNING: [Synth 8-992] executeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
 WARNING: [Synth 8-992] executeA is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
@@ -47,7 +47,7 @@ WARNING: [Synth 8-6901] identifier 'segmentClock' is used before its declaration
 WARNING: [Synth 8-6901] identifier 'segmentRight' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:8]
 WARNING: [Synth 8-6901] identifier 'segmentLeft' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:8]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1013.211 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1013.562 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Wrapper' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v:27]
 	Parameter INSTR_FILE bound to: led_test - type: string 
@@ -59,40 +59,18 @@ INFO: [Synth 8-6155] done synthesizing module 'clock_enable' (2#1) [C:/Users/nol
 INFO: [Synth 8-6157] synthesizing module 'my_dff_en' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v:26]
 INFO: [Synth 8-6155] done synthesizing module 'my_dff_en' (3#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v:26]
 INFO: [Synth 8-6155] done synthesizing module 'Debouncer' (4#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v:5]
-INFO: [Synth 8-6157] synthesizing module 'SwitchToSegment' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:1]
-	Parameter SEGMENT0 bound to: 7'b1000000 
-	Parameter SEGMENT1 bound to: 7'b1001111 
-	Parameter SEGMENT2 bound to: 7'b0100100 
-	Parameter SEGMENT3 bound to: 7'b0000110 
-	Parameter SEGMENT4 bound to: 7'b0001011 
-	Parameter SEGMENT5 bound to: 7'b0010010 
-	Parameter SEGMENT6 bound to: 7'b0010000 
-	Parameter SEGMENT7 bound to: 7'b1000111 
-	Parameter SEGMENT8 bound to: 7'b0000000 
-	Parameter SEGMENT9 bound to: 7'b0000010 
-	Parameter SEGMENTBROKEN bound to: 7'b1110111 
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:17]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-12712-NRG-Laptop/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (5#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-12712-NRG-Laptop/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'processor' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:20]
+INFO: [Synth 8-6157] synthesizing module 'Timer' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Timer' (5#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ButtonHandler' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ButtonHandler' (6#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SegmentWrapper' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter_4' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v:1]
 INFO: [Synth 8-6157] synthesizing module 't_flip_flop' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v:1]
 INFO: [Synth 8-6157] synthesizing module 'dffe_ref' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'dffe_ref' (6#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v:1]
-INFO: [Synth 8-6155] done synthesizing module 't_flip_flop' (7#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'counter_4' (8#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v:1]
-INFO: [Synth 8-6157] synthesizing module 'BCD' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v:5]
-	Parameter W bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'BCD' (9#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v:5]
-WARNING: [Synth 8-689] width (16) of port connection 'bcd' does not match port width (21) of module 'BCD' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:37]
-INFO: [Synth 8-226] default block is never used [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:77]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'debug'. This will prevent further optimization [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:17]
-INFO: [Synth 8-6155] done synthesizing module 'SwitchToSegment' (10#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:1]
-INFO: [Synth 8-6157] synthesizing module 'processor' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:20]
-INFO: [Synth 8-6157] synthesizing module 'Timer' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'Timer' (11#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v:1]
-INFO: [Synth 8-6157] synthesizing module 'ButtonHandler' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ButtonHandler' (12#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v:1]
-INFO: [Synth 8-6157] synthesizing module 'SegmentWrapper' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'dffe_ref' (7#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v:1]
+INFO: [Synth 8-6155] done synthesizing module 't_flip_flop' (8#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter_4' (9#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v:1]
 INFO: [Synth 8-6157] synthesizing module 'RegToSegment' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v:1]
 	Parameter SEGMENT0 bound to: 7'b1000000 
 	Parameter SEGMENT1 bound to: 7'b1001111 
@@ -106,215 +84,216 @@ INFO: [Synth 8-6157] synthesizing module 'RegToSegment' [C:/Users/nolan/Duke/ece
 	Parameter SEGMENT9 bound to: 7'b0000010 
 	Parameter SEGMENTBROKEN bound to: 7'b1110111 
 INFO: [Synth 8-6157] synthesizing module 'register_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'register_32' (13#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'register_32' (10#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'BCD' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v:5]
+	Parameter W bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'BCD' (11#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v:5]
 INFO: [Synth 8-226] default block is never used [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v:39]
-INFO: [Synth 8-6155] done synthesizing module 'RegToSegment' (14#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'SegmentWrapper' (15#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'RegToSegment' (12#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SegmentWrapper' (13#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:1]
 INFO: [Synth 8-6157] synthesizing module 'MultDivStall' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/multDivStall.v:1]
 INFO: [Synth 8-6157] synthesizing module 'TypeDetector' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'TypeDetector' (16#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'MultDivStall' (17#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/multDivStall.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'TypeDetector' (14#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MultDivStall' (15#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/multDivStall.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Interlock' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'Interlock' (18#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Interlock' (16#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/interlock.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Bypass' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/bypass.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'Bypass' (19#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/bypass.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Bypass' (17#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/bypass.v:1]
 INFO: [Synth 8-6157] synthesizing module 'ProgramCounter' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ProgramCounter' (20#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ProgramCounter' (18#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v:1]
 INFO: [Synth 8-6157] synthesizing module 'PCControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'adder_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'not_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/not_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'not_32' (21#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/not_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'not_32' (19#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/not_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_2' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_2' (22#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_2' (20#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2.v:1]
 INFO: [Synth 8-6157] synthesizing module 'adder_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'full_adder' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'full_adder' (23#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder' (21#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/full_adder.v:1]
 INFO: [Synth 8-6157] synthesizing module 'cla_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_8.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'cla_8' (24#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_8.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'adder_8' (25#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cla_8' (22#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'adder_8' (23#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'cla_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'cla_32' (26#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'adder_32' (27#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'PCControl' (28#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cla_32' (24#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'adder_32' (25#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'PCControl' (26#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'FetchDecode' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'FetchDecode' (29#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'FetchDecode' (27#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v:1]
 INFO: [Synth 8-6157] synthesizing module 'DecodeControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_4_5' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4_5.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_2_5' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_5.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_2_5' (30#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_5.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_4_5' (31#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4_5.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'DecodeControl' (32#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_2_5' (28#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_5.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4_5' (29#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4_5.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'DecodeControl' (30#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'DecodeExecute' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'DecodeExecute' (33#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'DecodeExecute' (31#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v:1]
 INFO: [Synth 8-6157] synthesizing module 'ExecuteControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ExecuteControl' (34#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ExecuteControl' (32#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/executeControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'SignExtender_16' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'SignExtender_16' (35#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SignExtender_16' (33#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/sign-extention/extend_16.v:1]
 INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu.v:1]
 INFO: [Synth 8-6157] synthesizing module 'and_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/and_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'and_32' (36#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/and_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'and_32' (34#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/and_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'or_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'or_32' (37#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'or_32' (35#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'comparator_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'comparator_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'comparator_2' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_2.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'comparator_2' (38#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_2.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'comparator_8' (39#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'comparator_2' (36#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'comparator_8' (37#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_2_1' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_2_1' (40#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'comparator_32' (41#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_2_1' (38#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_2_1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'comparator_32' (39#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left_16' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_16.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left_16' (42#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left_16' (40#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_16.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_8.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left_8' (43#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left_8' (41#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left_4' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_4.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left_4' (44#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left_4' (42#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_4.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left_2' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_2.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left_2' (45#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left_2' (43#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_2.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_left_1' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left_1' (46#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_left' (47#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left_1' (44#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_left_1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_left' (45#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right_16' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_16.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right_16' (48#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right_16' (46#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_16.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_8.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right_8' (49#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right_8' (47#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right_4' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_4.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right_4' (50#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right_4' (48#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_4.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right_2' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_2.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right_2' (51#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right_2' (49#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_2.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shift_right_1' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right_1' (52#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_1.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'shift_right' (53#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right_1' (50#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_right' (51#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'alu_op' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu_op.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_8' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_8.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_4' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_4' (54#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_8' (55#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_8.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'alu_op' (56#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu_op.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'alu' (57#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4' (52#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_8' (53#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/mux_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'alu_op' (54#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu_op.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (55#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/alu.v:1]
 INFO: [Synth 8-6157] synthesizing module 'multdiv' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/multdiv.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Pulse' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'Pulse' (58#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Pulse' (56#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v:1]
 INFO: [Synth 8-6157] synthesizing module 'resetDetection' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'resetDetection' (59#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'resetDetection' (57#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mult' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter_16' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'counter_16' (60#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter_16' (58#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v:1]
 INFO: [Synth 8-6157] synthesizing module 'register_65' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'register_65' (61#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'register_65' (59#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v:1]
 INFO: [Synth 8-6157] synthesizing module 'checkBits_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'checkBits_32' (62#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'checkBits_32' (60#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'specialCaseChecker' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'specialCaseChecker' (63#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'specialCaseChecker' (61#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v:1]
 INFO: [Synth 8-6157] synthesizing module 'multControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/multControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'multControl' (64#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/multControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'multControl' (62#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/multControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_4_65' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_4_65.v:1]
 INFO: [Synth 8-6157] synthesizing module 'mux_2_65' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_2_65.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_2_65' (65#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_2_65.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mux_4_65' (66#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_4_65.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'mult' (67#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_2_65' (63#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_2_65.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4_65' (64#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mux/mux_4_65.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mult' (65#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/mult.v:1]
 INFO: [Synth 8-6157] synthesizing module 'div' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'counter_32' (68#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter_32' (66#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'divControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'divControl' (69#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'div' (70#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'multdiv' (71#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/multdiv.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'divControl' (67#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/divControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'div' (68#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/div.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'multdiv' (69#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/multdiv.v:1]
 INFO: [Synth 8-6157] synthesizing module 'ExecuteMemory' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/XM.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ExecuteMemory' (72#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/XM.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ExecuteMemory' (70#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/XM.v:1]
 INFO: [Synth 8-6157] synthesizing module 'MemoryControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'MemoryControl' (73#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MemoryControl' (71#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/memoryControl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Exception' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/exception.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'Exception' (74#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/exception.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Exception' (72#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/exception.v:1]
 INFO: [Synth 8-6157] synthesizing module 'MemoryWriteback' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'MemoryWriteback' (75#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MemoryWriteback' (73#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v:1]
 INFO: [Synth 8-6157] synthesizing module 'WritebackControl' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'WritebackControl' (76#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'processor' (77#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'WritebackControl' (74#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/writebackControl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'processor' (75#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:20]
 INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:2]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDRESS_WIDTH bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 4096 - type: integer 
 	Parameter MEMFILE bound to: 96'b011011000110010101100100010111110111010001100101011100110111010000101110011011010110010101101101 
 INFO: [Synth 8-3876] $readmem data file 'led_test.mem' is read successfully [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'ROM' (78#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'ROM' (76#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:2]
 INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v:1]
 INFO: [Synth 8-6157] synthesizing module 'tri_state32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'tri_state32' (79#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'tri_state32' (77#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v:1]
 INFO: [Synth 8-6157] synthesizing module 'decoder_32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'decoder_32' (80#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'regfile' (81#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'decoder_32' (78#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (79#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v:1]
 INFO: [Synth 8-6157] synthesizing module 'RAM' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v:2]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDRESS_WIDTH bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 4096 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'RAM' (82#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v:2]
-INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (83#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'RAM' (80#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (81#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v:27]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:44 . Memory (MB): peak = 1279.062 ; gain = 265.852
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1250.082 ; gain = 236.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:49 . Memory (MB): peak = 1279.062 ; gain = 265.852
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 1250.082 ; gain = 236.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:49 . Memory (MB): peak = 1279.062 ; gain = 265.852
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 1250.082 ; gain = 236.520
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1290.113 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1259.488 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'segmentDebug/debug'
-Finished Parsing XDC File [c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'segmentDebug/debug'
 Parsing XDC File [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc]
 Finished Parsing XDC File [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1751.285 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1719.789 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1751.285 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.699 . Memory (MB): peak = 1719.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:00:59 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:59 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for segmentDebug/debug. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:59 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:16 ; elapsed = 00:03:07 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:15 ; elapsed = 00:01:54 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    4 Bit       Adders := 105   
+	   2 Input    4 Bit       Adders := 70    
 +---XORs : 
 	   3 Input      1 Bit         XORs := 256   
 	   2 Input      1 Bit         XORs := 65    
 +---Registers : 
 	               32 Bit    Registers := 4097  
+	                5 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 1737  
+	                1 Bit    Registers := 1734  
 +---ROMs : 
 	                    ROMs := 1     
 +---Muxes : 
@@ -324,13 +303,12 @@ Detailed RTL Component Info :
 	   5 Input   32 Bit        Muxes := 1     
 	   7 Input   32 Bit        Muxes := 1     
 	   2 Input   27 Bit        Muxes := 1     
-	   2 Input   16 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 23    
 	   3 Input    5 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 105   
-	   4 Input    4 Bit        Muxes := 6     
+	   2 Input    4 Bit        Muxes := 70    
+	   4 Input    4 Bit        Muxes := 4     
 	   5 Input    3 Bit        Muxes := 2     
 	   2 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 54    
@@ -454,8 +432,6 @@ WARNING: [Synth 8-7129] Port executeIR[10] in module Bypass is either unconnecte
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[7]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[1]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[0]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[29]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[11]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[10]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[9]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
@@ -517,8 +493,6 @@ INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[18]/q_
 INFO: [Synth 8-3886] merging instance 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[64]/q_reg' (FDC) to 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[63]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[63]/q_reg' (FDC) to 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[62]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[7]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[1]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[0]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[25]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[11]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[10]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[9]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
@@ -552,7 +526,6 @@ INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[17]
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[19]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[21]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[26]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[0]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[27]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[27]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[25]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[16]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[14]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
@@ -562,7 +535,6 @@ INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[8]/
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[6]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[4]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[2]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
-INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[1]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[3]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[5]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[7]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
@@ -585,6 +557,12 @@ INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[9
 INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[7]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[5]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[3]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[2]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[4]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[6]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[8]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[10]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[12]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/mainMultDiv/\pulseMult/disabler/q_reg )
@@ -606,127 +584,14 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segme
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[5]/q_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[4]/q_reg )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:03 ; elapsed = 00:06:37 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:11 ; elapsed = 00:03:34 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:11 ; elapsed = 00:06:54 . Memory (MB): peak = 1751.285 ; gain = 738.074
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:18 ; elapsed = 00:03:46 . Memory (MB): peak = 1719.789 ; gain = 706.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:43 ; elapsed = 00:07:51 . Memory (MB): peak = 1802.836 ; gain = 789.625
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance i_0/InstMem/dataOut_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:27 ; elapsed = 00:09:20 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:32 ; elapsed = 00:09:29 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:32 ; elapsed = 00:09:29 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |ila_0         |         1|
-+------+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |ila      |     1|
-|2     |BUFG     |     2|
-|3     |CARRY4   |    71|
-|4     |LUT1     |   117|
-|5     |LUT2     |   310|
-|6     |LUT3     |    81|
-|7     |LUT4     |   206|
-|8     |LUT5     |   154|
-|9     |LUT6     |   386|
-|10    |MUXF7    |    16|
-|11    |RAMB18E1 |     1|
-|12    |FDCE     |   311|
-|13    |FDRE     |   292|
-|14    |IBUF     |    13|
-|15    |OBUF     |    22|
-+------+---------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 100 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:55 ; elapsed = 00:08:58 . Memory (MB): peak = 1808.113 ; gain = 322.680
-Synthesis Optimization Complete : Time (s): cpu = 00:04:32 ; elapsed = 00:09:31 . Memory (MB): peak = 1808.113 ; gain = 794.902
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1808.113 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 88 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1808.113 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Common 17-83] Releasing license: Synthesis
-341 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:46 ; elapsed = 00:10:07 . Memory (MB): peak = 1808.113 ; gain = 794.902
-INFO: [Common 17-1381] The checkpoint 'C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/Wrapper.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file Wrapper_utilization_synth.rpt -pb Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 24 17:26:38 2023...

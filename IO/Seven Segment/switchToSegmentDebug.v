@@ -14,7 +14,7 @@ module SwitchToSegment(
     reg [3:0] halfAN;
     wire [1:0] count;
 
-    ila_0 debug(clock, reg24, reg25, reg26, reg4);
+    // ila_0 debug(clock, reg24, reg25, reg26, reg4);
 
     ClockDivider clockDivider(segClock, clock, 50000);
     counter_4 frameCounter(count, segClock, 1'b0);

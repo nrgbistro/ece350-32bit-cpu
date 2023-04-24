@@ -58,11 +58,11 @@ module Wrapper (
 	Debouncer Debounce2(.clk(clock), .pb_in(BTN[2]), .pb_out(debouncedBTN[2]));
 	Debouncer Debounce3(.clk(clock), .pb_in(BTN[3]), .pb_out(debouncedBTN[3]));
 
-	wire [6:0] cpuSEG, debugSEG;
-	wire [7:0] cpuAN, debugAN;
-	assign SEG = SW == 0 ? cpuSEG : debugSEG;
-	assign AN = SW == 0 ? cpuAN : debugAN;
-	SwitchToSegment segmentDebug(debugAN, debugSEG, SW, clk, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31);
+	wire [6:0] cpuSEG;
+	wire [7:0] cpuAN;
+	assign SEG = cpuSEG;
+	assign AN = cpuAN;
+	// SwitchToSegment segmentDebug(debugAN, debugSEG, SW, clk, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31);
 
 	// Main Processing Unit
 	processor CPU(.clock(clk), .reset(reset),
