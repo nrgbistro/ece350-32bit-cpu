@@ -17,7 +17,7 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 32228
+INFO: [Synth 8-7075] Helper process launched with PID 35048
 WARNING: [Synth 8-992] decodeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:118]
 WARNING: [Synth 8-992] executeIR is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
 WARNING: [Synth 8-992] executeA is already implicitly declared earlier [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v:126]
@@ -47,10 +47,10 @@ WARNING: [Synth 8-6901] identifier 'segmentClock' is used before its declaration
 WARNING: [Synth 8-6901] identifier 'segmentRight' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:8]
 WARNING: [Synth 8-6901] identifier 'segmentLeft' is used before its declaration [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v:8]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1013.750 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1013.211 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Wrapper' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v:27]
-	Parameter INSTR_FILE bound to: pinball - type: string 
+	Parameter INSTR_FILE bound to: led_test - type: string 
 INFO: [Synth 8-6157] synthesizing module 'ClockDivider' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/clockDivider.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'ClockDivider' (1#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/clockDivider.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Debouncer' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v:5]
@@ -72,8 +72,8 @@ INFO: [Synth 8-6157] synthesizing module 'SwitchToSegment' [C:/Users/nolan/Duke/
 	Parameter SEGMENT9 bound to: 7'b0000010 
 	Parameter SEGMENTBROKEN bound to: 7'b1110111 
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v:17]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-27340-nrg-desktop/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (5#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-27340-nrg-desktop/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-12712-NRG-Laptop/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (5#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/.Xil/Vivado-12712-NRG-Laptop/realtime/ila_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'counter_4' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v:1]
 INFO: [Synth 8-6157] synthesizing module 't_flip_flop' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v:1]
 INFO: [Synth 8-6157] synthesizing module 'dffe_ref' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v:1]
@@ -237,8 +237,8 @@ INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/Users/nolan/Duke/ece350/ece35
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDRESS_WIDTH bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 4096 - type: integer 
-	Parameter MEMFILE bound to: 88'b0111000001101001011011100110001001100001011011000110110000101110011011010110010101101101 
-INFO: [Synth 8-3876] $readmem data file 'pinball.mem' is read successfully [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:11]
+	Parameter MEMFILE bound to: 96'b011011000110010101100100010111110111010001100101011100110111010000101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file 'led_test.mem' is read successfully [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:11]
 INFO: [Synth 8-6155] done synthesizing module 'ROM' (78#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v:2]
 INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v:1]
 INFO: [Synth 8-6157] synthesizing module 'tri_state32' [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v:1]
@@ -253,18 +253,18 @@ INFO: [Synth 8-6157] synthesizing module 'RAM' [C:/Users/nolan/Duke/ece350/ece35
 INFO: [Synth 8-6155] done synthesizing module 'RAM' (82#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v:2]
 INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (83#1) [C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Wrapper.v:27]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1013.750 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:44 . Memory (MB): peak = 1279.062 ; gain = 265.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1013.750 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:49 . Memory (MB): peak = 1279.062 ; gain = 265.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1013.750 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:49 . Memory (MB): peak = 1279.062 ; gain = 265.852
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1013.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1290.113 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -277,30 +277,20 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1089.426 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1751.285 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1089.426 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1751.285 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1089.426 ; gain = 75.676
+Finished Constraint Validation : Time (s): cpu = 00:00:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1751.285 ; gain = 738.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1089.426 ; gain = 75.676
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for segmentDebug/debug. (constraint file  auto generated constraint, line ).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1089.426 ; gain = 75.676
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1089.426 ; gain = 75.676
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:16 ; elapsed = 00:03:07 . Memory (MB): peak = 1751.285 ; gain = 738.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -312,11 +302,9 @@ Detailed RTL Component Info :
 	   3 Input      1 Bit         XORs := 256   
 	   2 Input      1 Bit         XORs := 65    
 +---Registers : 
-	               32 Bit    Registers := 1     
-	               28 Bit    Registers := 1     
+	               32 Bit    Registers := 4097  
+	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 1737  
-+---RAMs : 
-	             128K Bit	(4096 X 32 bit)          RAMs := 1     
 +---ROMs : 
 	                    ROMs := 1     
 +---Muxes : 
@@ -337,7 +325,7 @@ Detailed RTL Component Info :
 	   2 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 54    
 	   3 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 17    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -353,71 +341,281 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-7129] Port ins[26] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[25] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[24] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[23] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[22] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[21] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[20] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[19] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[18] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[17] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[16] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[15] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[14] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[13] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[12] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[11] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[10] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[9] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[8] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[7] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[6] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[5] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[4] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[3] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[2] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[1] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[0] in module WritebackControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[26] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[25] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[24] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[23] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[22] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[21] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[20] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[19] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[18] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[17] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[16] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[15] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[14] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[13] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[12] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[11] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[10] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[9] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[8] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[7] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[1] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[0] in module Exception is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[26] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[25] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[24] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[23] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[22] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[21] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[20] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[19] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[18] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[17] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[16] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[15] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[14] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[13] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[12] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[11] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[10] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[9] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[8] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[7] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[6] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[5] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[4] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[3] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[2] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[1] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[0] in module MemoryControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AQ[0] in module divControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_ALUopcode[4] in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_ALUopcode[3] in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[26] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[25] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[24] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[23] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[22] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[21] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[20] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[19] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[18] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[17] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[16] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[15] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[14] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[13] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[12] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[1] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ins[0] in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clock in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port multDivDone in module ExecuteControl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port executeIR[11] in module Bypass is either unconnected or has no load
+WARNING: [Synth 8-7129] Port executeIR[10] in module Bypass is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[7]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[1]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[0]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[29]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[11]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[10]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[9]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[8]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[2]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[5]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[6]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[4]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[3]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[30]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[29]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[28]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[27]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[26]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[25]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[24]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[23]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[22]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[21]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[20]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[19]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[18]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[17]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[16]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[15]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[14]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[13]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[12]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[11]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[10]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[9]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[8]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[7]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[6]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[5]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[4]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[3]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[2]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[0]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[1]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\RegisterFile/registers[0].reg32/dffe_reg[31]/q_reg )
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[25]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[29]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[15]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[26]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[16]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[22]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[12]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[23]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[13]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[24]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[14]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[29]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[27]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[30]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[31]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[21]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[20]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[21]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[21]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[17]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/fetchDecodeLatch/reg1/dffe_reg[18]/q_reg' (FDCE) to 'CPU/fetchDecodeLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[64]/q_reg' (FDC) to 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[63]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[63]/q_reg' (FDC) to 'CPU/mainMultDiv/multiplier/regProduct/dffe_reg[62]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[7]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[1]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[0]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[25]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[11]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[10]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[9]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[8]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[25]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[29]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[26]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[23]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[22]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[23]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[23]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[21]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[24]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[21]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[2]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[5]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[6]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[4]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[3]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[20]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[21]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[15]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[13]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[21]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[16]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[13]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[17]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[12]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[13]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[18]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[19]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[13]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[19]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[27]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[29]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[28]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[14]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/decodeExecuteLatch/reg1/dffe_reg[30]/q_reg' (FDCE) to 'CPU/decodeExecuteLatch/reg1/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[31]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[20]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[18]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[17]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[19]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[21]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[30]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[26]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[0]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[27]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[27]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[25]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[16]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[14]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[12]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[10]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[8]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[6]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[4]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[2]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[1]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[3]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[5]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[7]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[9]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[11]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[13]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[15]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/executeMemoryLatch/regIR/dffe_reg[29]/q_reg' (FDCE) to 'CPU/executeMemoryLatch/regIR/dffe_reg[25]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[30]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[21]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[19]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[17]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[18]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[20]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[31]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[26]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[15]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[13]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[11]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[9]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[7]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[5]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Synth 8-3886] merging instance 'CPU/memoryWritebackLatch/regIR/dffe_reg[3]/q_reg' (FDCE) to 'CPU/memoryWritebackLatch/regIR/dffe_reg[28]/q_reg'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/mainMultDiv/\pulseMult/disabler/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/mainMultDiv/\registerDiv/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[0]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[1]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[2]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[3]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[15]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[14]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[13]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[12]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[11]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[10]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[9]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[8]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[7]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[6]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[5]/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CPU/segmentWrapper/\RegisterToSegmentRight/regDataLatch/dffe_reg[4]/q_reg )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:47 . Memory (MB): peak = 1089.426 ; gain = 75.676
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-ROM: Preliminary Mapping	Report
-+------------+---------------------+---------------+----------------+
-|Module Name | RTL Object          | Depth x Width | Implemented As | 
-+------------+---------------------+---------------+----------------+
-|Wrapper     | InstMem/dataOut_reg | 4096x28       | Block RAM      | 
-+------------+---------------------+---------------+----------------+
-
-
-Block RAM: Preliminary Mapping	Report (see note below)
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Wrapper     | ProcMem/MemoryArray_reg | 4 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
-Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:03 ; elapsed = 00:06:37 . Memory (MB): peak = 1751.285 ; gain = 738.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:52 . Memory (MB): peak = 1089.426 ; gain = 75.676
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:11 ; elapsed = 00:06:54 . Memory (MB): peak = 1751.285 ; gain = 738.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:53 . Memory (MB): peak = 1095.688 ; gain = 81.938
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Final Mapping	Report
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Wrapper     | ProcMem/MemoryArray_reg | 4 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:03:43 ; elapsed = 00:07:51 . Memory (MB): peak = 1802.836 ; gain = 789.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_0/InstMem/dataOut_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:56 . Memory (MB): peak = 1215.375 ; gain = 201.625
+Finished Technology Mapping : Time (s): cpu = 00:04:27 ; elapsed = 00:09:20 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -431,41 +629,42 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:58 . Memory (MB): peak = 1221.684 ; gain = 207.934
+Finished IO Insertion : Time (s): cpu = 00:04:32 ; elapsed = 00:09:29 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:58 . Memory (MB): peak = 1221.684 ; gain = 207.934
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:32 ; elapsed = 00:09:29 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:58 . Memory (MB): peak = 1221.684 ; gain = 207.934
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:58 . Memory (MB): peak = 1221.684 ; gain = 207.934
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 1222.020 ; gain = 208.270
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 1222.020 ; gain = 208.270
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -485,43 +684,39 @@ Report Cell Usage:
 |1     |ila      |     1|
 |2     |BUFG     |     2|
 |3     |CARRY4   |    71|
-|4     |LUT1     |    20|
-|5     |LUT2     |   433|
-|6     |LUT3     |   219|
-|7     |LUT4     |   392|
-|8     |LUT5     |   568|
-|9     |LUT6     |  1968|
-|10    |MUXF7    |    64|
-|11    |MUXF8    |    32|
-|12    |RAMB18E1 |     1|
-|13    |RAMB36E1 |     7|
-|17    |FDCE     |  1597|
-|18    |FDRE     |   291|
-|19    |IBUF     |    13|
-|20    |OBUF     |    22|
+|4     |LUT1     |   117|
+|5     |LUT2     |   310|
+|6     |LUT3     |    81|
+|7     |LUT4     |   206|
+|8     |LUT5     |   154|
+|9     |LUT6     |   386|
+|10    |MUXF7    |    16|
+|11    |RAMB18E1 |     1|
+|12    |FDCE     |   311|
+|13    |FDRE     |   292|
+|14    |IBUF     |    13|
+|15    |OBUF     |    22|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 1222.020 ; gain = 208.270
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:32 ; elapsed = 00:09:30 . Memory (MB): peak = 1808.113 ; gain = 794.902
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:56 . Memory (MB): peak = 1222.020 ; gain = 132.594
-Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 1222.020 ; gain = 208.270
+Synthesis finished with 0 errors, 0 critical warnings and 100 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:55 ; elapsed = 00:08:58 . Memory (MB): peak = 1808.113 ; gain = 322.680
+Synthesis Optimization Complete : Time (s): cpu = 00:04:32 ; elapsed = 00:09:31 . Memory (MB): peak = 1808.113 ; gain = 794.902
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 1222.020 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 175 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1808.113 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 88 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1222.020 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1808.113 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-193 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
+341 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 1222.020 ; gain = 208.270
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
+synth_design: Time (s): cpu = 00:04:46 ; elapsed = 00:10:07 . Memory (MB): peak = 1808.113 ; gain = 794.902
 INFO: [Common 17-1381] The checkpoint 'C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.runs/synth_1/Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Wrapper_utilization_synth.rpt -pb Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 22 22:50:36 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 24 17:26:38 2023...

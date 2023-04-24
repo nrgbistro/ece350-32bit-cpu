@@ -46,10 +46,10 @@ module Wrapper (
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
 
-	assign LED = SW;
+	assign LED[6:3] = SW;
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "pinball";
+	localparam INSTR_FILE = "led_test";
 
 	// Debounce Buttons
 	wire [3:0] debouncedBTN;
@@ -102,6 +102,7 @@ module Wrapper (
 		.wEn(mwe),
 		.addr(memAddr[11:0]),
 		.dataIn(memDataIn),
-		.dataOut(memDataOut));
+		.dataOut(memDataOut),
+		.led(LED[2:0]));
 
 endmodule

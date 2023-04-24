@@ -70,9 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 6
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -94,6 +91,7 @@ read_mem {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/led_test.mem}
 }
 read_verilog -library xil_defaultlib {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v}

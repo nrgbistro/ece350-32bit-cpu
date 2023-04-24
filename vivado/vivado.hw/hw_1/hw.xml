@@ -2339,6 +2339,162 @@
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="segmentDebug/p_0_in[31]"/>
+        <net name="segmentDebug/p_0_in[30]"/>
+        <net name="segmentDebug/p_0_in[29]"/>
+        <net name="segmentDebug/p_0_in[28]"/>
+        <net name="segmentDebug/p_0_in[27]"/>
+        <net name="segmentDebug/p_0_in[26]"/>
+        <net name="segmentDebug/p_0_in[25]"/>
+        <net name="segmentDebug/p_0_in[24]"/>
+        <net name="segmentDebug/p_0_in[23]"/>
+        <net name="segmentDebug/p_0_in[22]"/>
+        <net name="segmentDebug/p_0_in[21]"/>
+        <net name="segmentDebug/p_0_in[20]"/>
+        <net name="segmentDebug/p_0_in[19]"/>
+        <net name="segmentDebug/p_0_in[18]"/>
+        <net name="segmentDebug/p_0_in[17]"/>
+        <net name="segmentDebug/p_0_in[16]"/>
+        <net name="segmentDebug/p_0_in[15]"/>
+        <net name="segmentDebug/p_0_in[14]"/>
+        <net name="segmentDebug/p_0_in[13]"/>
+        <net name="segmentDebug/p_0_in[12]"/>
+        <net name="segmentDebug/p_0_in[11]"/>
+        <net name="segmentDebug/p_0_in[10]"/>
+        <net name="segmentDebug/p_0_in[9]"/>
+        <net name="segmentDebug/p_0_in[8]"/>
+        <net name="segmentDebug/p_0_in[7]"/>
+        <net name="segmentDebug/p_0_in[6]"/>
+        <net name="segmentDebug/p_0_in[5]"/>
+        <net name="segmentDebug/p_0_in[4]"/>
+        <net name="segmentDebug/p_0_in[3]"/>
+        <net name="segmentDebug/p_0_in[2]"/>
+        <net name="segmentDebug/p_0_in[1]"/>
+        <net name="segmentDebug/p_0_in[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="segmentDebug/p_2_in[31]"/>
+        <net name="segmentDebug/p_2_in[30]"/>
+        <net name="segmentDebug/p_2_in[29]"/>
+        <net name="segmentDebug/p_2_in[28]"/>
+        <net name="segmentDebug/p_2_in[27]"/>
+        <net name="segmentDebug/p_2_in[26]"/>
+        <net name="segmentDebug/p_2_in[25]"/>
+        <net name="segmentDebug/p_2_in[24]"/>
+        <net name="segmentDebug/p_2_in[23]"/>
+        <net name="segmentDebug/p_2_in[22]"/>
+        <net name="segmentDebug/p_2_in[21]"/>
+        <net name="segmentDebug/p_2_in[20]"/>
+        <net name="segmentDebug/p_2_in[19]"/>
+        <net name="segmentDebug/p_2_in[18]"/>
+        <net name="segmentDebug/p_2_in[17]"/>
+        <net name="segmentDebug/p_2_in[16]"/>
+        <net name="segmentDebug/p_2_in[15]"/>
+        <net name="segmentDebug/p_2_in[14]"/>
+        <net name="segmentDebug/p_2_in[13]"/>
+        <net name="segmentDebug/p_2_in[12]"/>
+        <net name="segmentDebug/p_2_in[11]"/>
+        <net name="segmentDebug/p_2_in[10]"/>
+        <net name="segmentDebug/p_2_in[9]"/>
+        <net name="segmentDebug/p_2_in[8]"/>
+        <net name="segmentDebug/p_2_in[7]"/>
+        <net name="segmentDebug/p_2_in[6]"/>
+        <net name="segmentDebug/p_2_in[5]"/>
+        <net name="segmentDebug/p_2_in[4]"/>
+        <net name="segmentDebug/p_2_in[3]"/>
+        <net name="segmentDebug/p_2_in[2]"/>
+        <net name="segmentDebug/p_2_in[1]"/>
+        <net name="segmentDebug/p_2_in[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="segmentDebug/p_3_in[31]"/>
+        <net name="segmentDebug/p_3_in[30]"/>
+        <net name="segmentDebug/p_3_in[29]"/>
+        <net name="segmentDebug/p_3_in[28]"/>
+        <net name="segmentDebug/p_3_in[27]"/>
+        <net name="segmentDebug/p_3_in[26]"/>
+        <net name="segmentDebug/p_3_in[25]"/>
+        <net name="segmentDebug/p_3_in[24]"/>
+        <net name="segmentDebug/p_3_in[23]"/>
+        <net name="segmentDebug/p_3_in[22]"/>
+        <net name="segmentDebug/p_3_in[21]"/>
+        <net name="segmentDebug/p_3_in[20]"/>
+        <net name="segmentDebug/p_3_in[19]"/>
+        <net name="segmentDebug/p_3_in[18]"/>
+        <net name="segmentDebug/p_3_in[17]"/>
+        <net name="segmentDebug/p_3_in[16]"/>
+        <net name="segmentDebug/p_3_in[15]"/>
+        <net name="segmentDebug/p_3_in[14]"/>
+        <net name="segmentDebug/p_3_in[13]"/>
+        <net name="segmentDebug/p_3_in[12]"/>
+        <net name="segmentDebug/p_3_in[11]"/>
+        <net name="segmentDebug/p_3_in[10]"/>
+        <net name="segmentDebug/p_3_in[9]"/>
+        <net name="segmentDebug/p_3_in[8]"/>
+        <net name="segmentDebug/p_3_in[7]"/>
+        <net name="segmentDebug/p_3_in[6]"/>
+        <net name="segmentDebug/p_3_in[5]"/>
+        <net name="segmentDebug/p_3_in[4]"/>
+        <net name="segmentDebug/p_3_in[3]"/>
+        <net name="segmentDebug/p_3_in[2]"/>
+        <net name="segmentDebug/p_3_in[1]"/>
+        <net name="segmentDebug/p_3_in[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="SIGNED"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
@@ -2437,7 +2593,7 @@
         <net name="segmentDebug/reg25[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -2489,7 +2645,7 @@
         <net name="segmentDebug/reg26[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
