@@ -9,6 +9,7 @@ module Timer(
         pulse <= 0;
         if (reset) begin
             count <= 0;
+            t <= 0;
         end else begin
             count <= count + 1;
         end

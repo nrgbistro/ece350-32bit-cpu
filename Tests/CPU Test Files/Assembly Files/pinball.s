@@ -11,13 +11,20 @@
 
 # Sets initial multiplier to 1 and lives to 3
 addi $mult, $0, 1
-addi $lives, $0, 3
+
+
+# DEBUG
+addi $led, $0, 2
+sw $led, 0($0)
+addi $t0, $0, 5
+sw $t0, 1($0)
+addi $sp, $sp, 2
 
 
 # Main loop
 main:
     seg $0, $score, 1
-    seg $0, $time, 0
+    seg $0, $mult, 0
     bne $btn, $0, handle_button_press
 
     jal check_timers
@@ -64,7 +71,7 @@ get_button_value:
         # Create a new LED timer for 2 seconds
         addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 1 # LED1 timer
-        jal new_timer
+        # jal new_timer
 
         addi $v0, $0, 1
         j reset_button
@@ -78,7 +85,7 @@ get_button_value:
         # Create a new LED timer for 2 seconds
         addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 2 # LED2 timer
-        jal new_timer
+        # jal new_timer
 
         addi $v0, $0, 10
         j reset_button
@@ -91,7 +98,7 @@ get_button_value:
         # Create a new LED timer for 2 seconds
         addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 3 # LED3 timer
-        jal new_timer
+        # jal new_timer
 
         addi $v0, $0, 25
         j reset_button
@@ -101,7 +108,13 @@ get_button_value:
         bne $t1, $t0, not_b4
 
         # $btn == 4:
-        addi $v0, $0, 50
+        # Create a new multiplier timer for 5 seconds
+        addi $a0, $0, 5 # 5 second timer
+        addi $a1, $0, 0 # MULT timer
+        addi $a2, $0, 10 # multiplier value
+        jal new_timer
+
+        addi $v0, $0, 0
         j reset_button
 
     not_b4:
@@ -134,8 +147,11 @@ check_timers:
 
         # If the timer has not expired, skip it
         blt $time, $t2, check_timers_loop_skip_removal
+        # Ensure the timer id is not zero
         bne $t1, $0, check_timers_remove_timer
-        j check_timers_loop_skip_removal
+
+        check_timers_loop_skip_removal:
+            j check_timers_loop
 
         check_timers_remove_timer:
             sw $t0, 0($sp)
@@ -151,9 +167,8 @@ check_timers:
             lw $t1, 1($sp)
             lw $t2, 2($sp)
             lw $ra, 3($sp)
-
-        check_timers_loop_skip_removal:
             j check_timers_loop
+
 
     check_timers_end:
         addi $sp, $sp, -1
@@ -166,11 +181,14 @@ check_timers:
 remove_timer:
     sw $ra, 0($sp)
     sw $a0, 1($sp)
-    addi $sp, $sp, 2
+    sw $a1, 2($sp)
+    addi $sp, $sp, 3
+    addi $a0, $a1, 0
     jal remove_timer_type
-    addi $sp, $sp, -2
+    addi $sp, $sp, -3
     lw $ra, 0($sp)
     lw $a0, 1($sp)
+    lw $a1, 2($sp)
 
     bne $v0, $0, remove_timer_led
 
@@ -188,7 +206,8 @@ remove_timer:
         bne $a1, $t0, remove_timer_led_not_1
 
         # Turn off LED 1
-        sw $0, -1($0)
+        addi $t5, $0, -2
+        and $led, $led, $t5
 
         remove_timer_led_not_1:
 
@@ -196,12 +215,14 @@ remove_timer:
         bne $a1, $t0, remove_timer_led_not_2
 
         # Turn off LED 2
-        sw $0, -2($0)
+        addi $t5, $0, -3
+        and $led, $led, $t5
 
         remove_timer_led_not_2:
 
         # Turn off LED 3
-        sw $0, -3($0)
+        addi $t5, $0, -5
+        and $led, $led, $t5
 
     # clear timer from memory
     remove_timer_end:
@@ -267,16 +288,18 @@ new_timer:
     # Sets the top bit of the timer id to 1, signifying a multiplier timer
     # Example timer id with multiplier of 4: 32'b10000...100
     new_timer_multiplier:
+        mul $mult, $mult, $a2
         # $t0: bitmask for setting top bit of timer id to 1
         # $t1: timer id
         addi $t0, $0, 1
         sll $t0, $t0, 31
-        or $t1, $t0, $a2
+        or $a2, $t0, $a2
 
         # write timer id and target time to memory
-        sw $t1, 0($sp)
+        sw $a2, 0($sp)
         sw $a0, 1($sp)
         addi $sp, $sp, 2
+
 
         j new_timer_done
 
@@ -292,7 +315,8 @@ new_timer:
         bne $a1, $t2, new_timer_led_not_1
 
         # Turn on LED 1
-        sw $t3, -1($0)
+        or $led, $led, $t3
+        j new_timer_done
 
         new_timer_led_not_1:
 
@@ -300,12 +324,15 @@ new_timer:
         bne $a1, $t2, new_timer_led_not_2
 
         # Turn on LED 2
-        sw $t3, -2($0)
+        sll $t3, $t3, 1
+        or $led, $led, $t3
+        j new_timer_done
 
         new_timer_led_not_2:
 
         # Turn on LED 3
-        sw $t3, -3($0)
+        sll $t3, $t3, 1
+        or $led, $led, $t3
 
     new_timer_done:
         jr $ra
@@ -370,26 +397,21 @@ count_previous_hits:
         blt $t3, $t1, count_previous_hits_end # loop counter = 15
 
         and $t4, $t2, $prev # get current bits
-        s
 
+    count_previous_hits_start_loop:
+        bne $a0, $t4, count_previous_hits_restart_loop # if button id != current bits, don't add to match counter
+        j count_previous_hits_increment_count
+
+    count_previous_hits_increment_count:
+        addi $t0, $t0, 1
+        j count_previous_hits_restart_loop
 
     count_previous_hits_restart_loop:
         sll $t2, $t2, 2 # move bit mask
         sll $a0, $a0, 2 # move button id
-        addi $t1, $t1, 0 # increment loop counter
+        addi $t1, $t1, 1 # increment loop counter
         j count_previous_hits_loop
-
 
     count_previous_hits_end:
         addi $v0, $t0, 0
         jr $ra
-
-    count_previous_hits_increment_count:
-        addi $t0, $t0, 1
-
-
-
-
-
-
-

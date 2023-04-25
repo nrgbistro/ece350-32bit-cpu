@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
--- Date        : Sat Apr 22 14:54:10 2023
+-- Date        : Sat Apr 22 14:54:07 2023
 -- Host        : NRG-Laptop running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top ila_0 -prefix
+--               ila_0_ ila_0_stub.vhdl
 -- Design      : ila_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

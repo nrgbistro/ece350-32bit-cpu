@@ -1,4 +1,4 @@
-Cycle   4: Wrote 1 into register 8
+Cycle   4: Wrote 7 into register 22
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
@@ -8,7 +8,7 @@ Reg  4:           0
 Reg  5:           0
 Reg  6:           0
 Reg  7:           0
-Reg  8:           1
+Reg  8:           0
 Reg  9:           0
 Reg 10:           0
 Reg 11:           0
@@ -22,7 +22,7 @@ Reg 18:           0
 Reg 19:           0
 Reg 20:           0
 Reg 21:           0
-Reg 22:           0
+Reg 22:           7
 Reg 23:           0
 Reg 24:           0
 Reg 25:           0

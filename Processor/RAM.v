@@ -4,8 +4,7 @@ module RAM #( parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096) (
     input wire                     wEn,
     input wire [ADDRESS_WIDTH-1:0] addr,
     input wire [DATA_WIDTH-1:0]    dataIn,
-    output reg [DATA_WIDTH-1:0]    dataOut = 0,
-    output reg [2:0] led);
+    output reg [DATA_WIDTH-1:0]    dataOut = 0);
 
     reg[DATA_WIDTH-1:0] MemoryArray[0:DEPTH-1];
 
@@ -25,8 +24,5 @@ module RAM #( parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096) (
         end else begin
             dataOut <= MemoryArray[addr];
         end
-        led[0] <= MemoryArray[DEPTH-1][0];
-        led[1] <= MemoryArray[DEPTH-2][0];
-        led[2] <= MemoryArray[DEPTH-3][0];
     end
 endmodule
