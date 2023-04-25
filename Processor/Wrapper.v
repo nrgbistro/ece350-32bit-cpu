@@ -48,7 +48,7 @@ module Wrapper (
 
 	assign LED = reg22[2:0];
 
-	ila_0 debug(clock, reg24, reg25, reg26, reg27);
+	ila_0 debug(clock, reg1, reg2, reg4, reg5, reg8, reg9, reg10, reg13, reg14, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg31);
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "pinball";

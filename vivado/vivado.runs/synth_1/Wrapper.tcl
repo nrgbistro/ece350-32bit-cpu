@@ -196,8 +196,6 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc
 set_property used_in_implementation false [get_files C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/constrs_1/imports/lab-3-master/master.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

@@ -1,43 +1,177 @@
 # Created by Nolan Gelinas and Ashley Hong
 # 2023-24-04
 
+# #led=$22: LED control
+# $lives=$23: number of lives remaining
 # $score=$24: game score
 # $btn=$25: button id (0 = not pressed, 1 = b1, 2 = b2, 3 = b3, 4 = b4)
 # $mult=$26: score multiplier
 # $prev=$27: previous 16 target ids
 # $time=$28: number of seconds elapsed since power on
-#
-# last word of memory controls LEDs
+
 
 # Sets initial multiplier to 1 and lives to 3
 addi $mult, $0, 1
+addi $lives, $0, 3
 
 
-# DEBUG
-addi $led, $0, 2
-sw $led, 0($0)
-addi $t0, $0, 5
+# DEBUG - create a new 5x multiplier timer for 8 seconds
+addi $t0, $0, 1
+sll $t0, $t0, 31
+addi $t0, $t0, 5
+sw $t0, 0($0)
+addi $t0, $0, 8
 sw $t0, 1($0)
 addi $sp, $sp, 2
+
+mul $mult, $mult, 5
 
 
 # Main loop
 main:
-    seg $0, $score, 1
+    seg $0, $time, 1
     seg $0, $mult, 0
-    bne $btn, $0, handle_button_press
 
+    # jal button_manager
     jal check_timers
 
     j main
 
+# Checks all currently active timers and executes them if they have expired
+# $t0: stack pointer iterator
+# $t1: timer id
+# $t2: target time
+check_timers:
+    addi $t0, $sp, 0
+    sw $ra, 0($sp)
+    addi $sp, $sp, 1
+
+    check_timers_loop:
+        addi $t3, $0, 2
+        blt $t0, $t3, check_timers_end
+
+        addi $t0, $t0, -2
+        lw $t1, 0($t0)
+        lw $t2, 1($t0)
+
+        # If the timer has not expired, skip it
+        blt $time, $t2, check_timers_loop_skip_removal
+        # Ensure the timer id is not zero
+        bne $t1, $0, check_timers_remove_timer
+
+        check_timers_loop_skip_removal:
+            j check_timers_loop
+
+        check_timers_remove_timer:
+            sw $t0, 0($sp)
+            sw $t1, 1($sp)
+            sw $t2, 2($sp)
+            sw $ra, 3($sp)
+            addi $sp, $sp, 4
+            addi $a0, $t0, 0
+            addi $a1, $t1, 0
+            jal execute_timer
+            addi $sp, $sp, -4
+            lw $t0, 0($sp)
+            lw $t1, 1($sp)
+            lw $t2, 2($sp)
+            lw $ra, 3($sp)
+
+            j check_timers_loop
+
+
+    check_timers_end:
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        jr $ra
+
+
+# input: $a0: stack pointer of timer
+#        $a1: timer id
+execute_timer:
+    sw $ra, 0($sp)
+    sw $a0, 1($sp)
+    sw $a1, 2($sp)
+    addi $sp, $sp, 3
+    addi $a0, $a1, 0
+    jal get_timer_type
+    addi $sp, $sp, -3
+    lw $ra, 0($sp)
+    lw $a0, 1($sp)
+    lw $a1, 2($sp)
+
+    bne $v0, $0, execute_timer_led
+
+    # execute timer action
+    execute_timer_multiplier:
+        sll $a1, $a1, 1
+        sra $a1, $a1, 1
+        div $mult, $mult, $a1
+        j execute_timer_end
+
+
+    # execute timer action
+    execute_timer_led:
+        addi $t0, $0, 1
+        bne $a1, $t0, execute_timer_led_not_1
+
+        # Turn off LED 1
+        addi $t5, $0, -2
+        and $led, $led, $t5
+
+        execute_timer_led_not_1:
+
+        addi $t0, $0, 2
+        bne $a1, $t0, execute_timer_led_not_2
+
+        # Turn off LED 2
+        addi $t5, $0, -3
+        and $led, $led, $t5
+
+        execute_timer_led_not_2:
+
+        # Turn off LED 3
+        addi $t5, $0, -5
+        and $led, $led, $t5
+
+    # clear timer from memory
+    execute_timer_end:
+        jr $ra
+
+# input: $a0: timer id
+# output: $v0: 0 if timer id is a multiplier timer, 1 otherwise
+get_timer_type:
+    addi $t0, $0, 1
+    sll $t0, $t0, 31
+    and $t0, $a0, $t0
+    sra $t0, $t0, 31
+
+    # $t0 is either 0 (led) or -1 (multiplier)
+    bne $t0, $0, get_timer_type_multiplier
+
+    get_timer_type_led:
+        addi $v0, $0, 1
+        jr $ra
+
+    get_timer_type_multiplier:
+        addi $v0, $0, 0
+        jr $ra
+
+
+button_manager:
+    addi $a0, $btn, 0
+    bne $btn, $0, handle_button_press
+    jr $ra
+
 
 handle_button_press:
-    addi $a0, $btn, 0
+    sw $a0, 0($sp)
+    addi $sp, $sp, 1
     jal save_hit
-    addi $a0, $btn, 0
+    addi $sp, $sp, -1
+    lw $a0, 0($sp)
     jal get_button_value
-    # Multiply score increment value from get_button_value by multiplier
+
     mul $t0, $mult, $v0
     add $score, $score, $t0
 
@@ -112,169 +246,19 @@ get_button_value:
         addi $a0, $0, 5 # 5 second timer
         addi $a1, $0, 0 # MULT timer
         addi $a2, $0, 10 # multiplier value
-        jal new_timer
+        # jal new_timer
 
         addi $v0, $0, 0
         j reset_button
 
     not_b4:
         addi $v0, $0, 0
-        j reset_button
 
     reset_button:
         addi $btn, $0, 0
         addi $sp, $sp, -1
         lw $ra, 0($sp)
         jr $ra
-
-
-# Checks all currently active timers, removes and executes them if they have expired
-# $t0: stack pointer iterator
-# $t1: timer id
-# $t2: target time
-check_timers:
-    addi $t0, $sp, 0
-    sw $ra, 0($sp)
-    addi $sp, $sp, 1
-
-    check_timers_loop:
-        addi $t3, $0, 2
-        blt $t0, $t3, check_timers_end
-
-        addi $t0, $t0, -2
-        lw $t1, 0($t0)
-        lw $t2, 1($t0)
-
-        # If the timer has not expired, skip it
-        blt $time, $t2, check_timers_loop_skip_removal
-        # Ensure the timer id is not zero
-        bne $t1, $0, check_timers_remove_timer
-
-        check_timers_loop_skip_removal:
-            j check_timers_loop
-
-        check_timers_remove_timer:
-            sw $t0, 0($sp)
-            sw $t1, 1($sp)
-            sw $t2, 2($sp)
-            sw $ra, 3($sp)
-            addi $sp, $sp, 4
-            addi $a0, $t0, 0
-            addi $a1, $t1, 0
-            jal remove_timer
-            addi $sp, $sp, -4
-            lw $t0, 0($sp)
-            lw $t1, 1($sp)
-            lw $t2, 2($sp)
-            lw $ra, 3($sp)
-            j check_timers_loop
-
-
-    check_timers_end:
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
-        jr $ra
-
-
-# input: $a0: stack pointer increment
-#        $a1: timer id
-remove_timer:
-    sw $ra, 0($sp)
-    sw $a0, 1($sp)
-    sw $a1, 2($sp)
-    addi $sp, $sp, 3
-    addi $a0, $a1, 0
-    jal remove_timer_type
-    addi $sp, $sp, -3
-    lw $ra, 0($sp)
-    lw $a0, 1($sp)
-    lw $a1, 2($sp)
-
-    bne $v0, $0, remove_timer_led
-
-    # execute timer action
-    remove_timer_multiplier:
-        sll $a1, $a1, 1
-        sra $a1, $a1, 1
-        div $mult, $mult, $a1
-        j remove_timer_end
-
-
-    # execute timer action
-    remove_timer_led:
-        addi $t0, $0, 1
-        bne $a1, $t0, remove_timer_led_not_1
-
-        # Turn off LED 1
-        addi $t5, $0, -2
-        and $led, $led, $t5
-
-        remove_timer_led_not_1:
-
-        addi $t0, $0, 2
-        bne $a1, $t0, remove_timer_led_not_2
-
-        # Turn off LED 2
-        addi $t5, $0, -3
-        and $led, $led, $t5
-
-        remove_timer_led_not_2:
-
-        # Turn off LED 3
-        addi $t5, $0, -5
-        and $led, $led, $t5
-
-    # clear timer from memory
-    remove_timer_end:
-        sw $0, 0($a0)
-        sw $0, 1($a0)
-        jr $ra
-
-        # $t5: stack pointer iterator
-        # $t6: timer id
-        # $t7: target time
-        # addi $t5, $t0, 0
-        # remove_timer_end_fix_memory_loop:
-        #     addi $t5, $0, 2
-        #     lw $t6, 0($t5)
-        #     lw $t7, 1($t5)
-        #     bne $t6, $0, remove_timer_end_fix_memory_loop_non_zero
-        #     bne $t7, $0, remove_timer_end_fix_memory_loop_non_zero
-        #     addi $t5, $t5, 2
-        #     j remove_timer_end_fix_memory_loop
-
-        #     remove_timer_end_fix_memory_loop_non_zero:
-        #         jal move_memory
-
-        # j remove_timer_end_fix_memory_loop
-
-        # remove_timer_end_fix_memory_end:
-        #     jr $ra
-
-# input: $a0: empty stack pointer
-# move_memory:
-
-
-# input: $a0: timer id
-# output: $v0: 0 if timer id is a multiplier timer, 1 otherwise
-remove_timer_type:
-    addi $t0, $0, 1
-    sll $t0, $t0, 31
-    and $t1, $a0, $t0
-    sra $t1, $t1, 31
-
-    # $t1 is either 0 (led) or -1 (multiplier)
-    bne $t1, $0, remove_timer_type_multiplier
-    j remove_timer_type_led
-
-    remove_timer_type_multiplier:
-        addi $v0, $0, 0
-        jr $ra
-
-    remove_timer_type_led:
-        addi $v0, $0, 1
-        jr $ra
-
 
 
 # Writes a value to memory representing the target time for a new timer
@@ -375,10 +359,6 @@ detect_patterns:
 
     triple_hit:
 
-
-
-
-
     # inputs: $a0: bit mask with 2 1-bits
     get_individual_hit:
         add $t0, $0, $a0
@@ -386,25 +366,20 @@ detect_patterns:
 
 
 # input: $a0: button id
+#        $a1: number of previous hits to check
 # output: $v0: number of button id hits in prev
 count_previous_hits:
     addi $t0, $0, 0 # match counter
     addi $t1, $0, 0 # loop counter
     addi $t2, $0, 3 # bit mask
 
-    addi $t3, $0, 14 # loop guard
+    addi $t3, $a1, -1 # loop guard
     count_previous_hits_loop:
-        blt $t3, $t1, count_previous_hits_end # loop counter = 15
-
+        blt $t3, $t1, count_previous_hits_end # $a1 - 1 < loop counter
         and $t4, $t2, $prev # get current bits
-
-    count_previous_hits_start_loop:
         bne $a0, $t4, count_previous_hits_restart_loop # if button id != current bits, don't add to match counter
-        j count_previous_hits_increment_count
 
-    count_previous_hits_increment_count:
-        addi $t0, $t0, 1
-        j count_previous_hits_restart_loop
+        addi $t0, $t0, 1 # increment match counter
 
     count_previous_hits_restart_loop:
         sll $t2, $t2, 2 # move bit mask
@@ -415,3 +390,13 @@ count_previous_hits:
     count_previous_hits_end:
         addi $v0, $t0, 0
         jr $ra
+
+
+reset_game:
+    addi $mult, $0, 1
+    addi $score, $0, 0
+    addi $time, $0, 0
+    addi $led, $0, 0
+    addi $prev, $0, 0
+    addi $sp, $0, 0
+    j main

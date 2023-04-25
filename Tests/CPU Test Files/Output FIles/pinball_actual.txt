@@ -1,58 +1,24 @@
 Cycle   4: Wrote 1 into register 26
-Cycle   5: Wrote 2 into register 22
-Cycle   7: Wrote 5 into register 8
-Cycle   9: Wrote 2 into register 29
-Cycle  13: Wrote 10 into register 31
-Cycle  16: Wrote 2 into register 8
-Cycle  18: Wrote 3 into register 29
-Cycle  19: Wrote 2 into register 11
-Cycle  21: Wrote 2 into register 8
-Cycle  22: Wrote 10 into register 9
-Cycle  23: Wrote 0 into register 10
-Cycle  33: Wrote 7 into register 29
-Cycle  34: Wrote 2 into register 4
-Cycle  35: Wrote 10 into register 5
-Cycle  36: Wrote 72 into register 31
-Cycle  42: Wrote 10 into register 29
-Cycle  43: Wrote 10 into register 4
-Cycle  44: Wrote 87 into register 31
-Cycle  47: Wrote 1 into register 8
-Cycle  48: Wrote 2147483648 into register 8
-Cycle  49: Wrote 0 into register 9
-Cycle  50: Wrote 0 into register 9
-Cycle  55: Wrote 1 into register 2
-Cycle  59: Wrote 7 into register 29
-Cycle  60: Wrote 72 into register 31
-Cycle  61: Wrote 2 into register 4
-Cycle  62: Wrote 10 into register 5
-Cycle  66: Wrote 1 into register 8
-Cycle  70: Wrote 2 into register 8
-Cycle  74: Wrote 4294967291 into register 13
-Cycle  75: Wrote 2 into register 22
-Cycle  81: Wrote 3 into register 29
-Cycle  82: Wrote 2 into register 8
-Cycle  83: Wrote 10 into register 9
-Cycle  84: Wrote 0 into register 10
-Cycle  85: Wrote 10 into register 31
-Cycle  89: Wrote 2 into register 11
-Cycle  91: Wrote 2 into register 8
-Cycle  92: Wrote 0 into register 9
-Cycle  93: Wrote 2 into register 10
+Cycle   5: Wrote 3 into register 23
+Cycle   6: Wrote 1 into register 8
+Cycle   7: Wrote 2147483648 into register 8
+Cycle   8: Wrote 2147483653 into register 8
+Cycle  10: Wrote 8 into register 8
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
-Reg  2:           1
+Reg  2:           0
 Reg  3:           0
-Reg  4:           2
-Reg  5:          10
+Reg  4:           0
+Reg  5:           0
 Reg  6:           0
 Reg  7:           0
-Reg  8:           2
+Reg  8:           8
 Reg  9:           0
-Reg 10:           2
-Reg 11:           2
+Reg 10:           0
+Reg 11:           0
 Reg 12:           0
-Reg 13:  4294967291
+Reg 13:           0
 Reg 14:           0
 Reg 15:           0
 Reg 16:           0
@@ -61,13 +27,13 @@ Reg 18:           0
 Reg 19:           0
 Reg 20:           0
 Reg 21:           0
-Reg 22:           2
-Reg 23:           0
+Reg 22:           0
+Reg 23:           3
 Reg 24:           0
 Reg 25:           0
 Reg 26:           1
 Reg 27:           0
 Reg 28:           0
-Reg 29:           3
+Reg 29:           0
 Reg 30:           0
-Reg 31:          10
+Reg 31:           0

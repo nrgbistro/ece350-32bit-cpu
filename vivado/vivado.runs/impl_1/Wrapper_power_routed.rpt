@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Tue Apr 25 00:28:26 2023
+| Date             : Tue Apr 25 04:30:02 2023
 | Host             : NRG-Laptop running 64-bit major release  (build 9200)
 | Command          : report_power -file Wrapper_power_routed.rpt -pb Wrapper_power_summary_routed.pb -rpx Wrapper_power_routed.rpx
 | Design           : Wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.194        |
+| Total On-Chip Power (W)  | 0.210        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.095        |
+| Dynamic (W)              | 0.112        |
 | Device Static (W)        | 0.099        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.1         |
-| Junction Temperature (C) | 25.9         |
+| Max Ambient (C)          | 84.0         |
+| Junction Temperature (C) | 26.0         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.021 |        4 |       --- |             --- |
-| Slice Logic              |     0.013 |    14798 |       --- |             --- |
-|   LUT as Logic           |     0.012 |     5558 |     63400 |            8.77 |
-|   Register               |    <0.001 |     6325 |    126800 |            4.99 |
-|   CARRY4                 |    <0.001 |      203 |     15850 |            1.28 |
+| Clocks                   |     0.032 |        4 |       --- |             --- |
+| Slice Logic              |     0.015 |    19795 |       --- |             --- |
+|   LUT as Logic           |     0.014 |     6152 |     63400 |            9.70 |
+|   Register               |    <0.001 |     8734 |    126800 |            6.89 |
+|   CARRY4                 |    <0.001 |      326 |     15850 |            2.06 |
 |   LUT as Distributed RAM |    <0.001 |      152 |     19000 |            0.80 |
+|   LUT as Shift Register  |    <0.001 |     1060 |     19000 |            5.58 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes            |    <0.001 |      204 |     63400 |            0.32 |
-|   LUT as Shift Register  |    <0.001 |      342 |     19000 |            1.80 |
-|   Others                 |     0.000 |      803 |       --- |             --- |
-| Signals                  |     0.014 |    11489 |       --- |             --- |
-| Block RAM                |     0.018 |       37 |       135 |           27.41 |
+|   F7/F8 Muxes            |    <0.001 |      333 |     63400 |            0.53 |
+|   Others                 |     0.000 |     1112 |       --- |             --- |
+| Signals                  |     0.016 |    15158 |       --- |             --- |
+| Block RAM                |     0.019 |     24.5 |       135 |           18.15 |
 | I/O                      |     0.030 |       31 |       210 |           14.76 |
 | Static Power             |     0.099 |          |           |                 |
-| Total                    |     0.194 |          |           |                 |
+| Total                    |     0.210 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.080 |       0.064 |      0.016 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.097 |       0.081 |      0.016 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.012 |       0.008 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -146,27 +146,28 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| Wrapper                     |     0.095 |
-|   CPU                       |     0.016 |
+| Wrapper                     |     0.112 |
+|   CPU                       |     0.017 |
 |     decodeExecuteLatch      |     0.004 |
 |       reg1                  |     0.004 |
 |     mainMultDiv             |     0.007 |
 |       divider               |     0.002 |
-|       multiplier            |     0.005 |
-|     memoryWritebackLatch    |     0.002 |
-|       regIR                 |     0.001 |
+|       multiplier            |     0.004 |
+|     memoryWritebackLatch    |     0.003 |
+|       regIR                 |     0.002 |
 |     segmentWrapper          |     0.003 |
 |       RegisterToSegmentLeft |     0.001 |
-|   InstMem                   |     0.004 |
+|   InstMem                   |     0.005 |
 |   ProcMem                   |     0.004 |
+|   RegisterFile              |     0.003 |
+|     decoderA                |     0.003 |
 |   dbg_hub                   |     0.003 |
 |     inst                    |     0.003 |
 |       BSCANID.u_xsdbm_id    |     0.003 |
-|   debug                     |     0.031 |
-|     inst                    |     0.031 |
-|       ila_core_inst         |     0.031 |
+|   debug                     |     0.044 |
+|     inst                    |     0.044 |
+|       ila_core_inst         |     0.044 |
 |   segmentDebug              |     0.004 |
-|     frameCounter            |     0.001 |
 +-----------------------------+-----------+
 
 
