@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Tue Apr 25 03:10:42 2023
+// Date        : Tue Apr 25 17:13:04 2023
 // Host        : NRG-Laptop running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0_stub.v
@@ -15,8 +15,9 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "ila,Vivado 2020.1" *)
 module ila_0(clk, probe0, probe1, probe2, probe3, probe4, probe5, 
-  probe6, probe7, probe8, probe9, probe10, probe11, probe12, probe13, probe14, probe15, probe16, probe17)
-/* synthesis syn_black_box black_box_pad_pin="clk,probe0[31:0],probe1[31:0],probe2[31:0],probe3[31:0],probe4[31:0],probe5[31:0],probe6[31:0],probe7[31:0],probe8[31:0],probe9[31:0],probe10[31:0],probe11[31:0],probe12[31:0],probe13[31:0],probe14[31:0],probe15[31:0],probe16[31:0],probe17[31:0]" */;
+  probe6, probe7, probe8, probe9, probe10, probe11, probe12, probe13, probe14, probe15, probe16, probe17, 
+  probe18, probe19, probe20)
+/* synthesis syn_black_box black_box_pad_pin="clk,probe0[31:0],probe1[31:0],probe2[31:0],probe3[31:0],probe4[31:0],probe5[31:0],probe6[31:0],probe7[31:0],probe8[31:0],probe9[31:0],probe10[31:0],probe11[31:0],probe12[31:0],probe13[31:0],probe14[31:0],probe15[31:0],probe16[31:0],probe17[31:0],probe18[31:0],probe19[31:0],probe20[31:0]" */;
   input clk;
   input [31:0]probe0;
   input [31:0]probe1;
@@ -36,4 +37,7 @@ module ila_0(clk, probe0, probe1, probe2, probe3, probe4, probe5,
   input [31:0]probe15;
   input [31:0]probe16;
   input [31:0]probe17;
+  input [31:0]probe18;
+  input [31:0]probe19;
+  input [31:0]probe20;
 endmodule

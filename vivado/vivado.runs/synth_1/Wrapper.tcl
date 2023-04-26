@@ -73,8 +73,7 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 3
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -93,8 +92,8 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/led_test.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
 }
 read_verilog -library xil_defaultlib {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v}

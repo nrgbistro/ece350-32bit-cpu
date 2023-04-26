@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1682411237">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1682460526">
   <File Type="BITSTR-BMM" Name="Wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Wrapper_timing_summary_init.rpt"/>
@@ -637,13 +637,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/pinball.mem">
+    <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/led_test.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/led_test.mem">
+    <File Path="$PPRDIR/../Tests/CPU Test Files/Memory Files/pinball.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
