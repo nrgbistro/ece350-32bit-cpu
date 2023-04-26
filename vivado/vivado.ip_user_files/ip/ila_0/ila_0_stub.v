@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Tue Apr 25 17:13:04 2023
+// Date        : Wed Apr 26 16:54:56 2023
 // Host        : NRG-Laptop running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/nolan/Duke/ece350/ece350-32bit-cpu/vivado/vivado.srcs/sources_1/ip/ila_0/ila_0_stub.v

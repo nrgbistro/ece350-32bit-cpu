@@ -15,24 +15,16 @@ addi $mult, $0, 1
 addi $lives, $0, 3
 
 
-# DEBUG - create a 5 second timer for LED 3
-# addi $a0, $0, 5 # 5 second timer
-# addi $a1, $0, 3 # for LED 3
-# jal new_timer
-
-# 5x mult timer for 8 seconds
+# DEBUG: 5x mult timer for 8 seconds
 addi $t0, $0, 5
-mul $mult, $mult, $t0
 sw $t0, 0($sp)
-addi $t0, $0, 8
-sw $t0, 1($sp)
-addi $sp, $sp, 3
+addi $t1, $0, 8
+sw $t1, 1($sp)
+addi $sp, $sp, 2
 
 
-lw $s0, 0($sp)
-lw $s1, -1($sp)
-lw $s2, -2($sp)
-lw $s3, -3($sp)
+mul $mult, $mult, $t0
+
 
 # Main loop
 main:
@@ -43,8 +35,10 @@ main:
     jal check_mult_timers
     jal check_led_timers
 
-    j main
+    lw $s0, 0($0) # Sanity check
+    lw $s1, 1($0) # Sanity check
 
+    j main
 
 
 check_led_timers:
@@ -120,10 +114,14 @@ check_led_timers:
 # $t2: target time
 check_mult_timers:
     addi $t0, $sp, 0
+    addi $s4, $ra, 0 # Sanity check
 
     check_mult_timers_loop:
         addi $t3, $0, 2
         blt $t0, $t3, check_mult_timers_end
+
+        nop
+        nop
 
         addi $t0, $t0, -2
         lw $t1, 0($t0)
@@ -138,7 +136,15 @@ check_mult_timers:
             j check_mult_timers_loop
 
         check_mult_timers_remove_timer:
+            nop
+            nop
+            nop
+
             div $mult, $mult, $t1
+
+            nop
+            nop
+            nop
 
             # Remove timer from stack
             sw $0, 0($t0)
@@ -148,6 +154,7 @@ check_mult_timers:
 
 
     check_mult_timers_end:
+        addi $s5, $ra, 0 # Sanity check, should equal $s4
         jr $ra
 
 
@@ -263,7 +270,13 @@ new_timer:
     # Sets the top bit of the timer id to 1, signifying a multiplier timer
     # Example timer id with multiplier of 4: 32'b10000...100
     new_timer_multiplier:
+        nop
+        nop
+        nop
         mul $mult, $mult, $a2
+        nop
+        nop
+        nop
 
         # write timer id and target time to memory
         sw $a2, 0($sp)

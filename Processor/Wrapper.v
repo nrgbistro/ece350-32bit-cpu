@@ -51,7 +51,7 @@ module Wrapper (
 	ila_0 debug(clock, reg1, reg2, reg4, reg5, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg31);
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "pinball";
+	localparam INSTR_FILE = "pinball_debug";
 
 	// Debounce Buttons
 	wire [3:0] debouncedBTN;

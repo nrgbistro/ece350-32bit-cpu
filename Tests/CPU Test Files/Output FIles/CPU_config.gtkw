@@ -1,84 +1,120 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Wed Mar 22 18:47:51 2023
+[*] Wed Apr 26 19:18:43 2023
 [*]
-[dumpfile] "C:\Users\nolan\Duke\ece350-32bit-cpu\Tests\CPU Test Files\Output FIles\sort_nop.vcd"
-[dumpfile_mtime] "Wed Mar 22 17:35:17 2023"
-[dumpfile_size] 8168362
-[savefile] "C:\Users\nolan\Duke\ece350-32bit-cpu\Tests\CPU Test Files\Output FIles\CPU_config.gtkw"
-[timestart] 353700
-[size] 2560 1352
-[pos] -165 -165
-*-16.061420 547200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "C:\Users\nolan\Duke\ece350\ece350-32bit-cpu\Tests\CPU Test Files\Output FIles\pinball.vcd"
+[dumpfile_mtime] "Wed Apr 26 19:04:34 2023"
+[dumpfile_size] 963057
+[savefile] "C:\Users\nolan\Duke\ece350\ece350-32bit-cpu\Tests\CPU Test Files\Output FIles\CPU_config.gtkw"
+[timestart] 0
+[size] 1536 889
+[pos] -9 -9
+*-17.793131 471000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] Wrapper_tb.
 [treeopen] Wrapper_tb.CPU.
-[sst_width] 312
-[signals_width] 605
+[sst_width] 239
+[signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 410
-@800200
--regFile
-@24
-Wrapper_tb.RegisterFile.clock
-Wrapper_tb.RegisterFile.ctrl_readRegA[4:0]
-Wrapper_tb.RegisterFile.ctrl_readRegB[4:0]
-@420
-Wrapper_tb.RegisterFile.data_readRegA[31:0]
-Wrapper_tb.RegisterFile.data_readRegB[31:0]
-@24
-Wrapper_tb.RegisterFile.ctrl_writeReg[4:0]
-@c00420
-Wrapper_tb.RegisterFile.data_writeReg[31:0]
+[sst_vpaned_height] 382
 @28
-(0)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(1)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(2)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(3)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(4)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(5)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(6)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(7)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(8)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(9)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(10)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(11)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(12)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(13)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(14)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(15)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(16)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(17)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(18)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(19)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(20)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(21)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(22)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(23)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(24)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(25)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(26)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(27)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(28)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(29)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(30)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-(31)Wrapper_tb.RegisterFile.data_writeReg[31:0]
-@1401600
--group_end
+Wrapper_tb.CPU.programCounter.clock
+@800200
+-Fetch
+@22
+[color] 3
++{Instruction} Wrapper_tb.CPU.fetchDecodeLatch.newIR[31:0]
 @24
-Wrapper_tb.RegisterFile.ctrl_writeEnable
++{PC} Wrapper_tb.CPU.programCounter.oldPC[31:0]
+@28
+Wrapper_tb.CPU.programCountController.branch
+@24
++{branchAddr} Wrapper_tb.CPU.programCountController.branchAddr[31:0]
+@28
+Wrapper_tb.CPU.interlockStall
 @1000200
--regFile
+-Fetch
+@800200
+-Decode
+@22
+[color] 3
++{Instruction} Wrapper_tb.CPU.fetchDecodeLatch.oldIR[31:0]
+@24
++{reg_A} Wrapper_tb.RegisterFile.ctrl_readRegA[4:0]
++{reg_B} Wrapper_tb.RegisterFile.ctrl_readRegB[4:0]
+@420
++{data_A} Wrapper_tb.RegisterFile.data_readRegA[31:0]
++{data_B} Wrapper_tb.RegisterFile.data_readRegB[31:0]
+@1000200
+-Decode
+@800200
+-Execute
+@22
+[color] 3
++{Instruction} Wrapper_tb.CPU.decodeExecuteLatch.oldIR[31:0]
+@420
++{Latch_A} Wrapper_tb.CPU.decodeExecuteLatch.oldA[31:0]
++{Latch_B} Wrapper_tb.CPU.decodeExecuteLatch.oldB[31:0]
+@c00420
++{ALU_A} Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+@28
+(0)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(1)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(2)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(3)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(4)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(5)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(6)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(7)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(8)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(9)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(10)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(11)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(12)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(13)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(14)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(15)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(16)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(17)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(18)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(19)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(20)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(21)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(22)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(23)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(24)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(25)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(26)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(27)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(28)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(29)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(30)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+(31)Wrapper_tb.CPU.mainALU.data_operandA[31:0]
+@1401200
+-group_end
+@420
++{ALU_B} Wrapper_tb.CPU.mainALU.data_operandB[31:0]
++{ALU_Out} Wrapper_tb.CPU.mainALU.data_result[31:0]
+@28
+Wrapper_tb.CPU.programCountController.lt
+Wrapper_tb.CPU.programCountController.neq
+@1000200
+-Execute
 @800200
 -bypass
 @28
 Wrapper_tb.CPU.bypass.ALU_A_bypass[1:0]
+@c00028
 Wrapper_tb.CPU.bypass.ALU_B_bypass[1:0]
-Wrapper_tb.CPU.bypass.dmem_bypass
-@24
-Wrapper_tb.CPU.bypass.executeOpcode[4:0]
-Wrapper_tb.CPU.bypass.memoryOpcode[4:0]
-Wrapper_tb.CPU.bypass.writebackOpcode[4:0]
+@28
+(0)Wrapper_tb.CPU.bypass.ALU_B_bypass[1:0]
+(1)Wrapper_tb.CPU.bypass.ALU_B_bypass[1:0]
+@1401200
+-group_end
+@28
+Wrapper_tb.CPU.bypass.altInstruction
+@25
 Wrapper_tb.CPU.bypass.executeRD[4:0]
+@24
 Wrapper_tb.CPU.bypass.executeRS1[4:0]
 Wrapper_tb.CPU.bypass.executeRS2[4:0]
 Wrapper_tb.CPU.bypass.memoryRD[4:0]
@@ -86,76 +122,31 @@ Wrapper_tb.CPU.bypass.writebackRD[4:0]
 @1000200
 -bypass
 @800200
--PC
-@24
-Wrapper_tb.CPU.PC[31:0]
-Wrapper_tb.CPU.programCountController.nextPC[31:0]
-@28
-Wrapper_tb.CPU.programCountController.branch
-@c00024
-Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-@28
-(0)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(1)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(2)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(3)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(4)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(5)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(6)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(7)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(8)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(9)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(10)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(11)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(12)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(13)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(14)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(15)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(16)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(17)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(18)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(19)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(20)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(21)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(22)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(23)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(24)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(25)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(26)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(27)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(28)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(29)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(30)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-(31)Wrapper_tb.CPU.programCountController.branchAddr[31:0]
-@1401204
--group_end
-@420
-Wrapper_tb.CPU.programCountController.executePCPlusImmediate[31:0]
+-memory
 @22
-Wrapper_tb.CPU.fetchDecodeLatch.newIR[31:0]
-@1000200
--PC
-@800600
--dmem
+[color] 3
++{Instruction} Wrapper_tb.CPU.executeMemoryLatch.oldIR[31:0]
 @24
 Wrapper_tb.ProcMem.addr[11:0]
 @420
 Wrapper_tb.ProcMem.dataIn[31:0]
 Wrapper_tb.ProcMem.dataOut[31:0]
-Wrapper_tb.ProcMem.wEn
-@1000600
--dmem
-@800200
--ALU
-@420
-Wrapper_tb.CPU.mainALU.data_operandA[31:0]
-Wrapper_tb.CPU.mainALU.data_operandB[31:0]
-Wrapper_tb.CPU.mainALU.data_result[31:0]
-@22
-Wrapper_tb.CPU.mainALU.ctrl_ALUopcode[4:0]
 @28
-Wrapper_tb.CPU.mainALU.overflow
+Wrapper_tb.ProcMem.wEn
 @1000200
--ALU
+-memory
+@800200
+-writeback
+@22
+[color] 3
++{Instruction} Wrapper_tb.CPU.memoryWritebackLatch.oldIR[31:0]
+@24
++{reg} Wrapper_tb.RegisterFile.ctrl_writeReg[4:0]
+@420
++{data} Wrapper_tb.RegisterFile.data_writeReg[31:0]
+@28
++{writeEnable} Wrapper_tb.RegisterFile.ctrl_writeEnable
+@1000200
+-writeback
 [pattern_trace] 1
 [pattern_trace] 0
