@@ -21,12 +21,18 @@ addi $lives, $0, 3
 # jal new_timer
 
 # 5x mult timer for 8 seconds
-addi $t0, $t0, 5
+addi $t0, $0, 5
 mul $mult, $mult, $t0
 sw $t0, 0($sp)
 addi $t0, $0, 8
 sw $t0, 1($sp)
 addi $sp, $sp, 3
+
+
+lw $s0, 0($sp)
+lw $s1, -1($sp)
+lw $s2, -2($sp)
+lw $s3, -3($sp)
 
 # Main loop
 main:
