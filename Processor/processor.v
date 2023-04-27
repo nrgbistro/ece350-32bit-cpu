@@ -39,9 +39,11 @@ module processor(
     ctrl_readRegB,                  // O: Register to read from port B of RegFile
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
-    data_readRegB                   // I: Data from port B of RegFile
+    data_readRegB,                   // I: Data from port B of RegFile
 
-	);
+    buttons,
+    segment,
+    segmentMask);
 
 	// Control signals
 	input clock, reset;
@@ -61,20 +63,40 @@ module processor(
 	output [31:0] data_writeReg;
 	input [31:0] data_readRegA, data_readRegB;
 
+    input [3:0] buttons;
+    output [6:0] segment;
+    output [7:0] segmentMask;
+
 	/* YOUR CODE STARTS HERE */
 
     wire overflow1, multDivStall, stallPC, stallFD, stallDX, stallXM, stallMW;
 
+    // Timer
+    wire [31:0] timer;
+    wire timeWriteEnable;
+    Timer timerModule(timer, timeWriteEnable, clock, reset);
+
+    // IO
+    wire [31:0] swCode;
+    wire swStall;
+    ButtonHandler btnHandler(swCode, buttons);
+
+    assign swStall = swCode != 32'd0;
+
+    // Seven Segment
+    // RegToSegment RegisterToSegmentRight(.SEG(segment), .AN(segmentMask), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001), .reset(reset));
+    SegmentWrapper segmentWrapper(segmentMask, segment, executeA, clock, reset, executeIR[31:27] == 5'b10001, executeImmediate[0]);
+
     // Stall
+    wire interlockStall;
     MultDivStall multDivStallModule(multDivStall, executeIR, multDivDone);
-    assign stallPC = multDivStall || interlockStall;
-    assign stallFD = multDivStall || interlockStall;
-    assign stallDX = multDivStall;
-    assign stallXM = multDivStall;
-    assign stallMW = multDivStall;
+    assign stallPC = multDivStall || interlockStall || swStall || timeWriteEnable;
+    assign stallFD = multDivStall || interlockStall || swStall || timeWriteEnable;
+    assign stallDX = multDivStall || swStall || timeWriteEnable;
+    assign stallXM = multDivStall || swStall || timeWriteEnable;
+    assign stallMW = multDivStall || swStall || timeWriteEnable;
 
     // Interlock
-    wire interlockStall;
     Interlock interlock(interlockStall, decodeIR, executeIR);
 
     // Bypassing
@@ -149,12 +171,12 @@ module processor(
     wire writebackDataSelector, writebackErrorOut;
 
     MemoryWriteback memoryWritebackLatch(writebackIR, writebackO, writebackD, writebackErrorOut, memoryIR, memoryO, q_dmem, memoryErrorOut, ~clock, stallMW, reset);
-    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR);
+    WritebackControl writebackController(writebackInsType, writebackDataSelector, ctrl_writeEnable, writebackIR, swStall, timeWriteEnable);
 
     assign j1WriteReg = writebackIR[31:27] == 5'b00011 ? 5'd31 : 5'd30;
     mux_4_5 select_rd(rd, writebackInsType, writebackIR[26:22], writebackIR[26:22], j1WriteReg, writebackIR[26:22]);
-    assign data_writeReg = writebackDataSelector ? writebackD : writebackO;
-    assign ctrl_writeReg = writebackErrorOut ? 5'd30 : rd;
+    assign data_writeReg = swStall ? swCode : timeWriteEnable ? timer : writebackDataSelector ? writebackD : writebackO;
+    assign ctrl_writeReg = swStall ? 5'd25 : timeWriteEnable ? 5'd28 : writebackErrorOut ? 5'd30 : rd;
 
 	/* END CODE */
 

@@ -35,6 +35,8 @@ j blguard
 blstart:
 addi $4, $zero, 3
 jal malloc
+
+
 sw $10, 0($2)              # set new[0] = data
 sw $9, 1($2)              # set new[1] = prev
 sw $zero, 2($2)            # set new[2] = next
@@ -42,12 +44,15 @@ sw $2, 2($9)              # set curr.next = new
 addi $8, $8, 1            # increment input data index
 lw $10, 0($8)              # load next input data value
 add $9, $zero, $2         # set curr = new
+
+
 blguard:
 bne $10, $zero, blstart
 add $2, $11, $zero         # set $2 = list head
 addi $29, $29, -1
 lw $31, 0($29)
 jr $31
+
 sort:                       # $4 = head of list
 sw $31, 0($29)
 addi $29, $29, 1

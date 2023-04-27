@@ -33,7 +33,7 @@
  *
  **/
 
-module Wrapper_tb #(parameter FILE = "addi_basic");
+module Wrapper_tb #(parameter FILE = "addi");
 
 	// FileData
 	localparam DIR = "CPU Test Files/";

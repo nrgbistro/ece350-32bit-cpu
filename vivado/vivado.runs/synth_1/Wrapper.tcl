@@ -91,11 +91,12 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/addi_basic.mem}
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/delay.mem}
-  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/loop.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/led_test.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball_debug.mem}
 }
 read_verilog -library xil_defaultlib {
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v
@@ -103,6 +104,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/XM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/adder_8.v
@@ -119,6 +121,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_2.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_4.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/barrel_right_8.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/buttonHandler.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Hazard/bypass.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/checkBits_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Adder/cla_32.v
@@ -129,6 +132,8 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Comparators/comparator_8.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/counter_16.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Div/counter_32.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/counter_4.v}
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Button/debounce.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/decodeControl.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Mux/decoder_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/dffe_ref.v
@@ -156,14 +161,16 @@ read_verilog -library xil_defaultlib {
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Logical/or_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/processor.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/pulse.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/regToSegment.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/regfile.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/register_65.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/resetDetection.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/segmentWrapper.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_left_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Alu/Shifter/shift_right_32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/MultDiv/Mult/specialCaseCheck.v
-  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/switchToSegment.v
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/switchToSegmentDebug.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/t_flip_flop.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Register/tri_state32.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/type_detector.v

@@ -17,7 +17,7 @@ module TypeDetector(
     assign r_type = opcode == 5'b00000;
     assign i_type = opcode == 5'b00101 || opcode == 5'b00111 ||
                         opcode == 5'b01000 || opcode == 5'b00010 ||
-                        opcode == 5'b00110;
+                        opcode == 5'b00110 || opcode == 5'b10001;
     assign j1_type = opcode == 5'b00001 || opcode == 5'b00011 ||
                      opcode == 5'b10110 || opcode == 5'b10101;
     assign j2_type = opcode == 5'b00100;
