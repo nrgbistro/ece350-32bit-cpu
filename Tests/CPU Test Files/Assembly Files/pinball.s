@@ -32,11 +32,8 @@ main:
     seg $0, $mult, 0
 
     jal button_manager
-    jal check_mult_timers
+    # jal check_mult_timers
     jal check_led_timers
-
-    lw $s0, 0($0) # Sanity check
-    lw $s1, 1($0) # Sanity check
 
     j main
 
@@ -368,7 +365,7 @@ check_patterns:
 
         addi $t0, $0, 2 # multiply by 2
         mul $mult, $mult, $t0
-    
+
     check_patterns_triple_hit_three:
         addi $a0, $0, 3
         addi $a1, $0, 3

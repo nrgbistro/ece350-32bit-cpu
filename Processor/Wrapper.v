@@ -28,6 +28,7 @@ module Wrapper (
     output [6:0] SEG,
     output [7:0] AN,
 	output [2:0] LED,
+	output AUD_PWM, AUD_EN,
     input [6:0] SW,
 	input [3:0] BTN,
     input clock, resetIn);
@@ -36,6 +37,12 @@ module Wrapper (
 	wire clk, reset;
 	// 50 Mhz clock
 	ClockDivider mainClockDiv(clk, clock, 1);
+
+	// Audio
+    assign AUD_EN = 1'b1;
+
+	wire micClk, chSel;
+	AudioController audioController(clock, 1'b0, reg1[3:0], micClk, chSel, AUD_PWM);
 
 	assign reset = ~resetIn;
 
@@ -51,7 +58,7 @@ module Wrapper (
 	ila_0 debug(clock, reg1, reg2, reg4, reg5, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg31);
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "pinball_debug";
+	localparam INSTR_FILE = "pinball";
 
 	// Debounce Buttons
 	wire [3:0] debouncedBTN;

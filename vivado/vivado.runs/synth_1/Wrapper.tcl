@@ -94,14 +94,18 @@ read_mem {
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/led_test.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball.mem}
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/pinball_debug.mem}
+  {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Tests/CPU Test Files/Memory Files/audio.mem}
 }
 read_verilog -library xil_defaultlib {
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Audio/AudioController.v
   {C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Seven Segment/BCD.v}
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/DX.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/FD.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/MW.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/Latches/PC.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/control/PCControl.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Audio/PWMDeserializer.v
+  C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Audio/PWMSerializer.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/RAM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/Processor/ROM.v
   C:/Users/nolan/Duke/ece350/ece350-32bit-cpu/IO/Timer.v

@@ -84,7 +84,6 @@ module processor(
     assign swStall = swCode != 32'd0;
 
     // Seven Segment
-    // RegToSegment RegisterToSegmentRight(.SEG(segment), .AN(segmentMask), .regData(executeA), .N(1'b0), .mainClock(clock), .enable(executeIR[31:27] == 5'b10001), .reset(reset));
     SegmentWrapper segmentWrapper(segmentMask, segment, executeA, clock, reset, executeIR[31:27] == 5'b10001, executeImmediate[0]);
 
     // Stall
