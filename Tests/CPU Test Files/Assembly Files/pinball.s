@@ -341,7 +341,84 @@ save_hit:
 # Reads each 2-bit button id in $prev and executes commands if a pattern is detected
 # No inputs or outputs (output goes directly into $mult reg via new_timer)
 check_patterns:
-    jr $ra
+    check_patterns_triple_hit_one:
+        addi $a0, $0, 1
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 3 # number of hits of button 1 expected
+        bne $v0, $t0, check_patterns_triple_hit_two # if not 3 hits, skip to next pattern
+
+        addi $t0, $0, 2 # multiply by 2
+        mul $mult, $mult, $t0
+
+    check_patterns_triple_hit_two:
+        addi $a0, $0, 2
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 3 # number of hits of button 2 expected
+        bne $v0, $t0, check_patterns_triple_hit_three # if not 3 hits, skip to next pattern
+
+        addi $t0, $0, 2 # multiply by 2
+        mul $mult, $mult, $t0
+    
+    check_patterns_triple_hit_three:
+        addi $a0, $0, 3
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 3 # number of hits of button 3 expected
+        bne $v0, $t0, check_patterns_hit_all_three # if not 3 hits, skip to next pattern
+
+        addi $t0, $0, 2 # multiply by 2
+        mul $mult, $mult, $t0
+
+    check_patterns_hit_all_three:
+        addi $a0, $0, 1
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 1 # number of hits of button 1 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+
+        addi $a0, $0, 2
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 1 # number of hits of button 2 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+
+        addi $a0, $0, 3
+        addi $a1, $0, 3
+        sw $ra, 0($sp)
+        addi $sp, $sp, 1
+        jal count_previous_hits
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
+        addi $t0, $0, 1 # number of hits of button 3 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+
+        addi $t0, $0, 3 # multiply by 2
+        mul $mult, $mult, $t0
+
+    check_patterns_end:
+        jr $ra
 
 
 # input: $a0: button id
