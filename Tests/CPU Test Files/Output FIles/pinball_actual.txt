@@ -1,26 +1,25 @@
 Cycle   4: Wrote 1 into register 26
-Cycle   5: Wrote 3 into register 23
-Cycle   6: Wrote 0 into register 1
-Cycle   7: Wrote 500 into register 21
-Cycle  10: Wrote 7 into register 31
-Cycle  13: Wrote 0 into register 4
-Cycle  18: Wrote 8 into register 31
-Cycle  21: Wrote 500 into register 8
-Cycle  22: Wrote 502 into register 11
-Cycle  29: Wrote 9 into register 31
+Cycle   5: Wrote 0 into register 1
+Cycle   6: Wrote 500 into register 23
+Cycle   9: Wrote 6 into register 31
+Cycle  12: Wrote 0 into register 4
+Cycle  17: Wrote 7 into register 31
+Cycle  20: Wrote 500 into register 8
+Cycle  21: Wrote 502 into register 11
+Cycle  28: Wrote 8 into register 31
+Cycle  31: Wrote 0 into register 8
 Cycle  32: Wrote 0 into register 8
-Cycle  33: Wrote 0 into register 8
-Cycle  34: Wrote 511 into register 12
-Cycle  35: Wrote 4088 into register 12
-Cycle  36: Wrote 4294966784 into register 14
-Cycle  37: Wrote 4294963200 into register 14
-Cycle  38: Wrote 4294963207 into register 14
-Cycle  39: Wrote 0 into register 13
-Cycle  45: Wrote 0 into register 8
-Cycle  46: Wrote 2093056 into register 12
-Cycle  47: Wrote 4292873728 into register 14
-Cycle  48: Wrote 4292874239 into register 14
-Cycle  49: Wrote 0 into register 13
+Cycle  33: Wrote 511 into register 12
+Cycle  34: Wrote 4088 into register 12
+Cycle  35: Wrote 4294966784 into register 14
+Cycle  36: Wrote 4294963200 into register 14
+Cycle  37: Wrote 4294963207 into register 14
+Cycle  38: Wrote 0 into register 13
+Cycle  44: Wrote 0 into register 8
+Cycle  45: Wrote 2093056 into register 12
+Cycle  46: Wrote 4292873728 into register 14
+Cycle  47: Wrote 4292874239 into register 14
+Cycle  48: Wrote 0 into register 13
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
@@ -43,9 +42,9 @@ Reg 17:           0
 Reg 18:           0
 Reg 19:           0
 Reg 20:           0
-Reg 21:         500
+Reg 21:           0
 Reg 22:           0
-Reg 23:           3
+Reg 23:         500
 Reg 24:           0
 Reg 25:           0
 Reg 26:           1
@@ -53,4 +52,4 @@ Reg 27:           0
 Reg 28:           0
 Reg 29:           0
 Reg 30:           0
-Reg 31:           9
+Reg 31:           8

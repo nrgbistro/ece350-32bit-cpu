@@ -10,9 +10,8 @@
 # $time=$28: number of seconds elapsed since power on
 
 
-# Sets initial multiplier to 1, lives to 3, turn off speaker, and set mempointer
+# Sets initial multiplier to 1, turn off speaker, and set mempointer
 addi $mult, $0, 1
-addi $lives, $0, 3
 addi $audio, $0, 0
 addi $mempointer, $0, 500
 
@@ -278,7 +277,7 @@ get_button_value:
 new_timer:
     add $a0, $a0, $time
     # Copy of end time before shifting
-    addi $t6, $a0, 0
+    addi $t5, $a0, 0
     bne $a1, $0, new_timer_led
 
     # Sets the top bit of the timer id to 1, signifying a multiplier timer
@@ -314,7 +313,7 @@ new_timer:
         or $led, $led, $a0
 
         # Turn on speaker with tone 1
-        sw $t6, -1($0)
+        sw $t5, -1($0)
         addi $audio, $0, 1
 
         # Disable other speaker timers if active
@@ -337,7 +336,7 @@ new_timer:
             or $led, $led, $a0
 
             # Turn on speaker with tone 2
-            sw $t6, -2($0)
+            sw $t5, -2($0)
             addi $audio, $0, 2
 
             # Disable other speaker timers if active
@@ -357,7 +356,7 @@ new_timer:
             or $led, $led, $a0
 
             # Turn on speaker with tone 3
-            sw $t6, -3($0)
+            sw $t5, -3($0)
             addi $audio, $0, 3
 
             # Disable other speaker timers if active
@@ -384,84 +383,87 @@ save_hit:
         jal count_previous_hits
 
         addi $t0, $0, 3 # number of hits of button 1 expected
-        bne $v0, $t0, check_patterns_end # if not 3 hits, skip to next pattern
+        bne $v0, $t0, check_patterns_triple_hit_two # if not 3 hits, skip to next pattern
 
-        # Add 1 to multiplier for 33 seconds
-        addi $a0, $0, 33
+        addi $prev, $prev, 0
+
+        # Add 1 to multiplier for 15 seconds
+        addi $a0, $0, 15
         addi $a1, $0, 0
         addi $a2, $0, 1
         jal new_timer
 
-        addi $prev, $prev, 0
         j check_patterns_end
 
-    # check_patterns_triple_hit_two:
-    #     addi $a0, $0, 2
-    #     addi $a1, $0, 3
-    #     jal count_previous_hits
+    check_patterns_triple_hit_two:
+        addi $a0, $0, 2
+        addi $a1, $0, 3
+        jal count_previous_hits
 
-    #     addi $t0, $0, 3 # number of hits of button 2 expected
-    #     bne $v0, $t0, check_patterns_triple_hit_three # if not 3 hits, skip to next pattern
+        addi $t0, $0, 3 # number of hits of button 2 expected
+        bne $v0, $t0, check_patterns_triple_hit_three # if not 3 hits, skip to next pattern
 
-    #     # Add 1 to multiplier for 33 seconds
-    #     addi $a0, $0, 33
-    #     addi $a1, $0, 0
-    #     addi $a2, $0, 1
-    #     jal new_timer
+        addi $prev, prev, 0
 
-    #     addi $prev, prev, 0
-    #     j check_patterns_end
+        # Add 1 to multiplier for 15 seconds
+        addi $a0, $0, 15
+        addi $a1, $0, 0
+        addi $a2, $0, 1
+        jal new_timer
 
-    # # check_patterns_triple_hit_three:
-    #     addi $a0, $0, 3
-    #     addi $a1, $0, 3
+        j check_patterns_end
 
-    #     jal count_previous_hits
+    check_patterns_triple_hit_three:
+        addi $a0, $0, 3
+        addi $a1, $0, 3
 
-    #     addi $t0, $0, 3 # number of hits of button 3 expected
-    #     bne $v0, $t0, check_patterns_hit_all_three # if not 3 hits, skip to next pattern
+        jal count_previous_hits
 
-    #     # Add 1 to multiplier for 33 seconds
-    #     addi $a0, $0, 33
-    #     addi $a1, $0, 0
-    #     addi $a2, $0, 1
-    #     jal new_timer
+        addi $t0, $0, 3 # number of hits of button 3 expected
+        bne $v0, $t0, check_patterns_hit_all_three # if not 3 hits, skip to next pattern
 
-    #     addi $prev, prev, 0
-    #     j check_patterns_end
+        addi $prev, prev, 0
+
+        # Add 1 to multiplier for 15 seconds
+        addi $a0, $0, 15
+        addi $a1, $0, 0
+        addi $a2, $0, 1
+        jal new_timer
+
+        j check_patterns_end
 
     # # Check for 1 hit of each button in the previous 5 hits
-    # # check_patterns_hit_all_three:
-    #     addi $a0, $0, 1
-    #     addi $a1, $0, 5
-    #     jal count_previous_hits
+    check_patterns_hit_all_three:
+        addi $a0, $0, 1
+        addi $a1, $0, 5
+        jal count_previous_hits
 
-    #     addi $t0, $0, 1 # number of hits of button 1 expected
-    #     bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+        addi $t0, $0, 1 # number of hits of button 1 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
-    #     addi $a0, $0, 2
-    #     addi $a1, $0, 5
+        addi $a0, $0, 2
+        addi $a1, $0, 5
 
-    #     jal count_previous_hits
+        jal count_previous_hits
 
-    #     addi $t0, $0, 1 # number of hits of button 2 expected
-    #     bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+        addi $t0, $0, 1 # number of hits of button 2 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
-    #     addi $a0, $0, 3
-    #     addi $a1, $0, 5
+        addi $a0, $0, 3
+        addi $a1, $0, 5
 
-    #     jal count_previous_hits
+        jal count_previous_hits
 
-    #     addi $t0, $0, 1 # number of hits of button 3 expected
-    #     bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
+        addi $t0, $0, 1 # number of hits of button 3 expected
+        bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
-    #     # Add 3 to multiplier for 33 seconds
-    #     addi $a0, $0, 33
-    #     addi $a1, $0, 0
-    #     addi $a2, $0, 3
-    #     jal new_timer
+        addi $prev, $0, 0 # reset prev
+        # Add 3 to multiplier for 33 seconds
+        addi $a0, $0, 33
+        addi $a1, $0, 0
+        addi $a2, $0, 3
+        jal new_timer
 
-    #     addi $prev, $0, 0 # reset prev
 
     check_patterns_end:
         addi $sp, $sp, -1

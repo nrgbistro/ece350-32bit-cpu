@@ -2,5 +2,5 @@ Reg:  8 Expected:           8 Actual:           0
 Reg: 11 Expected:           0 Actual:         502
 Reg: 12 Expected:           0 Actual:     2093056
 Reg: 14 Expected:           0 Actual:    -2093057
-Reg: 21 Expected:           0 Actual:         500
-Reg: 31 Expected:           0 Actual:           9
+Reg: 23 Expected:           3 Actual:         500
+Reg: 31 Expected:           0 Actual:           8

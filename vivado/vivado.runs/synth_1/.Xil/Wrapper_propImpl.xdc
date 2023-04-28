@@ -52,7 +52,7 @@ set_property -dict { PACKAGE_PIN K15   IOSTANDARD LVCMOS33 } [get_ports { LED[1]
 set_property src_info {type:XDC file:1 line:63 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN J13   IOSTANDARD LVCMOS33 } [get_ports { LED[2] }]; #IO_L17N_T2_A25_15 Sch=led[2]
 set_property src_info {type:XDC file:1 line:105 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { resetIn }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
+set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports { resetIn }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
 set_property src_info {type:XDC file:1 line:108 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTN[0] }]; #IO_L4N_T0_D05_14 Sch=btnu
 set_property src_info {type:XDC file:1 line:109 export:INPUT save:INPUT read:READ} [current_design]
