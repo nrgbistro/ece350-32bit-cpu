@@ -63,7 +63,7 @@ module processor(
 	output [31:0] data_writeReg;
 	input [31:0] data_readRegA, data_readRegB;
 
-    input [3:0] buttons;
+    input [2:0] buttons;
     output [6:0] segment;
     output [7:0] segmentMask;
 

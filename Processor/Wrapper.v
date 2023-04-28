@@ -30,7 +30,7 @@ module Wrapper (
 	output [2:0] LED,
 	output AUD_PWM, AUD_EN,
     input [6:0] SW,
-	input [3:0] BTN,
+	input [2:0] BTN,
     input clock, resetIn);
 
 	// Clocking
@@ -41,10 +41,9 @@ module Wrapper (
 	// Audio
     assign AUD_EN = 1'b1;
 
-	wire micClk, chSel;
-	AudioController audioController(clock, 1'b0, reg1[3:0], micClk, chSel, AUD_PWM);
+	AudioController audioController(clock, reg1[3:0], AUD_PWM);
 
-	assign reset = ~resetIn;
+	assign reset = resetIn;
 
     wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
     wire rwe, mwe;
@@ -61,11 +60,10 @@ module Wrapper (
 	localparam INSTR_FILE = "pinball";
 
 	// Debounce Buttons
-	wire [3:0] debouncedBTN;
+	wire [2:0] debouncedBTN;
 	Debouncer Debounce0(.clk(clock), .pb_in(BTN[0]), .pb_out(debouncedBTN[0]));
 	Debouncer Debounce1(.clk(clock), .pb_in(BTN[1]), .pb_out(debouncedBTN[1]));
 	Debouncer Debounce2(.clk(clock), .pb_in(BTN[2]), .pb_out(debouncedBTN[2]));
-	Debouncer Debounce3(.clk(clock), .pb_in(BTN[3]), .pb_out(debouncedBTN[3]));
 
 	wire [6:0] cpuSEG, debugSEG;
 	wire [7:0] cpuAN, debugAN;

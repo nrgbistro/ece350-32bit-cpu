@@ -10,20 +10,24 @@
 # $time=$28: number of seconds elapsed since power on
 
 
-# Sets initial multiplier to 1 and lives to 3
+# Sets initial multiplier to 1, lives to 3, and turn off speaker
 addi $mult, $0, 1
 addi $lives, $0, 3
+addi $audio, $0, 0
 
 
-# DEBUG: 5x mult timer for 8 seconds
-addi $t0, $0, 5
-sw $t0, 0($sp)
-addi $t1, $0, 8
-sw $t1, 1($sp)
-addi $sp, $sp, 2
+# DEBUG: +2 multiplier for 5 seconds
+addi $a0, $0, 5
+addi $a1, $0, 0
+addi $a2, $0, 2
+jal new_timer
 
+# DEBUG: +5 multiplier for 15 seconds
 
-mul $mult, $mult, $t0
+addi $a0, $0, 15
+addi $a1, $0, 0
+addi $a2, $0, 5
+jal new_timer
 
 
 # Main loop
@@ -32,10 +36,53 @@ main:
     seg $0, $mult, 0
 
     jal button_manager
-    # jal check_mult_timers
+    jal check_mult_timers
     jal check_led_timers
+    jal check_speaker_timers
 
     j main
+
+
+check_speaker_timers:
+    # Check speaker timer 1
+    lw $t4, -1($0)
+    blt $time, $t4, check_speaker_timers_skip_1
+    bne $t4, $0, check_speaker_timers_turn_off_1
+    j check_speaker_timers_skip_1
+
+    check_speaker_timers_turn_off_1:
+        # Turn off speaker
+        addi $audio, $0, 0
+        sw $0, -1($0)
+        j check_speaker_timers_done
+
+    check_speaker_timers_skip_1:
+        lw $t4, -2($0)
+        blt $time, $t4, check_speaker_timers_skip_2
+        bne $t4, $0, check_speaker_timers_turn_off_2
+        j check_speaker_timers_skip_2
+
+        check_speaker_timers_turn_off_2:
+        # Turn off speaker
+        addi $audio, $0, 0
+        sw $0, -2($0)
+        j check_speaker_timers_done
+
+    check_speaker_timers_skip_2:
+        lw $t4, -3($0)
+        blt $time, $t4, check_speaker_timers_done
+        bne $t4, $0, check_speaker_timers_turn_off_3
+        j check_speaker_timers_done
+
+        check_speaker_timers_turn_off_3:
+        # Turn off speaker
+        addi $audio, $0, 0
+        sw $0, -3($0)
+        j check_speaker_timers_done
+
+
+    check_speaker_timers_done:
+        jr $ra
 
 
 check_led_timers:
@@ -111,7 +158,7 @@ check_led_timers:
 # $t2: target time
 check_mult_timers:
     addi $t0, $sp, 0
-    addi $s4, $ra, 0 # Sanity check
+    addi $s5, $ra, 0 # Sanity check
 
     check_mult_timers_loop:
         addi $t3, $0, 2
@@ -133,15 +180,8 @@ check_mult_timers:
             j check_mult_timers_loop
 
         check_mult_timers_remove_timer:
-            nop
-            nop
-            nop
+            sub $mult, $mult, $t1
 
-            div $mult, $mult, $t1
-
-            nop
-            nop
-            nop
 
             # Remove timer from stack
             sw $0, 0($t0)
@@ -196,9 +236,8 @@ get_button_value:
         bne $t1, $t0, not_b1
 
         # $btn == 1:
-
-        # Create a new LED timer for 3 seconds
-        addi $a0, $0, 3 # 3 second timer
+        # Create a new LED timer for 2 seconds
+        addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 1 # LED1 timer
         jal new_timer
 
@@ -210,9 +249,8 @@ get_button_value:
         bne $t1, $t0, not_b2
 
         # $btn == 2:
-
-        # Create a new LED timer for 3 seconds
-        addi $a0, $0, 3 # 3 second timer
+        # Create a new LED timer for 2 seconds
+        addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 2 # LED2 timer
         jal new_timer
 
@@ -224,8 +262,8 @@ get_button_value:
         bne $t1, $t0, not_b3
 
         # $btn == 3:
-        # Create a new LED timer for 3 seconds
-        addi $a0, $0, 3 # 3 second timer
+        # Create a new LED timer for 2 seconds
+        addi $a0, $0, 2 # 2 second timer
         addi $a1, $0, 3 # LED3 timer
         jal new_timer
 
@@ -235,13 +273,6 @@ get_button_value:
     not_b3:
         addi $t0 $0, 4
         bne $t1, $t0, not_b4
-
-        # $btn == 4:
-        # Create a new multiplier timer for 5 seconds
-        addi $a0, $0, 5 # 5 second timer
-        addi $a1, $0, 0 # MULT timer
-        addi $a2, $0, 10 # multiplier value
-        # jal new_timer
 
         addi $v0, $0, 0
         j reset_button
@@ -262,18 +293,14 @@ get_button_value:
 #         $a2: multiplier value (only used if $a1 == 0)
 new_timer:
     add $a0, $a0, $time
+    # Copy of end time before shifting
+    addi $t6, $a0, 0
     bne $a1, $0, new_timer_led
 
     # Sets the top bit of the timer id to 1, signifying a multiplier timer
     # Example timer id with multiplier of 4: 32'b10000...100
     new_timer_multiplier:
-        nop
-        nop
-        nop
-        mul $mult, $mult, $a2
-        nop
-        nop
-        nop
+        add $mult, $mult, $a2
 
         # write timer id and target time to memory
         sw $a2, 0($sp)
@@ -295,19 +322,35 @@ new_timer:
         # Turn on LED 1
         or $led, $led, $t3
         or $led, $led, $a0
+
+        # Turn on speaker with tone 1
+        sw $t6, -1($0)
+        addi $audio, $0, 1
+
+        # Disable other speaker timers if active
+        sw $0, -2($0)
+        sw $0, -3($0)
         j new_timer_done
 
         new_timer_led_not_1:
 
-        sll $t3, $t3, 1
-        sll $a0, $a0, 9
-        addi $t2, $0, 2
-        bne $a1, $t2, new_timer_led_not_2
+            sll $t3, $t3, 1
+            sll $a0, $a0, 9
+            addi $t2, $0, 2
+            bne $a1, $t2, new_timer_led_not_2
 
-        # Turn on LED 2
-        or $led, $led, $t3
-        or $led, $led, $a0
-        j new_timer_done
+            # Turn on LED 2
+            or $led, $led, $t3
+            or $led, $led, $a0
+
+            # Turn on speaker with tone 2
+            sw $t6, -2($0)
+            addi $audio, $0, 2
+
+            # Disable other speaker timers if active
+            sw $0, -1($0)
+            sw $0, -3($0)
+            j new_timer_done
 
         new_timer_led_not_2:
 
@@ -316,6 +359,14 @@ new_timer:
             sll $a0, $a0, 9
             or $led, $led, $t3
             or $led, $led, $a0
+
+            # Turn on speaker with tone 3
+            sw $t6, -3($0)
+            addi $audio, $0, 3
+
+            # Disable other speaker timers if active
+            sw $0, -1($0)
+            sw $0, -2($0)
 
     new_timer_done:
         jr $ra
@@ -338,83 +389,86 @@ save_hit:
 # Reads each 2-bit button id in $prev and executes commands if a pattern is detected
 # No inputs or outputs (output goes directly into $mult reg via new_timer)
 check_patterns:
+    sw $ra, 0($sp)
+    addi $sp, $sp, 1
+
     check_patterns_triple_hit_one:
         addi $a0, $0, 1
         addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 3 # number of hits of button 1 expected
         bne $v0, $t0, check_patterns_triple_hit_two # if not 3 hits, skip to next pattern
 
-        addi $t0, $0, 2 # multiply by 2
-        mul $mult, $mult, $t0
+        # Add 1 to multiplier for 33 seconds
+        addi $a0, $0, 33
+        addi $a1, $0, 0
+        addi $a2, $0, 1
+        jal new_timer
 
     check_patterns_triple_hit_two:
         addi $a0, $0, 2
         addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 3 # number of hits of button 2 expected
         bne $v0, $t0, check_patterns_triple_hit_three # if not 3 hits, skip to next pattern
 
-        addi $t0, $0, 2 # multiply by 2
-        mul $mult, $mult, $t0
+        # Add 1 to multiplier for 33 seconds
+        addi $a0, $0, 33
+        addi $a1, $0, 0
+        addi $a2, $0, 1
+        jal new_timer
 
     check_patterns_triple_hit_three:
         addi $a0, $0, 3
         addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
+
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 3 # number of hits of button 3 expected
         bne $v0, $t0, check_patterns_hit_all_three # if not 3 hits, skip to next pattern
 
-        addi $t0, $0, 2 # multiply by 2
-        mul $mult, $mult, $t0
+        # Add 1 to multiplier for 33 seconds
+        addi $a0, $0, 33
+        addi $a1, $0, 0
+        addi $a2, $0, 1
+        jal new_timer
 
+    # Check for 1 hit of each button in the previous 6 hits
     check_patterns_hit_all_three:
         addi $a0, $0, 1
-        addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
+        addi $a1, $0, 6
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 1 # number of hits of button 1 expected
         bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
         addi $a0, $0, 2
-        addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
+        addi $a1, $0, 6
+
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 1 # number of hits of button 2 expected
         bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
         addi $a0, $0, 3
-        addi $a1, $0, 3
-        sw $ra, 0($sp)
-        addi $sp, $sp, 1
+        addi $a1, $0, 6
+
         jal count_previous_hits
-        addi $sp, $sp, -1
-        lw $ra, 0($sp)
+
         addi $t0, $0, 1 # number of hits of button 3 expected
         bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
-        addi $t0, $0, 3 # multiply by 2
-        mul $mult, $mult, $t0
+        # Add 3 to multiplier for 33 seconds
+        addi $a0, $0, 33
+        addi $a1, $0, 0
+        addi $a2, $0, 3
+        jal new_timer
 
     check_patterns_end:
+        addi $sp, $sp, -1
+        lw $ra, 0($sp)
         jr $ra
 
 
@@ -444,13 +498,3 @@ count_previous_hits:
     count_previous_hits_end:
         addi $v0, $t0, 0
         jr $ra
-
-
-reset_game:
-    addi $mult, $0, 1
-    addi $score, $0, 0
-    addi $time, $0, 0
-    addi $led, $0, 0
-    addi $prev, $0, 0
-    addi $sp, $0, 0
-    j main

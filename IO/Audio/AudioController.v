@@ -1,15 +1,17 @@
 module AudioController(
     input        clk, 		// System Clock Input 100 Mhz
-    input        micData,	// Microphone Output
     input[3:0]   switches,	// Tone control switches
-    output       micClk, 	// Mic clock
-    output       chSel,		// Channel select; 0 for rising edge, 1 for falling edge
     output       audioOut);	// PWM signal to the audio jack
 
 	localparam MHz = 1000000;
 	localparam SYSTEM_FREQ = 100*MHz; // System clock frequency
 
+	wire micData, micClk, chSel;
+
+	assign micData = 1'b0;
+	assign micClk = 1'b0;
 	assign chSel   = 1'b0;  // Collect Mic Data on the rising edge
+	assign audioEn = 1'b1;  // Enable Audio Output
 
 	// Initialize the frequency array. FREQs[0] = 261
 	reg[10:0] FREQs[0:15];
@@ -57,9 +59,9 @@ module AudioController(
 
 	wire[6:0] micDutyCycle, audioDutyCycle, outputDutyCycle;
 
-	assign audioDutyCycle = ~switches[0] && ~switches[1] && ~switches[2] && ~switches[3] ? 7'd0 : (desiredClk ? 7'd100 : 7'd0);
+	assign audioDutyCycle = ~switches[0] && ~switches[1] && ~switches[2] && ~switches[3] ? 7'd0 :(desiredClk ? 7'd100 : 7'd0);
 
-	assign outputDutyCycle = micDutyCycle / 2 + audioDutyCycle / 2;
+	assign outputDutyCycle = micDutyCycle / 2 + audioDutyCycle;
 
 	PWMSerializer audio(clk, 1'b0, outputDutyCycle, audioOut);
 
