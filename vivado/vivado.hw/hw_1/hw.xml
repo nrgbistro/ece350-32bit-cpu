@@ -52,7 +52,10 @@
     <Object name="reg10[31:0]" gui_info=""/>
     <Object name="reg11[31:0]" gui_info=""/>
     <Object name="reg1[31:0]" gui_info=""/>
+    <Object name="reg22[31:0]" gui_info=""/>
+    <Object name="reg25[31:0]" gui_info=""/>
     <Object name="reg26[31:0]" gui_info=""/>
+    <Object name="reg28[31:0]" gui_info=""/>
     <Object name="reg8[31:0]" gui_info=""/>
     <Object name="reg9[31:0]" gui_info=""/>
   </ObjectList>

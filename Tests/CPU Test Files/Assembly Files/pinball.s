@@ -10,29 +10,15 @@
 # $time=$28: number of seconds elapsed since power on
 
 
-# Sets initial multiplier to 1, lives to 3, and turn off speaker
+# Sets initial multiplier to 1, lives to 3, turn off speaker, and set mempointer
 addi $mult, $0, 1
 addi $lives, $0, 3
 addi $audio, $0, 0
-
-
-# DEBUG: +2 multiplier for 5 seconds
-addi $a0, $0, 5
-addi $a1, $0, 0
-addi $a2, $0, 2
-jal new_timer
-
-# DEBUG: +5 multiplier for 15 seconds
-
-addi $a0, $0, 15
-addi $a1, $0, 0
-addi $a2, $0, 5
-jal new_timer
-
+addi $mempointer, $0, 1000
 
 # Main loop
 main:
-    seg $0, $time, 1
+    seg $0, $score, 1
     seg $0, $mult, 0
 
     jal button_manager
@@ -153,15 +139,14 @@ check_led_timers:
 
 
 # Checks all currently active multiplier timers and executes them if they have expired
-# $t0: stack pointer iterator
+# $t0: mempointer iterator
 # $t1: timer id
-# $t2: target time
+# $t2: timer end time
 check_mult_timers:
-    addi $t0, $sp, 0
-    addi $s5, $ra, 0 # Sanity check
+    addi $t0, $mempointer, 0
 
     check_mult_timers_loop:
-        addi $t3, $0, 2
+        addi $t3, $0, 502
         blt $t0, $t3, check_mult_timers_end
 
         nop
@@ -191,7 +176,6 @@ check_mult_timers:
 
 
     check_mult_timers_end:
-        addi $s5, $ra, 0 # Sanity check, should equal $s4
         jr $ra
 
 
@@ -204,14 +188,14 @@ button_manager:
 handle_button_press:
     sw $a0, 0($sp)
     addi $sp, $sp, 1
-    jal save_hit
-    addi $sp, $sp, -1
-    lw $a0, 0($sp)
     jal get_button_value
 
     mul $t0, $mult, $v0
     add $score, $score, $t0
 
+    addi $sp, $sp, -1
+    lw $a0, 0($sp)
+    # jal save_hit
     j main
 
 
@@ -303,9 +287,9 @@ new_timer:
         add $mult, $mult, $a2
 
         # write timer id and target time to memory
-        sw $a2, 0($sp)
-        sw $a0, 1($sp)
-        addi $sp, $sp, 2
+        sw $a2, 0($mempointer)
+        sw $a0, 1($mempointer)
+        addi $mempointer, $mempointer, 2
 
         j new_timer_done
 
@@ -372,23 +356,13 @@ new_timer:
         jr $ra
 
 
-# Appends most recent hit to the LSBs
+# Appends most recent hit to the LSBs, then checks for patterns
 # Only called when a button is hit
 # input: $a0: button id
 save_hit:
     sll $prev, $prev, 2
     add $prev, $prev, $a0
-    sw $ra, 0($sp)
-    addi $sp, $sp, 1
-    jal check_patterns
-    addi $sp, $sp, -1
-    lw $ra, 0($sp)
-    jr $ra
 
-
-# Reads each 2-bit button id in $prev and executes commands if a pattern is detected
-# No inputs or outputs (output goes directly into $mult reg via new_timer)
-check_patterns:
     sw $ra, 0($sp)
     addi $sp, $sp, 1
 
@@ -406,6 +380,9 @@ check_patterns:
         addi $a2, $0, 1
         jal new_timer
 
+        addi $prev, prev, 0
+        j check_patterns_end
+
     check_patterns_triple_hit_two:
         addi $a0, $0, 2
         addi $a1, $0, 3
@@ -419,6 +396,9 @@ check_patterns:
         addi $a1, $0, 0
         addi $a2, $0, 1
         jal new_timer
+
+        addi $prev, prev, 0
+        j check_patterns_end
 
     check_patterns_triple_hit_three:
         addi $a0, $0, 3
@@ -435,17 +415,20 @@ check_patterns:
         addi $a2, $0, 1
         jal new_timer
 
-    # Check for 1 hit of each button in the previous 6 hits
+        addi $prev, prev, 0
+        j check_patterns_end
+
+    # Check for 1 hit of each button in the previous 5 hits
     check_patterns_hit_all_three:
         addi $a0, $0, 1
-        addi $a1, $0, 6
+        addi $a1, $0, 5
         jal count_previous_hits
 
         addi $t0, $0, 1 # number of hits of button 1 expected
         bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
         addi $a0, $0, 2
-        addi $a1, $0, 6
+        addi $a1, $0, 5
 
         jal count_previous_hits
 
@@ -453,7 +436,7 @@ check_patterns:
         bne $t0, $v0, check_patterns_end # if not 1 hit, skip to end
 
         addi $a0, $0, 3
-        addi $a1, $0, 6
+        addi $a1, $0, 5
 
         jal count_previous_hits
 
@@ -465,6 +448,8 @@ check_patterns:
         addi $a1, $0, 0
         addi $a2, $0, 3
         jal new_timer
+
+        addi $prev, $0, 0 # reset prev
 
     check_patterns_end:
         addi $sp, $sp, -1

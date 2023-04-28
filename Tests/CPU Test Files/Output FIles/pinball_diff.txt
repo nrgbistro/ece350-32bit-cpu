@@ -1,7 +1,4 @@
-Reg:  4 Expected:           0 Actual:          15
-Reg:  6 Expected:           0 Actual:           5
-Reg:  8 Expected:           8 Actual:           0
-Reg: 14 Expected:           0 Actual:          15
-Reg: 26 Expected:           1 Actual:           8
-Reg: 29 Expected:           0 Actual:           4
-Reg: 31 Expected:           0 Actual:          14
+Reg:  8 Expected:           8 Actual:         996
+Reg: 11 Expected:           0 Actual:         502
+Reg: 21 Expected:           0 Actual:        1000
+Reg: 31 Expected:           0 Actual:           8
