@@ -13,7 +13,7 @@ module Timer(
         end else begin
             count <= count + 1;
         end
-        if (count >= 25000000) begin
+        if (count >= (25000000 / 2)) begin
             t <= t + 1;
             count <= 0;
             pulse <= 1;

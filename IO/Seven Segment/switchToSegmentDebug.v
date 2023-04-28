@@ -15,7 +15,7 @@ module SwitchToSegment(
     wire [1:0] count;
 
 
-    ClockDivider clockDivider(segClock, clock, 50000);
+    ClockDivider clockDivider(segClock, clock, 25000);
     counter_4 frameCounter(count, segClock, 1'b0);
 
     parameter SEGMENT0 = 7'b1000000;
